@@ -6,7 +6,7 @@ import { Colors } from '../assets/colors';
 
 function HomeScreen({ navigation }) {
   return (
-    <ScrollView style={styles.scrollView}>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
       <View style={styles.container}>
         <ImageBackground style={styles.backgroundImage} source={require('../assets/RoadCropped.jpg')} />
 
@@ -14,9 +14,7 @@ function HomeScreen({ navigation }) {
           <Text style={styles.headerText}>Collect License Plates</Text>
           <Text style={styles.headerText}>North America</Text>
         </SafeAreaView>
-        {/* <TouchableOpacity onPress={() => Alert.alert("Game Begins now")} style={styles.button}>
-          <Text style={styles.buttonText}>Start New Roadtrip</Text>
-        </TouchableOpacity> */}
+
         <Button style={styles.button} mode="contained" onPress={() => navigation.navigate('PlatesScreen')}>
           Begin Game
         </Button>
@@ -62,7 +60,6 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: DefaultTheme.colors.background,
-    paddingTop: 10
   }
 });
 
