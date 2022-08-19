@@ -1,10 +1,619 @@
 {
   "PlateData": [
     {
-      "id": "",
-      "name": "",
-      "country": "",
-      "imgSrc": "",
+      "id": "AL",
+      "name": "Alabama",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "AK",
+      "name": "Alaska",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "AZ",
+      "name": "Arizona",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "CA",
+      "name": "California",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "CO",
+      "name": "Colorado",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "CT",
+      "name": "Connecticut",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "DE",
+      "name": "Delaware",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "FL",
+      "name": "Florida",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "GA",
+      "name": "Georgia",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "HI",
+      "name": "Hawaii",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "ID",
+      "name": "Idaho",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "IL",
+      "name": "Illinois",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "IN",
+      "name": "Indiana",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "IA",
+      "name": "Iowa",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "KS",
+      "name": "Kansas",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "KY",
+      "name": "Kentucky",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "LA",
+      "name": "Louisiana",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "ME",
+      "name": "Maine",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "MD",
+      "name": "Maryland",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "MA",
+      "name": "Massachusetts",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "MI",
+      "name": "Michigan",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "MN",
+      "name": "Minnesota",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "MS",
+      "name": "Mississippi",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "MO",
+      "name": "Missouri",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "MT",
+      "name": "Montana",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NE",
+      "name": "Nebraska",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NV",
+      "name": "Nevada",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NH",
+      "name": "New Hampshire",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NJ",
+      "name": "New Jersey",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NM",
+      "name": "New Mexico",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NY",
+      "name": "New York",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NC",
+      "name": "North Carolina",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "ND",
+      "name": "North Dakota",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "OH",
+      "name": "Ohio",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "OK",
+      "name": "Oklahoma",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "OR",
+      "name": "Oregon",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "PA",
+      "name": "Pennsylvania",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "RI",
+      "name": "Rhode Island",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "SC",
+      "name": "South Carolina",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "SD",
+      "name": "South Dakota",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "TN",
+      "name": "Tennessee",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "TX",
+      "name": "Texas",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "UT",
+      "name": "Utah",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "VT",
+      "name": "Vermont",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "VA",
+      "name": "Virginia",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "WA",
+      "name": "Washington",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "WV",
+      "name": "West Virginia",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "WI",
+      "name": "Wisconsin",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "WY",
+      "name": "Wyoming",
+      "country": "USA",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "AB",
+      "name": "Alberta",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "BC",
+      "name": "British Columbia",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "MB",
+      "name": "Manitoba",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NB",
+      "name": "New Brunswick",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NL",
+      "name": "Newfoundland",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NT",
+      "name": "Northwest Territories",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NS",
+      "name": "Nova Scotia",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "NU",
+      "name": "Nunavut",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "ON",
+      "name": "Ontario",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "PE",
+      "name": "Prince Edward Island",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "QC",
+      "name": "Quebec",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "SK",
+      "name": "Saskatchewan",
+      "country": "Canada",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": "YT",
+      "name": "Yukon",
+      "country": "Canada",
       "found": false,
       "foundAt": {
         "latitude": null,
