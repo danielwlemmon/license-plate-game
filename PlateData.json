@@ -1,0 +1,15 @@
+{
+  "PlateData": [
+    {
+      "id": "",
+      "name": "",
+      "country": "",
+      "imgSrc": "",
+      "found": false,
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+  ]
+}
