@@ -8,7 +8,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/AL.jpg"
     },
     {
       "id": "AK",
@@ -18,7 +19,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/AK.jpg"
     },
     {
       "id": "AZ",
@@ -28,7 +30,19 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/AZ.jpg"
+    },
+    {
+      "id": "AR",
+      "name": "Arkansas",
+      "country":"USA",
+      "found":false,
+      "foundAt": {
+        "latitude": null,
+        "longitude":null
+      },
+      "source": "../assets/USA/AR.jpg"
     },
     {
       "id": "CA",
@@ -38,7 +52,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/CA.jpg"
     },
     {
       "id": "CO",
@@ -48,7 +63,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/CO.jpg"
     },
     {
       "id": "CT",
@@ -58,7 +74,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/CT.jpg"
     },
     {
       "id": "DE",
@@ -68,7 +85,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/DE.jpg"
     },
     {
       "id": "FL",
@@ -78,7 +96,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/FL.jpg"
     },
     {
       "id": "GA",
@@ -88,7 +107,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/GA.jpg"
     },
     {
       "id": "HI",
@@ -98,7 +118,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/HI.jpg"
     },
     {
       "id": "ID",
@@ -108,7 +129,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/ID.jpg"
     },
     {
       "id": "IL",
@@ -118,7 +140,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/IL.jpg"
     },
     {
       "id": "IN",
@@ -128,7 +151,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/IN.jpg"
     },
     {
       "id": "IA",
@@ -138,7 +162,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/IA.jpg"
     },
     {
       "id": "KS",
@@ -148,7 +173,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/KS.jpg"
     },
     {
       "id": "KY",
@@ -158,7 +184,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/KY.jpg"
     },
     {
       "id": "LA",
@@ -168,7 +195,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/LA.jpg"
     },
     {
       "id": "ME",
@@ -178,7 +206,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/ME.jpg"
     },
     {
       "id": "MD",
@@ -188,7 +217,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/MD.jpg"
     },
     {
       "id": "MA",
@@ -198,7 +228,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/MA.jpg"
     },
     {
       "id": "MI",
@@ -208,7 +239,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/MI.jpg"
     },
     {
       "id": "MN",
@@ -218,7 +250,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/MN.jpg"
     },
     {
       "id": "MS",
@@ -228,7 +261,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/MS.jpg"
     },
     {
       "id": "MO",
@@ -238,7 +272,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/MO.jpg"
     },
     {
       "id": "MT",
@@ -248,7 +283,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/MT.jpg"
     },
     {
       "id": "NE",
@@ -258,7 +294,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/NE.jpg"
     },
     {
       "id": "NV",
@@ -268,7 +305,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/NV.jpg"
     },
     {
       "id": "NH",
@@ -278,7 +316,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/NH.jpg"
     },
     {
       "id": "NJ",
@@ -288,7 +327,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/NJ.jpg"
     },
     {
       "id": "NM",
@@ -298,7 +338,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/NM.jpg"
     },
     {
       "id": "NY",
@@ -308,7 +349,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/NY.jpg"
     },
     {
       "id": "NC",
@@ -318,7 +360,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/NC.jpg"
     },
     {
       "id": "ND",
@@ -328,7 +371,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/ND.jpg"
     },
     {
       "id": "OH",
@@ -338,7 +382,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/OH.jpg"
     },
     {
       "id": "OK",
@@ -348,7 +393,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/OK.jpg"
     },
     {
       "id": "OR",
@@ -358,7 +404,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/OR.jpg"
     },
     {
       "id": "PA",
@@ -368,7 +415,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/PA.jpg"
     },
     {
       "id": "RI",
@@ -378,7 +426,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/RI.jpg"
     },
     {
       "id": "SC",
@@ -388,7 +437,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/SC.jpg"
     },
     {
       "id": "SD",
@@ -398,7 +448,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/SD.jpg"
     },
     {
       "id": "TN",
@@ -408,7 +459,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/TN.jpg"
     },
     {
       "id": "TX",
@@ -418,7 +470,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/TX.jpg"
     },
     {
       "id": "UT",
@@ -428,7 +481,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/UT.jpg"
     },
     {
       "id": "VT",
@@ -438,7 +492,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/VT.jpg"
     },
     {
       "id": "VA",
@@ -448,7 +503,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/VA.jpg"
     },
     {
       "id": "WA",
@@ -458,7 +514,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/WA.jpg"
     },
     {
       "id": "WV",
@@ -468,7 +525,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/WV.jpg"
     },
     {
       "id": "WI",
@@ -478,7 +536,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/WI.jpg"
     },
     {
       "id": "WY",
@@ -488,7 +547,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/USA/WY.jpg"
     },
     {
       "id": "AB",
@@ -498,7 +558,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/AB.jpg"
     },
     {
       "id": "BC",
@@ -508,7 +569,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/BC.jpg"
     },
     {
       "id": "MB",
@@ -518,7 +580,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/MB.jpg"
     },
     {
       "id": "NB",
@@ -528,7 +591,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/NB.jpg"
     },
     {
       "id": "NL",
@@ -538,7 +602,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/NL.jpg"
     },
     {
       "id": "NT",
@@ -548,7 +613,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/NT.jpg"
     },
     {
       "id": "NS",
@@ -558,7 +624,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/NS.jpg"
     },
     {
       "id": "NU",
@@ -568,7 +635,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/NU.jpg"
     },
     {
       "id": "ON",
@@ -588,7 +656,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/PE.jpg"
     },
     {
       "id": "QC",
@@ -598,7 +667,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/QC.jpg"
     },
     {
       "id": "SK",
@@ -608,7 +678,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "source": "../assets/Canada/SK.jpg"
     },
     {
       "id": "YT",
@@ -618,7 +689,8 @@
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
-    },
+      },
+      "source": "../assets/Canada/YT.jpg"
+    }
   ]
 }
