@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerText: {
-    fontSize: 40,
+    fontSize: 30,
     fontWeight: 'bold',
   },
   buttonText: {
