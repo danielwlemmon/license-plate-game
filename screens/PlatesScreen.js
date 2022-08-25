@@ -3,11 +3,13 @@ import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Imag
 import { Button, DefaultTheme } from 'react-native-paper';
 import BlankPlates from '../PlateData.json';
 import { Colors } from '../assets/colors';
+import { white } from 'react-native-paper/lib/typescript/styles/colors';
 
 //image source for plates = ./assets/{country}/{toLower(name)}.jpg
 function PlatesScreen() {
   const [gameState, setGameState] = useState(BlankPlates.PlateData);
   const [refresh, setRefresh] = useState(0);
+  const [progress, setProgress] = useState([0, 63])
 
   const foundPlate = (plate) => {
     if (plate.found) {
@@ -37,9 +39,32 @@ function PlatesScreen() {
       gameArr[plateIdx].found = true;
       setGameState(gameArr);
       setRefresh(refresh + 1);
-    }
-  }
+    };
+  };
 
+  const reset = () => {
+    Alert.alert(
+      "Reset Game",
+      "are you sure?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => setRefresh(refresh + 1),
+          style: "cancel"
+        },
+        {
+          text: "Yes", onPress: () => {
+            let gameArr = gameState;
+            gameArr.forEach((plate) => {
+              plate.found = false;
+            });
+            setGameState(gameArr);
+            setRefresh(refresh + 1);
+          }
+        }
+      ]
+    );
+  }
 
   return (
     <View>
@@ -52,7 +77,7 @@ function PlatesScreen() {
               <View key={plate.id}>
                 <TouchableOpacity onPress={() => { foundPlate(plate) }} style={styles.plateButton}>
 
-                  <Image source={require('../assets/USA/CO.jpg')} style={plate.found ? styles.image : null} />
+                  <Image source={require('../assets/USA/CT.jpg')} style={plate.found ? { opacity: 0.5 } : { opacity: 1 }} />
                   <Text style={styles.text}>{plate.name}</Text>
                 </TouchableOpacity>
               </View>
@@ -62,10 +87,11 @@ function PlatesScreen() {
         </View>
       </ScrollView>
       <View style={styles.buttonBar}>
-        <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signYellow }]} onPress>
+
+        <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signYellow }]} onPress={reset}>
           <Text style={{ fontSize: '30px' }}>Restart</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signRed }]} onPress>
+        <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signRed }]} onPress={() => console.log("save game data")}>
           <Text style={{ fontSize: '30px' }}>Finish</Text>
         </TouchableOpacity>
       </View>
@@ -78,7 +104,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     position: 'absolute',
-    bottom: 30
+    bottom: 30,
+    backgroundColor: Colors.black
   },
   gameButton: {
     flex: 3,
@@ -88,11 +115,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 10,
   },
-  image: {
+  foundImage: {
     opacity: 0.5
   },
   main: {
     justifyContent: 'center'
+  },
+  notFoundImage: {
+    opacity: 1
   },
   plateButton: {
     alignItems: 'center',
