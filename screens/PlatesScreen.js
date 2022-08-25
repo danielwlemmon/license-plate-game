@@ -3,7 +3,6 @@ import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Imag
 import { Button, DefaultTheme } from 'react-native-paper';
 import BlankPlates from '../PlateData.json';
 import { Colors } from '../assets/colors';
-import { white } from 'react-native-paper/lib/typescript/styles/colors';
 
 //image source for plates = ./assets/{country}/{toLower(name)}.jpg
 function PlatesScreen() {
@@ -27,6 +26,7 @@ function PlatesScreen() {
               let gameArr = gameState;
               const plateIdx = gameArr.findIndex(p => p.id === plate.id);
               gameArr[plateIdx].found = false;
+              setProgress([progress[0] - 1, 63]);
               setGameState(gameArr);
               setRefresh(refresh + 1);
             }
@@ -37,6 +37,7 @@ function PlatesScreen() {
       let gameArr = gameState;
       const plateIdx = gameArr.findIndex(p => p.id === plate.id);
       gameArr[plateIdx].found = true;
+      setProgress([progress[0] + 1, 63]);
       setGameState(gameArr);
       setRefresh(refresh + 1);
     };
@@ -58,6 +59,7 @@ function PlatesScreen() {
             gameArr.forEach((plate) => {
               plate.found = false;
             });
+            setProgress([0, 63]);
             setGameState(gameArr);
             setRefresh(refresh + 1);
           }
@@ -87,7 +89,9 @@ function PlatesScreen() {
         </View>
       </ScrollView>
       <View style={styles.buttonBar}>
-
+        <View style={styles.progressContainer}>
+          <Text style={styles.progressText}>You have found {progress[0]}/{progress[1]} plates</Text>
+        </View>
         <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signYellow }]} onPress={reset}>
           <Text style={{ fontSize: '30px' }}>Restart</Text>
         </TouchableOpacity>
@@ -103,6 +107,7 @@ const styles = StyleSheet.create({
   buttonBar: {
     flex: 1,
     flexDirection: 'row',
+    flexWrap: 'wrap',
     position: 'absolute',
     bottom: 30,
     backgroundColor: Colors.black
@@ -127,6 +132,14 @@ const styles = StyleSheet.create({
   plateButton: {
     alignItems: 'center',
     borderWidth: '1',
+  },
+  progressContainer: {
+    width: '100%',
+    alignItems: 'center'
+  },
+  progressText: {
+    color: 'white',
+    fontSize: '30px'
   },
   text: {
     fontSize: '50px',

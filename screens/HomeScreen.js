@@ -5,6 +5,7 @@ import { DefaultTheme } from 'react-native-paper';
 import { Colors } from '../assets/colors';
 
 function HomeScreen({ navigation }) {
+
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
       <View style={styles.container}>
