@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
   },
   gameButton: {
     flex: 3,
-    height: 75,
+    height: 60,
     margin: (0, 5, 0, 5),
     alignItems: 'center',
     justifyContent: 'center',
@@ -145,6 +145,6 @@ const styles = StyleSheet.create({
     fontSize: '50px',
     fontWeight: '500',
   }
-})
+});
 
 export default PlatesScreen;
