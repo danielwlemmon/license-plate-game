@@ -12,7 +12,8 @@ function PlatesScreen() {
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
 
-      <View>
+      <View style={styles.main}>
+        <Text style={{ marginTop: 40, padding: 5, fontSize: '20px', fontWeight: 'bold' }}>Tap the plates below to mark them as found</Text>
         {gameState.map((plate) => {
           return (
             <View key={plate.id} style={styles.container}>
@@ -33,15 +34,25 @@ const styles = StyleSheet.create({
   button: {
     display: 'flex',
     width: '30%',
-    alignItems: 'bottom'
+    alignSelf: 'bottom',
+    backgroundColor: 'grey',
   },
   container: {
     display: 'flex',
+    backgroundColor: 'blue',
   },
   image: {
-    marginTop: 40,
+    display: 'flex',
+  },
+  main: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    flex: '1',
+    backgroundColor: 'yellow',
+    justifyContent: 'center'
   },
   text: {
+
     fontSize: '30px',
     fontWeight: '400',
   }
