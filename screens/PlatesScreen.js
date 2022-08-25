@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity } from 'react-native';
+import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl } from 'react-native';
 import { Button, DefaultTheme } from 'react-native-paper';
 import BlankPlates from '../PlateData.json';
 
 //image source for plates = ./assets/{country}/{toLower(name)}.jpg
 function PlatesScreen() {
   const [gameState, setGameState] = useState(BlankPlates.PlateData);
+  const [refresh, setRefresh] = useState(0);
 
+  const foundPlate = (plate) => {
+    let gameArr = gameState;
+    const plateIdx = gameArr.findIndex(p => p.id === plate.id);
+    gameArr[plateIdx].found = true;
+    setGameState(gameArr);
+    setRefresh(refresh + 1);
+  }
 
 
   return (
@@ -17,9 +25,9 @@ function PlatesScreen() {
         {gameState.map((plate) => {
           return (
             <View key={plate.id}>
-              <TouchableOpacity onPress={() => { console.log(plate.name) }} style={styles.button}>
+              <TouchableOpacity onPress={() => { foundPlate(plate) }} style={styles.button}>
 
-                <Image source={require('../assets/USA/CO.jpg')} />
+                <Image source={require('../assets/USA/CO.jpg')} style={plate.found ? styles.image : null} />
                 <Text style={styles.text}>{plate.name}</Text>
               </TouchableOpacity>
             </View>
@@ -33,14 +41,17 @@ function PlatesScreen() {
 const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
-    borderWidth: '1'
+    borderWidth: '1',
+  },
+  image: {
+    opacity: 0.5
   },
   main: {
     justifyContent: 'center'
   },
   text: {
-    fontSize: '30px',
-    fontWeight: '400',
+    fontSize: '50px',
+    fontWeight: '500',
   }
 })
 
