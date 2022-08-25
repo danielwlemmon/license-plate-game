@@ -16,10 +16,10 @@ function PlatesScreen() {
         <Text style={{ marginTop: 40, padding: 5, fontSize: '20px', fontWeight: 'bold' }}>Tap the plates below to mark them as found</Text>
         {gameState.map((plate) => {
           return (
-            <View key={plate.id} style={styles.container}>
+            <View key={plate.id}>
               <TouchableOpacity onPress={() => { console.log(plate.name) }} style={styles.button}>
 
-                <Image style={styles.image} source={require('../assets/USA/CO.jpg')} />
+                <Image source={require('../assets/USA/CO.jpg')} />
                 <Text style={styles.text}>{plate.name}</Text>
               </TouchableOpacity>
             </View>
@@ -32,27 +32,13 @@ function PlatesScreen() {
 
 const styles = StyleSheet.create({
   button: {
-    display: 'flex',
-    width: '30%',
-    alignSelf: 'bottom',
-    backgroundColor: 'grey',
-  },
-  container: {
-    display: 'flex',
-    backgroundColor: 'blue',
-  },
-  image: {
-    display: 'flex',
+    alignItems: 'center',
+    borderWidth: '1'
   },
   main: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    flex: '1',
-    backgroundColor: 'yellow',
     justifyContent: 'center'
   },
   text: {
-
     fontSize: '30px',
     fontWeight: '400',
   }
