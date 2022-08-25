@@ -5,5 +5,5 @@ export const Colors = {
   signRed: "#e41407",
   signYellow: "#FFFF00",
   white: "#fff",
-
+  slateGrey: "#708090",
 }

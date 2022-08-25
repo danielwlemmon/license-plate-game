@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert } from 'react-native';
 import { Button, DefaultTheme } from 'react-native-paper';
 import BlankPlates from '../PlateData.json';
 import { Colors } from '../assets/colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //image source for plates = ./assets/{country}/{toLower(name)}.jpg
 function PlatesScreen() {
   const [gameState, setGameState] = useState(BlankPlates.PlateData);
   const [refresh, setRefresh] = useState(0);
   const [progress, setProgress] = useState([0, 63])
+
+  useEffect(() => {
+
+    // AsyncStorage.getItem('gameInProgress')
+    //   .then((res) => {
+    //     if (res == 'false') {
+    //       setGameState(JSON.stringify(BlankPlates.PlateData));
+    //       console.log('entered no game in progess')
+    //     } else if (res == 'true') {
+    //       const savedGame = AsyncStorage.getItem('currentGame');
+    //       setGameState(JSON.parse(savedGame));
+    //       console.log('entered Yes game is in progress');
+    //     };
+    //   });
+
+  }, [])
 
   const foundPlate = (plate) => {
     if (plate.found) {
@@ -29,6 +46,8 @@ function PlatesScreen() {
               setProgress([progress[0] - 1, 63]);
               setGameState(gameArr);
               setRefresh(refresh + 1);
+              // AsyncStorage.setItem('currentGame', JSON.stringify(gameState));
+              // console.log('game data updated');
             }
           }
         ]
@@ -40,6 +59,9 @@ function PlatesScreen() {
       setProgress([progress[0] + 1, 63]);
       setGameState(gameArr);
       setRefresh(refresh + 1);
+      // AsyncStorage.setItem('currentGame', JSON.stringify(gameState));
+      // AsyncStorage.setItem('gameInProgress', 'true')
+      // console.log('game data updated');
     };
   };
 
@@ -62,6 +84,8 @@ function PlatesScreen() {
             setProgress([0, 63]);
             setGameState(gameArr);
             setRefresh(refresh + 1);
+            // AsyncStorage.setItem('currentGame', '');
+            // AsyncStorage.setItem('gameInProgress', 'false');
           }
         }
       ]
@@ -109,8 +133,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     position: 'absolute',
-    bottom: 30,
-    backgroundColor: Colors.black
+    bottom: 0,
+    paddingBottom: 35,
+    backgroundColor: Colors.slateGrey
   },
   gameButton: {
     flex: 3,
@@ -131,7 +156,6 @@ const styles = StyleSheet.create({
   },
   plateButton: {
     alignItems: 'center',
-    borderWidth: '1',
   },
   progressContainer: {
     width: '100%',

@@ -1,10 +1,23 @@
-import React from 'react';
-import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, TouchableOpacity, Alert } from 'react-native';
 import { Button, Card } from 'react-native-paper';
 import { DefaultTheme } from 'react-native-paper';
 import { Colors } from '../assets/colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function HomeScreen({ navigation }) {
+  const [buttonText, setButtonText] = useState('');
+
+  // useEffect(() => {
+  //   AsyncStorage.getItem('gameInProgress')
+  //     .then((res) => {
+  //       if (res == 'false') {
+  //         setButtonText('Begin Game')
+  //       } else {
+  //         setButtonText('Continue Game')
+  //       };
+  //     });
+  // }, [])
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
@@ -31,7 +44,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   button: {
-    height: 60,
+    height: 75,
     width: 350,
     marginTop: '100%',
     alignItems: 'center',
