@@ -13,17 +13,20 @@ function PlatesScreen() {
 
   useEffect(() => {
 
-    // AsyncStorage.getItem('gameInProgress')
-    //   .then((res) => {
-    //     if (res == 'false') {
-    //       setGameState(JSON.stringify(BlankPlates.PlateData));
-    //       console.log('entered no game in progess')
-    //     } else if (res == 'true') {
-    //       const savedGame = AsyncStorage.getItem('currentGame');
-    //       setGameState(JSON.parse(savedGame));
-    //       console.log('entered Yes game is in progress');
-    //     };
-    //   });
+    AsyncStorage.getItem('gameInProgress')
+      .then((res) => {
+        if (res == 'false') { //when game is not already in progress, setGameState to blank
+          setGameState(BlankPlates.PlateData);
+          console.log('entered no game in progess')
+        } else if (res == 'true') { //if game is in progress, setGameState to saved data
+          AsyncStorage.getItem('currentGame')
+            .then(res => {
+              const savedGame = JSON.parse(res)
+              console.log(res);
+            });
+          //setGameState(JSON.parse(savedGame));
+        };
+      });
 
   }, [])
 
@@ -60,10 +63,12 @@ function PlatesScreen() {
       setProgress([progress[0] + 1, 63]);
       setGameState(gameArr);
       setRefresh(refresh + 1);
-
-      // AsyncStorage.setItem('currentGame', JSON.stringify(gameState));
-      AsyncStorage.setItem('gameInProgress', 'true')
-      // console.log('game data updated');
+      const saveGame = JSON.stringify(gameState);
+      AsyncStorage.setItem('currentGame', saveGame)
+        .then(() => {
+          AsyncStorage.setItem('gameInProgress', 'true');
+          console.log('game data updated');
+        });
     };
   };
 
@@ -86,7 +91,8 @@ function PlatesScreen() {
             setProgress([0, 63]);
             setGameState(gameArr);
             setRefresh(refresh + 1);
-            // AsyncStorage.setItem('currentGame', '');
+            AsyncStorage.setItem('currentGame', '');
+            console.log(AsyncStorage.getItem('currentGame'));
             AsyncStorage.setItem('gameInProgress', 'false');
           }
         }

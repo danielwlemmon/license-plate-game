@@ -15,7 +15,6 @@ function HomeScreen({ navigation }) {
           setButtonText('Begin Game')
         } else {
           setButtonText('Continue Game')
-          console.log(res);
         };
       });
   }, [])
