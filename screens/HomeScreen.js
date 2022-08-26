@@ -8,16 +8,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 function HomeScreen({ navigation }) {
   const [buttonText, setButtonText] = useState('');
 
-  // useEffect(() => {
-  //   AsyncStorage.getItem('gameInProgress')
-  //     .then((res) => {
-  //       if (res == 'false') {
-  //         setButtonText('Begin Game')
-  //       } else {
-  //         setButtonText('Continue Game')
-  //       };
-  //     });
-  // }, [])
+  useEffect(() => {
+    AsyncStorage.getItem('gameInProgress')
+      .then((res) => {
+        if (res == 'false' || !res) {
+          setButtonText('Begin Game')
+        } else {
+          setButtonText('Continue Game')
+          console.log(res);
+        };
+      });
+  }, [])
 
   return (
     <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
@@ -28,10 +29,10 @@ function HomeScreen({ navigation }) {
           <Text style={styles.headerText}>Collect License Plates</Text>
           <Text style={styles.headerText}>North America</Text>
         </SafeAreaView>
+        <TouchableOpacity onPress={() => navigation.navigate('PlatesScreen')} style={styles.button}>
+          <Text style={styles.buttonText}>{buttonText}</Text>
+        </TouchableOpacity>
 
-        <Button style={styles.button} mode="contained" onPress={() => navigation.navigate('PlatesScreen')}>
-          Begin Game
-        </Button>
       </View>
     </ScrollView>
   )

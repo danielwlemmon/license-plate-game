@@ -46,6 +46,7 @@ function PlatesScreen() {
               setProgress([progress[0] - 1, 63]);
               setGameState(gameArr);
               setRefresh(refresh + 1);
+
               // AsyncStorage.setItem('currentGame', JSON.stringify(gameState));
               // console.log('game data updated');
             }
@@ -59,8 +60,9 @@ function PlatesScreen() {
       setProgress([progress[0] + 1, 63]);
       setGameState(gameArr);
       setRefresh(refresh + 1);
+
       // AsyncStorage.setItem('currentGame', JSON.stringify(gameState));
-      // AsyncStorage.setItem('gameInProgress', 'true')
+      AsyncStorage.setItem('gameInProgress', 'true')
       // console.log('game data updated');
     };
   };
@@ -85,7 +87,7 @@ function PlatesScreen() {
             setGameState(gameArr);
             setRefresh(refresh + 1);
             // AsyncStorage.setItem('currentGame', '');
-            // AsyncStorage.setItem('gameInProgress', 'false');
+            AsyncStorage.setItem('gameInProgress', 'false');
           }
         }
       ]
