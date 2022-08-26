@@ -7,24 +7,29 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 //image source for plates = ./assets/{country}/{toLower(name)}.jpg
 function PlatesScreen() {
-  const [gameState, setGameState] = useState(BlankPlates.PlateData);
+  const totalPlates = 63;
+  const [gameState, setGameState] = useState([]);
   const [refresh, setRefresh] = useState(0);
-  const [progress, setProgress] = useState([0, 63])
+  const [progress, setProgress] = useState([0, totalPlates])
 
   useEffect(() => {
 
     AsyncStorage.getItem('gameInProgress')
       .then((res) => {
-        if (res == 'false') { //when game is not already in progress, setGameState to blank
+        if (res == 'false') {
           setGameState(BlankPlates.PlateData);
           console.log('entered no game in progess')
-        } else if (res == 'true') { //if game is in progress, setGameState to saved data
+        } else if (res == 'true') {
           AsyncStorage.getItem('currentGame')
             .then(res => {
               const savedGame = JSON.parse(res)
-              console.log(res);
+              setGameState(savedGame);
             });
-          //setGameState(JSON.parse(savedGame));
+          AsyncStorage.getItem('currentProgress')
+            .then((res) => {
+              const savedProgress = parseInt(res);
+              setProgress([savedProgress, totalPlates]);
+            });
         };
       });
 
@@ -46,12 +51,15 @@ function PlatesScreen() {
               let gameArr = gameState;
               const plateIdx = gameArr.findIndex(p => p.id === plate.id);
               gameArr[plateIdx].found = false;
-              setProgress([progress[0] - 1, 63]);
+              setProgress([progress[0] - 1, totalPlates]);
               setGameState(gameArr);
               setRefresh(refresh + 1);
-
-              // AsyncStorage.setItem('currentGame', JSON.stringify(gameState));
-              // console.log('game data updated');
+              const saveGame = JSON.stringify(gameState);
+              AsyncStorage.setItem('currentGame', saveGame)
+                .then(() => {
+                  AsyncStorage.setItem('gameInProgress', 'true');
+                  AsyncStorage.setItem('currentProgress', (progress[0] - 1).toString());
+                });
             }
           }
         ]
@@ -60,14 +68,14 @@ function PlatesScreen() {
       let gameArr = gameState;
       const plateIdx = gameArr.findIndex(p => p.id === plate.id);
       gameArr[plateIdx].found = true;
-      setProgress([progress[0] + 1, 63]);
+      setProgress([progress[0] + 1, totalPlates]);
       setGameState(gameArr);
       setRefresh(refresh + 1);
       const saveGame = JSON.stringify(gameState);
       AsyncStorage.setItem('currentGame', saveGame)
         .then(() => {
           AsyncStorage.setItem('gameInProgress', 'true');
-          console.log('game data updated');
+          AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString());
         });
     };
   };
@@ -88,11 +96,10 @@ function PlatesScreen() {
             gameArr.forEach((plate) => {
               plate.found = false;
             });
-            setProgress([0, 63]);
+            setProgress([0, totalPlates]);
             setGameState(gameArr);
             setRefresh(refresh + 1);
             AsyncStorage.setItem('currentGame', '');
-            console.log(AsyncStorage.getItem('currentGame'));
             AsyncStorage.setItem('gameInProgress', 'false');
           }
         }
