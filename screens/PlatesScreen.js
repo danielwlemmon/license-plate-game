@@ -133,7 +133,7 @@ function PlatesScreen({ navigation }) {
         <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signYellow }]} onPress={reset}>
           <Text style={{ fontSize: '30px' }}>Restart</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signRed }]} onPress={() => console.log("save game data")}>
+        <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signRed }]} onPress={() => navigation.goBack(null)}>
           <Text style={{ fontSize: '30px' }}>Finish</Text>
         </TouchableOpacity>
       </View>
