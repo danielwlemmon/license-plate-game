@@ -11,6 +11,7 @@ function PlatesScreen({ navigation }) {
   const [gameState, setGameState] = useState(BlankPlates.PlateData);
   const [refresh, setRefresh] = useState(0);
   const [progress, setProgress] = useState([0, totalPlates])
+  const [score, setScore] = useState(0);
 
   useEffect(() => {
 
@@ -18,7 +19,6 @@ function PlatesScreen({ navigation }) {
       .then((res) => {
         if (res == 'false') {
           setGameState(BlankPlates.PlateData);
-          console.log('entered no game in progess')
         } else if (res == 'true') {
           AsyncStorage.getItem('currentGame')
             .then(res => {
@@ -72,6 +72,7 @@ function PlatesScreen({ navigation }) {
       setGameState(gameArr);
       setRefresh(refresh + 1);
       const saveGame = JSON.stringify(gameState);
+      Alert.alert(plate.score + " points for " + plate.name + "!", "", [{ text: "Cool!" }]);
       AsyncStorage.setItem('currentGame', saveGame)
         .then(() => {
           AsyncStorage.setItem('gameInProgress', 'true');
@@ -146,7 +147,7 @@ function PlatesScreen({ navigation }) {
       </ScrollView>
       <View style={styles.buttonBar}>
         <View style={styles.progressContainer}>
-          <Text style={styles.progressText}>You have found {progress[0]}/{progress[1]} plates</Text>
+          <Text style={styles.progressText}>Found: {progress[0]}/{progress[1]} Score: {score}</Text>
         </View>
         <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signYellow }]} onPress={reset}>
           <Text style={{ fontSize: '30px' }}>Restart</Text>
@@ -178,8 +179,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   foundImage: {
-    opacity: 0.25,
-    borderRadius: 15
+    flex: 'start',
+    borderRadius: 15,
+    marginBottom: -130,
+    marginLeft: -70
   },
   main: {
     justifyContent: 'center'
@@ -190,7 +193,7 @@ const styles = StyleSheet.create({
   },
   plateButton: {
     marginTop: 10,
-    alignItems: 'center',
+    alignItems: 'center'
   },
   progressContainer: {
     width: '100%',

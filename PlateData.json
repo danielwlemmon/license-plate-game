@@ -5,33 +5,45 @@
       "name": "Alabama",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 32.3182,
+        "longitude": 86.9023
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/AL.jpg"
+      "score": 57
     },
     {
       "id": 1,
       "name": "Alaska",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 64.2008,
+        "longitude": 149.4937
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/AK.jpg"
+      "score": 760
     },
     {
       "id": 2,
       "name": "Arizona",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 34.0489,
+        "longitude": 111.0937
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/AZ.jpg"
+      "score": 51
     },
     {
       "id": 3,
@@ -39,658 +51,895 @@
       "country":"USA",
       "found":false,
       "foundAt": {
-        "latitude": null,
-        "longitude":null
+        "latitude": 34.5574,
+        "longitude": 92.2863
       },
-      "source": "../assets/USA/AR.jpg"
+      "score": 57
     },
     {
       "id": 4,
       "name": "California",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 36.7783,
+        "longitude": 119.4179
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/CA.jpg"
+      "score": 10
     },
     {
       "id": 5,
       "name": "Colorado",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 39.5501,
+        "longitude": 105.7821
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/CO.jpg"
+      "score": 57
     },
     {
       "id": 6,
       "name": "Connecticut",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 41.6032,
+        "longitude": 73.0877
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/CT.jpg"
+      "score": 106
     },
     {
       "id": 7,
       "name": "Delaware",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 38.9108,
+        "longitude": 75.5277
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/DE.jpg"
+      "score": 304
     },
     {
       "id": 8,
       "name": "Florida",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 27.6648,
+        "longitude": 81.5158
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/FL.jpg"
+      "score": 17
     },
     {
       "id": 9,
       "name": "Georgia",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 32.1656,
+        "longitude": 82.9001
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/GA.jpg"
+      "score": 35
     },
     {
       "id": 10,
       "name": "Hawaii",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 19.8968,
+        "longitude": 155.5828
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/HI.jpg"
+      "score": 735
     },
     {
       "id": 11,
       "name": "Idaho",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 44.0682,
+        "longitude": 114.7420
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/ID.jpg"
+      "score": 160
     },
     {
       "id": 12,
       "name": "Illinois",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 40.6331,
+        "longitude": 89.3985
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/IL.jpg"
+      "score": 29
     },
     {
       "id": 13,
       "name": "Indiana",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 40.2672,
+        "longitude": 86.1349
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/IN.jpg"
+      "score": 49
     },
     {
       "id": 14,
       "name": "Iowa",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 41.8780,
+        "longitude": 93.0977
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/IA.jpg"
+      "score": 81
     },
     {
       "id": 15,
       "name": "Kansas",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 39.0119,
+        "longitude": 98.4842
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/KS.jpg"
+      "score": 117
     },
     {
       "id": 16,
       "name": "Kentucky",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 37.8393,
+        "longitude": 84.2700
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/KY.jpg"
+      "score": 68
     },
     {
       "id": 17,
       "name": "Louisiana",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 30.9843,
+        "longitude": 91.9623
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/LA.jpg"
+      "score": 79
     },
     {
       "id": 18,
       "name": "Maine",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 45.2538,
+        "longitude": 69.4455
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/ME.jpg"
+      "score": 276
     },
     {
       "id": 19,
       "name": "Maryland",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 39.0458,
+        "longitude": 76.6413
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/MD.jpg"
+      "score": 72
     },
     {
       "id": 20,
       "name": "Massachusetts",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 42.4072,
+        "longitude": 71.3824
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/MA.jpg"
+      "score": 61
     },
     {
       "id": 21,
       "name": "Michigan",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 44.3148,
+        "longitude": 85.6024
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/MI.jpg"
+      "score": 36
     },
     {
       "id": 22,
       "name": "Minnesota",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 46.7296,
+        "longitude": 94.6859
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/MN.jpg"
+      "score": 53
     },
     {
       "id": 23,
       "name": "Mississippi",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 32.3547,
+        "longitude": 89.3985
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/MS.jpg"
+      "score": 148
     },
     {
       "id": 24,
       "name": "Missouri",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 37.9643,
+        "longitude": 91.8318
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/MO.jpg"
+      "score": 54
     },
     {
       "id": 25,
       "name": "Montana",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 46.8797,
+        "longitude": 110.3626
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/MT.jpg"
+      "score": 156
     },
     {
       "id": 26,
       "name": "Nebraska",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 41.4925,
+        "longitude": 99.9018
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/NE.jpg"
+      "score": 157
     },
     {
       "id": 27,
       "name": "Nevada",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 38.8026,
+        "longitude": 116.4194
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/NV.jpg"
+      "score": 119
     },
     {
       "id": 28,
       "name": "New Hampshire",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 43.1939,
+        "longitude": 71.5724
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/NH.jpg"
+      "score": 224
     },
     {
       "id": 29,
       "name": "New Jersey",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 40.0583,
+        "longitude": 74.4057
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/NJ.jpg"
+      "score": 51
     },
     {
       "id": 30,
       "name": "New Mexico",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 34.5199,
+        "longitude": 105.8701
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/NM.jpg"
+      "score": 170
     },
     {
       "id": 31,
       "name": "New York",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 40.7128,
+        "longitude": 74.0060
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/NY.jpg"
+      "score": 27
     },
     {
       "id": 32,
       "name": "North Carolina",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 35.7596,
+        "longitude": 79.0193
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/NC.jpg"
+      "score": 35
     },
     {
       "id": 33,
       "name": "North Dakota",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 47.5515,
+        "longitude": 101.0020
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/ND.jpg"
+      "score": 338
     },
     {
       "id": 34,
       "name": "Ohio",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 40.4173,
+        "longitude": 82.9071
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/OH.jpg"
+      "score": 29
     },
     {
       "id": 35,
       "name": "Oklahoma",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 35.0078,
+        "longitude": 97.0929
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/OK.jpg"
+      "score": 82
     },
     {
       "id": 36,
       "name": "Oregon",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 43.8041,
+        "longitude": 120.5542
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/OR.jpg"
+      "score": 74
     },
     {
       "id": 37,
       "name": "Pennsylvania",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 41.2033,
+        "longitude": 77.1945
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/PA.jpg"
+      "score": 28
     },
     {
       "id": 38,
       "name": "Rhode Island",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 41.5801,
+        "longitude": 71.4774
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/RI.jpg"
+      "score": 351
     },
     {
       "id": 39,
       "name": "South Carolina",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 33.8361,
+        "longitude": 81.1637
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/SC.jpg"
+      "score": 67
     },
     {
       "id": 40,
       "name": "South Dakota",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 43.9695,
+        "longitude": 99.9018
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/SD.jpg"
+      "score": 235
     },
     {
       "id": 41,
       "name": "Tennessee",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 35.5175,
+        "longitude": 86.5804
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/TN.jpg"
+      "score": 52
     },
     {
       "id": 42,
       "name": "Texas",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 31.9686,
+        "longitude": 99.9018
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/TX.jpg"
+      "score": 14
     },
     {
       "id": 43,
       "name": "Utah",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 39.3210,
+        "longitude": 111.0937
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/UT.jpg"
+      "score": 123
     },
     {
       "id": 44,
       "name": "Vermont",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 44.5588,
+        "longitude": 72.5778
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/VT.jpg"
+      "score": 500
     },
     {
       "id": 45,
       "name": "Virginia",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 37.4316,
+        "longitude": 78.6569
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/VA.jpg"
+      "score": 40
     },
     {
       "id": 46,
       "name": "Washington",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 47.7511,
+        "longitude": 120.7401
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/WA.jpg"
+      "score": 42
     },
     {
       "id": 47,
       "name": "West Virginia",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 38.5976,
+        "longitude": 80.4549
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/WV.jpg"
+      "score": 183
     },
     {
       "id": 48,
       "name": "Wisconsin",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 43.7844,
+        "longitude": 88.7879
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/WI.jpg"
+      "score": 54
     },
     {
       "id": 49,
       "name": "Wyoming",
       "country": "USA",
       "found": false,
+      "plateLocation": {
+        "latitude": 43.0760,
+        "longitude": 107.2903
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/USA/WY.jpg"
+      "score": 353
     },
     {
       "id": 50,
       "name": "Alberta",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 53.9333,
+        "longitude": 116.5765
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/AB.jpg"
+      "score": 234
     },
     {
       "id": 51,
       "name": "British Columbia",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 53.7267,
+        "longitude": 127.6476
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/BC.jpg"
+      "score": 196
     },
     {
       "id": 52,
       "name": "Manitoba",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 53.7609,
+        "longitude": 98.9139
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/MB.jpg"
+      "score": 742
     },
     {
       "id": 53,
       "name": "New Brunswick",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 46.5653,
+        "longitude": 66.4619
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/NB.jpg"
+      "score": 1283
     },
     {
       "id": 54,
       "name": "Newfoundland",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 53.1355,
+        "longitude": 57.6604
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/NL.jpg"
+      "score": 1950
     },
     {
       "id": 55,
       "name": "Northwest Territories",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 64.8255,
+        "longitude": 124.8457
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/NT.jpg"
+      "score": 7612
     },
     {
       "id": 56,
       "name": "Nova Scotia",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 44.6820,
+        "longitude": 63.7443
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/NS.jpg"
+      "score": 1027
     },
     {
       "id": 57,
       "name": "Nunavut",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 70.2998,
+        "longitude": 83.1076
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/NU.jpg"
+      "score": 8812
     },
     {
       "id": 58,
       "name": "Ontario",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 51.2538,
+        "longitude": 85.3232
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
-      }
+      },
+      "score": 70
     },
     {
       "id": 59,
       "name": "Prince Edward Island",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 46.5107,
+        "longitude": 63.4168
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/PE.jpg"
+      "score": 3856
     },
     {
       "id": 60,
       "name": "Quebec",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 46.8131,
+        "longitude": 71.2075
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/QC.jpg"
+      "score": 115
     },
     {
       "id": 61,
       "name": "Saskatchewan",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 52.9399,
+        "longitude": 106.4509
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/SK.jpg"
+      "score": 879
     },
     {
       "id": 62,
       "name": "Yukon",
       "country": "Canada",
       "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": 135.0000
+      },
       "foundAt": {
         "latitude": null,
         "longitude": null
       },
-      "source": "../assets/Canada/YT.jpg"
+      "score": 7712
     }
   ]
 }
