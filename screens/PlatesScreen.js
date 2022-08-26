@@ -108,11 +108,20 @@ function PlatesScreen({ navigation }) {
   };
 
   const finishGame = () => {
+    let nonUSACount = 0;
+    gameState.forEach(plate => {
+      //find num non-usa plates found
+      if (plate.country != 'USA' && plate.found) {
+        nonUSACount++;
+      }
+    })
+    const today = new Date().toDateString()
     Alert.alert("Road Trip Stats:",
-      "License Plates Found: " + progress[0]
+      today + '\n' +
+      "License Plates Found: " + progress[0] + '\n' +
+      "International Plates: " + nonUSACount
     );
-    reset();
-    navigation.goBack(null);
+
   };
 
 
