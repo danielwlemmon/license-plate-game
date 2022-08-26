@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
     borderRadius: 15
   },
   plateButton: {
+    marginTop: 10,
     alignItems: 'center',
   },
   progressContainer: {
