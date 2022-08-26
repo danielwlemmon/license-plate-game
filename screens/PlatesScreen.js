@@ -185,9 +185,11 @@ const styles = StyleSheet.create({
     marginLeft: -70
   },
   main: {
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingBottom: 300
   },
   notFoundImage: {
+    flex: 1,
     opacity: 1,
     borderRadius: 15
   },
@@ -201,7 +203,7 @@ const styles = StyleSheet.create({
   },
   progressText: {
     color: 'white',
-    fontSize: '30px'
+    fontSize: '20px'
   },
   text: {
     fontSize: '50px',
