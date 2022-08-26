@@ -107,6 +107,15 @@ function PlatesScreen({ navigation }) {
     );
   };
 
+  const finishGame = () => {
+    Alert.alert("Road Trip Stats:",
+      "License Plates Found: " + progress[0]
+    );
+    reset();
+    navigation.goBack(null);
+  };
+
+
   return (
     <View>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
@@ -133,7 +142,7 @@ function PlatesScreen({ navigation }) {
         <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signYellow }]} onPress={reset}>
           <Text style={{ fontSize: '30px' }}>Restart</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signRed }]} onPress={() => navigation.goBack(null)}>
+        <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signRed }]} onPress={finishGame}>
           <Text style={{ fontSize: '30px' }}>Finish</Text>
         </TouchableOpacity>
       </View>
