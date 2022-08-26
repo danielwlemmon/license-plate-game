@@ -1,7 +1,7 @@
 {
   "PlateData": [
     {
-      "id": "AL",
+      "id": 0,
       "name": "Alabama",
       "country": "USA",
       "found": false,
@@ -12,7 +12,7 @@
       "source": "../assets/USA/AL.jpg"
     },
     {
-      "id": "AK",
+      "id": 1,
       "name": "Alaska",
       "country": "USA",
       "found": false,
@@ -23,7 +23,7 @@
       "source": "../assets/USA/AK.jpg"
     },
     {
-      "id": "AZ",
+      "id": 2,
       "name": "Arizona",
       "country": "USA",
       "found": false,
@@ -34,7 +34,7 @@
       "source": "../assets/USA/AZ.jpg"
     },
     {
-      "id": "AR",
+      "id": 3,
       "name": "Arkansas",
       "country":"USA",
       "found":false,
@@ -45,7 +45,7 @@
       "source": "../assets/USA/AR.jpg"
     },
     {
-      "id": "CA",
+      "id": 4,
       "name": "California",
       "country": "USA",
       "found": false,
@@ -56,7 +56,7 @@
       "source": "../assets/USA/CA.jpg"
     },
     {
-      "id": "CO",
+      "id": 5,
       "name": "Colorado",
       "country": "USA",
       "found": false,
@@ -67,7 +67,7 @@
       "source": "../assets/USA/CO.jpg"
     },
     {
-      "id": "CT",
+      "id": 6,
       "name": "Connecticut",
       "country": "USA",
       "found": false,
@@ -78,7 +78,7 @@
       "source": "../assets/USA/CT.jpg"
     },
     {
-      "id": "DE",
+      "id": 7,
       "name": "Delaware",
       "country": "USA",
       "found": false,
@@ -89,7 +89,7 @@
       "source": "../assets/USA/DE.jpg"
     },
     {
-      "id": "FL",
+      "id": 8,
       "name": "Florida",
       "country": "USA",
       "found": false,
@@ -100,7 +100,7 @@
       "source": "../assets/USA/FL.jpg"
     },
     {
-      "id": "GA",
+      "id": 9,
       "name": "Georgia",
       "country": "USA",
       "found": false,
@@ -111,7 +111,7 @@
       "source": "../assets/USA/GA.jpg"
     },
     {
-      "id": "HI",
+      "id": 10,
       "name": "Hawaii",
       "country": "USA",
       "found": false,
@@ -122,7 +122,7 @@
       "source": "../assets/USA/HI.jpg"
     },
     {
-      "id": "ID",
+      "id": 11,
       "name": "Idaho",
       "country": "USA",
       "found": false,
@@ -133,7 +133,7 @@
       "source": "../assets/USA/ID.jpg"
     },
     {
-      "id": "IL",
+      "id": 12,
       "name": "Illinois",
       "country": "USA",
       "found": false,
@@ -144,7 +144,7 @@
       "source": "../assets/USA/IL.jpg"
     },
     {
-      "id": "IN",
+      "id": 13,
       "name": "Indiana",
       "country": "USA",
       "found": false,
@@ -155,7 +155,7 @@
       "source": "../assets/USA/IN.jpg"
     },
     {
-      "id": "IA",
+      "id": 14,
       "name": "Iowa",
       "country": "USA",
       "found": false,
@@ -166,7 +166,7 @@
       "source": "../assets/USA/IA.jpg"
     },
     {
-      "id": "KS",
+      "id": 15,
       "name": "Kansas",
       "country": "USA",
       "found": false,
@@ -177,7 +177,7 @@
       "source": "../assets/USA/KS.jpg"
     },
     {
-      "id": "KY",
+      "id": 16,
       "name": "Kentucky",
       "country": "USA",
       "found": false,
@@ -188,7 +188,7 @@
       "source": "../assets/USA/KY.jpg"
     },
     {
-      "id": "LA",
+      "id": 17,
       "name": "Louisiana",
       "country": "USA",
       "found": false,
@@ -199,7 +199,7 @@
       "source": "../assets/USA/LA.jpg"
     },
     {
-      "id": "ME",
+      "id": 18,
       "name": "Maine",
       "country": "USA",
       "found": false,
@@ -210,7 +210,7 @@
       "source": "../assets/USA/ME.jpg"
     },
     {
-      "id": "MD",
+      "id": 19,
       "name": "Maryland",
       "country": "USA",
       "found": false,
@@ -221,7 +221,7 @@
       "source": "../assets/USA/MD.jpg"
     },
     {
-      "id": "MA",
+      "id": 20,
       "name": "Massachusetts",
       "country": "USA",
       "found": false,
@@ -232,7 +232,7 @@
       "source": "../assets/USA/MA.jpg"
     },
     {
-      "id": "MI",
+      "id": 21,
       "name": "Michigan",
       "country": "USA",
       "found": false,
@@ -243,7 +243,7 @@
       "source": "../assets/USA/MI.jpg"
     },
     {
-      "id": "MN",
+      "id": 22,
       "name": "Minnesota",
       "country": "USA",
       "found": false,
@@ -254,7 +254,7 @@
       "source": "../assets/USA/MN.jpg"
     },
     {
-      "id": "MS",
+      "id": 23,
       "name": "Mississippi",
       "country": "USA",
       "found": false,
@@ -265,7 +265,7 @@
       "source": "../assets/USA/MS.jpg"
     },
     {
-      "id": "MO",
+      "id": 24,
       "name": "Missouri",
       "country": "USA",
       "found": false,
@@ -276,7 +276,7 @@
       "source": "../assets/USA/MO.jpg"
     },
     {
-      "id": "MT",
+      "id": 25,
       "name": "Montana",
       "country": "USA",
       "found": false,
@@ -287,7 +287,7 @@
       "source": "../assets/USA/MT.jpg"
     },
     {
-      "id": "NE",
+      "id": 26,
       "name": "Nebraska",
       "country": "USA",
       "found": false,
@@ -298,7 +298,7 @@
       "source": "../assets/USA/NE.jpg"
     },
     {
-      "id": "NV",
+      "id": 27,
       "name": "Nevada",
       "country": "USA",
       "found": false,
@@ -309,7 +309,7 @@
       "source": "../assets/USA/NV.jpg"
     },
     {
-      "id": "NH",
+      "id": 28,
       "name": "New Hampshire",
       "country": "USA",
       "found": false,
@@ -320,7 +320,7 @@
       "source": "../assets/USA/NH.jpg"
     },
     {
-      "id": "NJ",
+      "id": 29,
       "name": "New Jersey",
       "country": "USA",
       "found": false,
@@ -331,7 +331,7 @@
       "source": "../assets/USA/NJ.jpg"
     },
     {
-      "id": "NM",
+      "id": 30,
       "name": "New Mexico",
       "country": "USA",
       "found": false,
@@ -342,7 +342,7 @@
       "source": "../assets/USA/NM.jpg"
     },
     {
-      "id": "NY",
+      "id": 31,
       "name": "New York",
       "country": "USA",
       "found": false,
@@ -353,7 +353,7 @@
       "source": "../assets/USA/NY.jpg"
     },
     {
-      "id": "NC",
+      "id": 32,
       "name": "North Carolina",
       "country": "USA",
       "found": false,
@@ -364,7 +364,7 @@
       "source": "../assets/USA/NC.jpg"
     },
     {
-      "id": "ND",
+      "id": 33,
       "name": "North Dakota",
       "country": "USA",
       "found": false,
@@ -375,7 +375,7 @@
       "source": "../assets/USA/ND.jpg"
     },
     {
-      "id": "OH",
+      "id": 34,
       "name": "Ohio",
       "country": "USA",
       "found": false,
@@ -386,7 +386,7 @@
       "source": "../assets/USA/OH.jpg"
     },
     {
-      "id": "OK",
+      "id": 35,
       "name": "Oklahoma",
       "country": "USA",
       "found": false,
@@ -397,7 +397,7 @@
       "source": "../assets/USA/OK.jpg"
     },
     {
-      "id": "OR",
+      "id": 36,
       "name": "Oregon",
       "country": "USA",
       "found": false,
@@ -408,7 +408,7 @@
       "source": "../assets/USA/OR.jpg"
     },
     {
-      "id": "PA",
+      "id": 37,
       "name": "Pennsylvania",
       "country": "USA",
       "found": false,
@@ -419,7 +419,7 @@
       "source": "../assets/USA/PA.jpg"
     },
     {
-      "id": "RI",
+      "id": 38,
       "name": "Rhode Island",
       "country": "USA",
       "found": false,
@@ -430,7 +430,7 @@
       "source": "../assets/USA/RI.jpg"
     },
     {
-      "id": "SC",
+      "id": 39,
       "name": "South Carolina",
       "country": "USA",
       "found": false,
@@ -441,7 +441,7 @@
       "source": "../assets/USA/SC.jpg"
     },
     {
-      "id": "SD",
+      "id": 40,
       "name": "South Dakota",
       "country": "USA",
       "found": false,
@@ -452,7 +452,7 @@
       "source": "../assets/USA/SD.jpg"
     },
     {
-      "id": "TN",
+      "id": 41,
       "name": "Tennessee",
       "country": "USA",
       "found": false,
@@ -463,7 +463,7 @@
       "source": "../assets/USA/TN.jpg"
     },
     {
-      "id": "TX",
+      "id": 42,
       "name": "Texas",
       "country": "USA",
       "found": false,
@@ -474,7 +474,7 @@
       "source": "../assets/USA/TX.jpg"
     },
     {
-      "id": "UT",
+      "id": 43,
       "name": "Utah",
       "country": "USA",
       "found": false,
@@ -485,7 +485,7 @@
       "source": "../assets/USA/UT.jpg"
     },
     {
-      "id": "VT",
+      "id": 44,
       "name": "Vermont",
       "country": "USA",
       "found": false,
@@ -496,7 +496,7 @@
       "source": "../assets/USA/VT.jpg"
     },
     {
-      "id": "VA",
+      "id": 45,
       "name": "Virginia",
       "country": "USA",
       "found": false,
@@ -507,7 +507,7 @@
       "source": "../assets/USA/VA.jpg"
     },
     {
-      "id": "WA",
+      "id": 46,
       "name": "Washington",
       "country": "USA",
       "found": false,
@@ -518,7 +518,7 @@
       "source": "../assets/USA/WA.jpg"
     },
     {
-      "id": "WV",
+      "id": 47,
       "name": "West Virginia",
       "country": "USA",
       "found": false,
@@ -529,7 +529,7 @@
       "source": "../assets/USA/WV.jpg"
     },
     {
-      "id": "WI",
+      "id": 48,
       "name": "Wisconsin",
       "country": "USA",
       "found": false,
@@ -540,7 +540,7 @@
       "source": "../assets/USA/WI.jpg"
     },
     {
-      "id": "WY",
+      "id": 49,
       "name": "Wyoming",
       "country": "USA",
       "found": false,
@@ -551,7 +551,7 @@
       "source": "../assets/USA/WY.jpg"
     },
     {
-      "id": "AB",
+      "id": 50,
       "name": "Alberta",
       "country": "Canada",
       "found": false,
@@ -562,7 +562,7 @@
       "source": "../assets/Canada/AB.jpg"
     },
     {
-      "id": "BC",
+      "id": 51,
       "name": "British Columbia",
       "country": "Canada",
       "found": false,
@@ -573,7 +573,7 @@
       "source": "../assets/Canada/BC.jpg"
     },
     {
-      "id": "MB",
+      "id": 52,
       "name": "Manitoba",
       "country": "Canada",
       "found": false,
@@ -584,7 +584,7 @@
       "source": "../assets/Canada/MB.jpg"
     },
     {
-      "id": "NB",
+      "id": 53,
       "name": "New Brunswick",
       "country": "Canada",
       "found": false,
@@ -595,7 +595,7 @@
       "source": "../assets/Canada/NB.jpg"
     },
     {
-      "id": "NL",
+      "id": 54,
       "name": "Newfoundland",
       "country": "Canada",
       "found": false,
@@ -606,7 +606,7 @@
       "source": "../assets/Canada/NL.jpg"
     },
     {
-      "id": "NT",
+      "id": 55,
       "name": "Northwest Territories",
       "country": "Canada",
       "found": false,
@@ -617,7 +617,7 @@
       "source": "../assets/Canada/NT.jpg"
     },
     {
-      "id": "NS",
+      "id": 56,
       "name": "Nova Scotia",
       "country": "Canada",
       "found": false,
@@ -628,7 +628,7 @@
       "source": "../assets/Canada/NS.jpg"
     },
     {
-      "id": "NU",
+      "id": 57,
       "name": "Nunavut",
       "country": "Canada",
       "found": false,
@@ -639,7 +639,7 @@
       "source": "../assets/Canada/NU.jpg"
     },
     {
-      "id": "ON",
+      "id": 58,
       "name": "Ontario",
       "country": "Canada",
       "found": false,
@@ -649,7 +649,7 @@
       }
     },
     {
-      "id": "PE",
+      "id": 59,
       "name": "Prince Edward Island",
       "country": "Canada",
       "found": false,
@@ -660,7 +660,7 @@
       "source": "../assets/Canada/PE.jpg"
     },
     {
-      "id": "QC",
+      "id": 60,
       "name": "Quebec",
       "country": "Canada",
       "found": false,
@@ -671,7 +671,7 @@
       "source": "../assets/Canada/QC.jpg"
     },
     {
-      "id": "SK",
+      "id": 61,
       "name": "Saskatchewan",
       "country": "Canada",
       "found": false,
@@ -682,7 +682,7 @@
       "source": "../assets/Canada/SK.jpg"
     },
     {
-      "id": "YT",
+      "id": 62,
       "name": "Yukon",
       "country": "Canada",
       "found": false,

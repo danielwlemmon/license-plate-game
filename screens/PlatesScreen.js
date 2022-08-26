@@ -4,11 +4,11 @@ import { Button, DefaultTheme } from 'react-native-paper';
 import BlankPlates from '../PlateData.json';
 import { Colors } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import imgSrc from '../assets/imgSrc';
 
-//image source for plates = ./assets/{country}/{toLower(name)}.jpg
-function PlatesScreen() {
+function PlatesScreen({ navigation }) {
   const totalPlates = 63;
-  const [gameState, setGameState] = useState([]);
+  const [gameState, setGameState] = useState(BlankPlates.PlateData);
   const [refresh, setRefresh] = useState(0);
   const [progress, setProgress] = useState([0, totalPlates])
 
@@ -105,7 +105,7 @@ function PlatesScreen() {
         }
       ]
     );
-  }
+  };
 
   return (
     <View>
@@ -117,9 +117,8 @@ function PlatesScreen() {
             return (
               <View key={plate.id}>
                 <TouchableOpacity onPress={() => { foundPlate(plate) }} style={styles.plateButton}>
+                  <Image source={imgSrc[plate.id].source} style={plate.found ? styles.foundImage : styles.notFoundImage} />
 
-                  <Image source={require('../assets/USA/CT.jpg')} style={plate.found ? { opacity: 0.5 } : { opacity: 1 }} />
-                  <Text style={styles.text}>{plate.name}</Text>
                 </TouchableOpacity>
               </View>
             );
@@ -161,13 +160,15 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   foundImage: {
-    opacity: 0.5
+    opacity: 0.25,
+    borderRadius: 15
   },
   main: {
     justifyContent: 'center'
   },
   notFoundImage: {
-    opacity: 1
+    opacity: 1,
+    borderRadius: 15
   },
   plateButton: {
     alignItems: 'center',
