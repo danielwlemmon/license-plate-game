@@ -5,11 +5,10 @@ import BlankPlates from '../PlateData.json';
 import { Colors } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import imgSrc from '../assets/imgSrc';
-import GameContext from '../Services/GameContext';
 
 
 function PlatesScreen({ navigation }) {
-  const context = useContext(GameContext);
+
   const totalPlates = 63;
   const [gameState, setGameState] = useState(BlankPlates.PlateData);
   const [refresh, setRefresh] = useState(0);
@@ -18,7 +17,7 @@ function PlatesScreen({ navigation }) {
 
   useEffect(() => {
 
-    AsyncStorage.getItem('gameInProgress')
+    AsyncStorage.getItem('gameInProgress') //setup initial game data
       .then((res) => {
         if (res == 'false') {
           setGameState(BlankPlates.PlateData);
@@ -42,6 +41,8 @@ function PlatesScreen({ navigation }) {
       });
 
   }, [])
+
+
 
   const foundPlate = async (plate) => {
     if (plate.found) {
@@ -73,6 +74,7 @@ function PlatesScreen({ navigation }) {
         ]
       );
     } else { //mark plate as found, update game stats
+
       let gameArr = gameState;
       const plateIdx = gameArr.findIndex(p => p.id === plate.id);
       gameArr[plateIdx].found = true;

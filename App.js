@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Provider as PaperProvider } from 'react-native-paper';
 import HomeScreen from './screens/HomeScreen';
 import PlatesScreen from './screens/PlatesScreen';
-import GameContext from './Services/GameContext';
 
 const Stack = createNativeStackNavigator()
 
