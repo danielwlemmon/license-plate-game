@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert } from 'react-native';
 import { Button, DefaultTheme } from 'react-native-paper';
 import BlankPlates from '../PlateData.json';
 import { Colors } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import imgSrc from '../assets/imgSrc';
+import GameContext from '../Services/GameContext';
+
 
 function PlatesScreen({ navigation }) {
+  const context = useContext(GameContext);
   const totalPlates = 63;
   const [gameState, setGameState] = useState(BlankPlates.PlateData);
   const [refresh, setRefresh] = useState(0);
@@ -30,14 +33,19 @@ function PlatesScreen({ navigation }) {
               const savedProgress = parseInt(res);
               setProgress([savedProgress, totalPlates]);
             });
+          AsyncStorage.getItem('currentScore')
+            .then(res => {
+              const loadedScore = parseInt(res);
+              setScore(loadedScore);
+            });
         };
       });
 
   }, [])
 
-  const foundPlate = (plate) => {
+  const foundPlate = async (plate) => {
     if (plate.found) {
-      Alert.alert(
+      Alert.alert( //confirm user wants to undo plate find
         "Do you want to mark " + plate.name + " as not found?",
         "",
         [
@@ -47,41 +55,40 @@ function PlatesScreen({ navigation }) {
             style: "cancel"
           },
           {
-            text: "Yes", onPress: () => {
+            text: "Yes", onPress: async () => {
               let gameArr = gameState;
               const plateIdx = gameArr.findIndex(p => p.id === plate.id);
               gameArr[plateIdx].found = false;
               setProgress([progress[0] - 1, totalPlates]);
               setGameState(gameArr);
+              setScore(score - plate.score);
               setRefresh(refresh + 1);
               const saveGame = JSON.stringify(gameState);
-              AsyncStorage.setItem('currentGame', saveGame)
-                .then(() => {
-                  AsyncStorage.setItem('gameInProgress', 'true');
-                  AsyncStorage.setItem('currentProgress', (progress[0] - 1).toString());
-                });
+              await AsyncStorage.setItem('currentGame', saveGame);
+              await AsyncStorage.setItem('gameInProgress', 'true');
+              await AsyncStorage.setItem('currentProgress', (progress[0] - 1).toString());
+              await AsyncStorage.setItem('currentScore', (score - plate.score).toString());
             }
           }
         ]
       );
-    } else {
+    } else { //mark plate as found, update game stats
       let gameArr = gameState;
       const plateIdx = gameArr.findIndex(p => p.id === plate.id);
       gameArr[plateIdx].found = true;
       setProgress([progress[0] + 1, totalPlates]);
       setGameState(gameArr);
+      setScore(score + plate.score);
       setRefresh(refresh + 1);
       const saveGame = JSON.stringify(gameState);
-      Alert.alert(plate.score + " points for " + plate.name + "!", "", [{ text: "Cool!" }]);
-      AsyncStorage.setItem('currentGame', saveGame)
-        .then(() => {
-          AsyncStorage.setItem('gameInProgress', 'true');
-          AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString());
-        });
+      await AsyncStorage.setItem('currentGame', saveGame);
+      await AsyncStorage.setItem('gameInProgress', 'true');
+      await AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString());
+      await AsyncStorage.setItem('currentScore', (score + plate.score).toString());
     };
   };
 
-  const reset = () => {
+  const reset = () => {  //reset game stats and update stored game data
     Alert.alert(
       "Reset Game",
       "are you sure?",
@@ -92,39 +99,64 @@ function PlatesScreen({ navigation }) {
           style: "cancel"
         },
         {
-          text: "Yes", onPress: () => {
-            let gameArr = gameState;
-            gameArr.forEach((plate) => {
-              plate.found = false;
-            });
-            setProgress([0, totalPlates]);
-            setGameState(gameArr);
-            setRefresh(refresh + 1);
-            AsyncStorage.setItem('currentGame', '');
-            AsyncStorage.setItem('gameInProgress', 'false');
+          text: "Yes", onPress: async () => {
+            try {
+              let gameArr = gameState;
+              gameArr.forEach((plate) => {
+                plate.found = false;
+              });
+              setProgress([0, totalPlates]);
+              setGameState(gameArr);
+              setScore(0);
+              setRefresh(refresh + 1);
+              await AsyncStorage.setItem('currentGame', '');
+              await AsyncStorage.setItem('gameInProgress', 'false');
+              await AsyncStorage.setItem('currentProgress', '0');
+              await AsyncStorage.setItem('currentScore', '0');
+            } catch (e) {
+              console.log(e);
+            };
           }
         }
       ]
     );
   };
 
-  const finishGame = () => {
+  const finishGame = async () => {
+    const today = new Date().toDateString();
+
     let nonUSACount = 0;
     gameState.forEach(plate => {
       //find num non-usa plates found
       if (plate.country != 'USA' && plate.found) {
         nonUSACount++;
       }
-    })
-    const today = new Date().toDateString()
-    Alert.alert("Road Trip Stats:",
+    });
+
+    // try { //get current game stats, add new game stats and save
+    //   let gameHistory = await AsyncStorage.getItem('gameHistory');
+    //   JSON.parse(gameHistory);
+    //   const stats = {
+    //     date: today,
+    //     found: progress[0],
+    //     score: score
+    //   };
+    //   gameHistory.push(stats);
+    //   await AsyncStorage.setItem('gameHistory', JSON.stringify(gameHistory));
+    // } catch (e) {
+    //   console.log(e);
+    // };
+
+    Alert.alert("Road Trip Stats:", //display stats
       today + '\n' +
       "License Plates Found: " + progress[0] + '\n' +
-      "International Plates: " + nonUSACount
-    );
+      "International Plates: " + nonUSACount + '\n' +
+      "Score: " + score
+    )
 
   };
 
+  //create score view fixed to center of the screen, turn on and off display use timer
 
   return (
     <View>
