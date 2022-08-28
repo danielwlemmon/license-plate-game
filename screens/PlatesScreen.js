@@ -126,7 +126,6 @@ function PlatesScreen({ navigation }) {
 
   const finishGame = async () => {
     const today = new Date().toDateString();
-
     let nonUSACount = 0;
     gameState.forEach(plate => {
       //find num non-usa plates found
@@ -135,19 +134,27 @@ function PlatesScreen({ navigation }) {
       }
     });
 
-    // try { //get current game stats, add new game stats and save
-    //   let gameHistory = await AsyncStorage.getItem('gameHistory');
-    //   JSON.parse(gameHistory);
-    //   const stats = {
-    //     date: today,
-    //     found: progress[0],
-    //     score: score
-    //   };
-    //   gameHistory.push(stats);
-    //   await AsyncStorage.setItem('gameHistory', JSON.stringify(gameHistory));
-    // } catch (e) {
-    //   console.log(e);
-    // };
+    try { //get current game stats, add new game stats and save
+      let gameHistory = await AsyncStorage.getItem('gameHistory');
+      let parsedGameHistory = JSON.parse(gameHistory);
+      const stats = {
+        "date": today,
+        "found": progress[0],
+        "score": score
+      };
+
+      if (gameHistory != null) {
+        parsedGameHistory.push(stats);
+        console.log('setting 2+ item');
+        await AsyncStorage.setItem('gameHistory', JSON.stringify(parsedGameHistory))
+      } else {
+        console.log('setting 1st item');
+        await AsyncStorage.setItem('gameHistory', JSON.stringify([stats]));
+      }
+
+    } catch (e) {
+      console.log(e);
+    };
 
     Alert.alert("Road Trip Stats:", //display stats
       today + '\n' +
@@ -183,12 +190,14 @@ function PlatesScreen({ navigation }) {
         <View style={styles.progressContainer}>
           <Text style={styles.progressText}>Found: {progress[0]}/{progress[1]} Score: {score}</Text>
         </View>
+
         <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signYellow }]} onPress={reset}>
           <Text style={{ fontSize: '30px' }}>Restart</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signRed }]} onPress={finishGame}>
           <Text style={{ fontSize: '30px' }}>Finish</Text>
         </TouchableOpacity>
+
       </View>
     </View>
   );
@@ -202,7 +211,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     paddingBottom: 35,
-    backgroundColor: Colors.slateGrey
+    backgroundColor: Colors.slateGrey,
   },
   gameButton: {
     flex: 3,
@@ -233,11 +242,12 @@ const styles = StyleSheet.create({
   },
   progressContainer: {
     width: '100%',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   progressText: {
     color: 'white',
-    fontSize: '20px'
+    fontSize: '20px',
+    margin: 10
   },
   text: {
     fontSize: '50px',
