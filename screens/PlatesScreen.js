@@ -8,7 +8,7 @@ import imgSrc from '../assets/imgSrc';
 
 
 function PlatesScreen({ navigation }) {
-
+  const [dataLoaded, setDataLoaded] = useState(false);
   const totalPlates = 63;
   const [gameState, setGameState] = useState(BlankPlates.PlateData);
   const [refresh, setRefresh] = useState(0);
@@ -17,32 +17,42 @@ function PlatesScreen({ navigation }) {
 
   useEffect(() => {
 
-    AsyncStorage.getItem('gameInProgress') //setup initial game data
-      .then((res) => {
-        if (res == 'false') {
+    const retrieveData = async () => {
+
+      try {
+
+        const retrievedData = await AsyncStorage.getItem('gameInProgress') //setup initial game data
+        if (!retrievedData) {
+
           setGameState(BlankPlates.PlateData);
-        } else if (res == 'true') {
-          AsyncStorage.getItem('currentGame')
-            .then(res => {
-              const savedGame = JSON.parse(res)
-              setGameState(savedGame);
-            });
-          AsyncStorage.getItem('currentProgress')
-            .then((res) => {
-              const savedProgress = parseInt(res);
-              setProgress([savedProgress, totalPlates]);
-            });
-          AsyncStorage.getItem('currentScore')
-            .then(res => {
-              const loadedScore = parseInt(res);
-              setScore(loadedScore);
-            });
+          console.log('setting initial data')
+        } else if (retrievedData == 'true') {
+
+          const savedGame = await AsyncStorage.getItem('currentGame')
+          savedGame = JSON.parse(savedGame);
+          setGameState(savedGame);
+
+          const savedProgress = AsyncStorage.getItem('currentProgress')
+          savedProgress = parseInt(savedProgress);
+          setProgress([savedProgress, totalPlates]);
+
+          const loadedScore = AsyncStorage.getItem('currentScore')
+          loadedScore = pareseInte(loadedScore);
+          setScore(loadedScore);
+
         };
-      });
+      } catch (e) {
+        console.log(e);
+      };
+    };
 
-  }, [])
 
+  }, []);
 
+  const dataHandler = async () => {
+    await retrieveData();
+    setDataLoaded(true);
+  }
 
   const foundPlate = async (plate) => {
     if (plate.found) {
@@ -126,6 +136,7 @@ function PlatesScreen({ navigation }) {
 
   const finishGame = async () => {
     const today = new Date().toDateString();
+    await AsyncStorage.setItem('gameHistory', '');
     let nonUSACount = 0;
     gameState.forEach(plate => {
       //find num non-usa plates found
@@ -144,10 +155,10 @@ function PlatesScreen({ navigation }) {
       };
 
       if (gameHistory != null) {
-        parsedGameHistory.push(stats);
-        await AsyncStorage.setItem('gameHistory', JSON.stringify(parsedGameHistory))
+        // parsedGameHistory.push(stats);
+        // await AsyncStorage.setItem('gameHistory', JSON.stringify(parsedGameHistory))
       } else {
-        await AsyncStorage.setItem('gameHistory', JSON.stringify([stats]));
+        //await AsyncStorage.setItem('gameHistory', JSON.stringify([stats]));
       }
 
     } catch (e) {
@@ -179,16 +190,19 @@ function PlatesScreen({ navigation }) {
               <Text style={{ fontSize: '25px', fontWeight: '600' }}>ⓘ</Text>
             </TouchableOpacity>
           </View>
-          {gameState.map((plate) => {
-            return (
-              <View key={plate.id}>
-                <TouchableOpacity onPress={() => { foundPlate(plate) }} style={styles.plateButton}>
-                  <Image source={imgSrc[plate.id].source} style={plate.found ? styles.foundImage : styles.notFoundImage} />
+          {gameState ?
+            <View>
+              {gameState.map((plate) => {
+                return (
+                  <View key={plate.id}>
+                    <TouchableOpacity onPress={() => { foundPlate(plate) }} style={styles.plateButton}>
+                      <Image source={imgSrc[plate.id].source} style={plate.found ? styles.foundImage : styles.notFoundImage} />
 
-                </TouchableOpacity>
-              </View>
-            );
-          })}
+                    </TouchableOpacity>
+                  </View>
+                );
+              })}
+            </View> : <Text>Loading Plate Data...</Text>}
 
         </View>
       </ScrollView>

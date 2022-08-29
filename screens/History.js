@@ -25,13 +25,12 @@ function History({ navigation }) {
   return (
     <SafeAreaView>
       <ScrollView>
-        <Text>history screen</Text>
         <View style={styles.buttonBar}>
           <TouchableOpacity style={{ margin: 10 }} onPress={() => navigation.goBack()}>
             <Text>Go Back</Text>
           </TouchableOpacity>
         </View>
-        <View style={{}}>
+        {gameHistory ? <View style={{}}>
           {gameHistory.map((game) => {
             return (
               <View key={game.score}>
@@ -40,7 +39,7 @@ function History({ navigation }) {
               </View>
             )
           })}
-        </View>
+        </View> : <Text style={{ fontSize: 30 }}>No Game History Found...</Text>}
       </ScrollView>
     </SafeAreaView>
   )
