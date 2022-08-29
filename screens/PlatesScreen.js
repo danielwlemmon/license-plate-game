@@ -145,10 +145,8 @@ function PlatesScreen({ navigation }) {
 
       if (gameHistory != null) {
         parsedGameHistory.push(stats);
-        console.log('setting 2+ item');
         await AsyncStorage.setItem('gameHistory', JSON.stringify(parsedGameHistory))
       } else {
-        console.log('setting 1st item');
         await AsyncStorage.setItem('gameHistory', JSON.stringify([stats]));
       }
 
