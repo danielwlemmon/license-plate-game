@@ -109,38 +109,54 @@ function PlatesScreen({ navigation }) {
     };
   };
 
-  const reset = () => {  //reset game stats and update stored game data
-    Alert.alert(
-      "Reset Game",
-      "are you sure?",
-      [
-        {
-          text: "Cancel",
-          onPress: () => setRefresh(refresh + 1),
-          style: "cancel"
-        },
-        {
-          text: "Yes", onPress: async () => {
-            try {
-              let gameArr = gameState;
-              gameArr.forEach((plate) => {
-                plate.found = false;
-              });
-              setProgress([0, totalPlates]);
-              setGameState(gameArr);
-              setScore(0);
-              setRefresh(refresh + 1);
-              await AsyncStorage.setItem('currentGame', '');
-              await AsyncStorage.setItem('gameInProgress', 'false');
-              await AsyncStorage.setItem('currentProgress', '0');
-              await AsyncStorage.setItem('currentScore', '0');
-            } catch (e) {
-              console.log(e);
-            };
+  const reset = async (isGameFinished = false) => {  //reset game stats and update stored game data
+
+    if (isGameFinished == true) {
+      let gameArr = gameState;
+      gameArr.forEach((plate) => {
+        plate.found = false;
+      });
+      setProgress([0, totalPlates]);
+      setGameState(gameArr);
+      setScore(0);
+      setRefresh(refresh + 1);
+      await AsyncStorage.setItem('currentGame', '');
+      await AsyncStorage.setItem('gameInProgress', 'false');
+      await AsyncStorage.setItem('currentProgress', '0');
+      await AsyncStorage.setItem('currentScore', '0');
+    } else {
+      Alert.alert(
+        "Reset Game",
+        "are you sure?",
+        [
+          {
+            text: "Cancel",
+            onPress: () => setRefresh(refresh + 1),
+            style: "cancel"
+          },
+          {
+            text: "Yes", onPress: async () => {
+              try {
+                let gameArr = gameState;
+                gameArr.forEach((plate) => {
+                  plate.found = false;
+                });
+                setProgress([0, totalPlates]);
+                setGameState(gameArr);
+                setScore(0);
+                setRefresh(refresh + 1);
+                await AsyncStorage.setItem('currentGame', '');
+                await AsyncStorage.setItem('gameInProgress', 'false');
+                await AsyncStorage.setItem('currentProgress', '0');
+                await AsyncStorage.setItem('currentScore', '0');
+              } catch (e) {
+                console.log(e);
+              };
+            }
           }
-        }
-      ]
-    );
+        ]
+      );
+    }
   };
 
   const finishGame = async () => {
@@ -189,7 +205,7 @@ function PlatesScreen({ navigation }) {
       "International Plates: " + nonUSACount + '\n' +
       "Score: " + score
     )
-
+    reset(true);
   };
 
   //create score view fixed to center of the screen, turn on and off display use timer
