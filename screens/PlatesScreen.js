@@ -140,8 +140,8 @@ function PlatesScreen({ navigation }) {
   };
 
   const finishGame = async () => {
+    //await AsyncStorage.setItem('gameHistory', '');
     const today = new Date().toDateString();
-    await AsyncStorage.setItem('gameHistory', '');
     let nonUSACount = 0;
     gameState.forEach(plate => {
       //find num non-usa plates found
@@ -154,12 +154,20 @@ function PlatesScreen({ navigation }) {
       let gameHistory = await AsyncStorage.getItem('gameHistory');
       let parsedGameHistory = JSON.parse(gameHistory);
       const stats = {
+        "id": 0,
         "date": today,
         "found": progress[0],
         "score": score
       };
 
       if (gameHistory != null) {
+        //get a unique id to store.
+        const ids = parsedGameHistory.map(game => {
+          return game.id;
+        });
+        const maxId = Math.max(...ids);
+        stats.id = (maxId + 1);
+
         parsedGameHistory.push(stats);
         await AsyncStorage.setItem('gameHistory', JSON.stringify(parsedGameHistory))
       } else {

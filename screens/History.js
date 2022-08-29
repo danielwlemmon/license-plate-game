@@ -30,12 +30,15 @@ function History({ navigation }) {
             <Text>Go Back</Text>
           </TouchableOpacity>
         </View>
-        {gameHistory ? <View style={{}}>
+        {gameHistory ? <View style={{ flex: 1 }}>
           {gameHistory.map((game) => {
             return (
-              <View key={game.score}>
-                <Text>{game.date}</Text>
-                <Text>{game.score}</Text>
+              <View key={game.id} style={styles.gameCard}>
+                <Text style={styles.statText}>Date: {game.date}</Text>
+                <Text style={styles.statText}>Score: {game.score}</Text>
+                <Text style={styles.statText}>ID: {game.id}</Text>
+                <Text style={styles.statText}>Found: {game.found} plates</Text>
+
               </View>
             )
           })}
@@ -54,6 +57,12 @@ const styles = StyleSheet.create({
   buttonBar: {
     flex: 1,
     backgroundColor: Colors.slateGrey,
+  },
+  gameCard: {
+    marginBottom: 20,
+  },
+  statText: {
+    fontSize: 25
   },
 })
 
