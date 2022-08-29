@@ -212,8 +212,12 @@ function PlatesScreen({ navigation }) {
         </View>
       </ScrollView>
       {displayPoints ?
-        <View style={styles.scoreAlert}>
-          <Text style={{ fontSize: 30 }}> Yes! you just scored {lastPoints} points!</Text>
+        <View style={{
+          justifyContent: 'center', alignItems: 'center', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0
+        }}>
+          <View style={styles.scoreAlert}>
+            <Text style={{ fontSize: 30 }}> Yes! you just scored {lastPoints} points!</Text>
+          </View>
         </View>
         : null}
       <View style={styles.buttonBar}>
@@ -291,15 +295,11 @@ const styles = StyleSheet.create({
   },
   scoreAlert: {
     backgroundColor: Colors.white,
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    marginTop: '50%',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 150
+    height: 100,
+    width: 350,
+    borderRadius: 15
   },
   text: {
     fontSize: '50px',
