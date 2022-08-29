@@ -14,6 +14,8 @@ function PlatesScreen({ navigation }) {
   const [refresh, setRefresh] = useState(0);
   const [progress, setProgress] = useState([0, totalPlates])
   const [score, setScore] = useState(0);
+  const [displayPoints, setDisplayPoints] = useState(false);
+  const [lastPoints, setLastPoints] = useState(0);
 
   useEffect(() => {
 
@@ -91,12 +93,15 @@ function PlatesScreen({ navigation }) {
       setProgress([progress[0] + 1, totalPlates]);
       setGameState(gameArr);
       setScore(score + plate.score);
+      setLastPoints(plate.score);
       setRefresh(refresh + 1);
       const saveGame = JSON.stringify(gameState);
       await AsyncStorage.setItem('currentGame', saveGame);
       await AsyncStorage.setItem('gameInProgress', 'true');
       await AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString());
       await AsyncStorage.setItem('currentScore', (score + plate.score).toString());
+      setDisplayPoints(true);
+      setTimeout(() => setDisplayPoints(false), 1250);
     };
   };
 
@@ -155,10 +160,10 @@ function PlatesScreen({ navigation }) {
       };
 
       if (gameHistory != null) {
-        // parsedGameHistory.push(stats);
-        // await AsyncStorage.setItem('gameHistory', JSON.stringify(parsedGameHistory))
+        parsedGameHistory.push(stats);
+        await AsyncStorage.setItem('gameHistory', JSON.stringify(parsedGameHistory))
       } else {
-        //await AsyncStorage.setItem('gameHistory', JSON.stringify([stats]));
+        await AsyncStorage.setItem('gameHistory', JSON.stringify([stats]));
       }
 
     } catch (e) {
@@ -186,7 +191,7 @@ function PlatesScreen({ navigation }) {
             <TouchableOpacity onPress={() => navigation.navigate('History')} style={[styles.gameButton, styles.historyButton]}>
               <Text style={{ fontSize: '30px' }}>Game History</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.gameButton, styles.infoButton]}>
+            <TouchableOpacity onPress={() => console.log('info')} style={[styles.gameButton, styles.infoButton]}>
               <Text style={{ fontSize: '25px', fontWeight: '600' }}>ⓘ</Text>
             </TouchableOpacity>
           </View>
@@ -206,6 +211,11 @@ function PlatesScreen({ navigation }) {
 
         </View>
       </ScrollView>
+      {displayPoints ?
+        <View style={styles.scoreAlert}>
+          <Text style={{ fontSize: 30 }}> Yes! you just scored {lastPoints} points!</Text>
+        </View>
+        : null}
       <View style={styles.buttonBar}>
         <View style={styles.progressContainer}>
           <Text style={styles.progressText}>Found: {progress[0]}/{progress[1]} Score: {score}</Text>
@@ -278,6 +288,18 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: '20px',
     margin: 10
+  },
+  scoreAlert: {
+    backgroundColor: Colors.white,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    marginTop: '50%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 150
   },
   text: {
     fontSize: '50px',
