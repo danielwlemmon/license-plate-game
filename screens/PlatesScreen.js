@@ -160,6 +160,7 @@ function PlatesScreen({ navigation }) {
       const stats = {
         "id": 0,
         "date": today,
+        "nonUSA": nonUSACount,
         "found": progress[0],
         "score": score
       };
