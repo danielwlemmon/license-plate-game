@@ -173,6 +173,14 @@ function PlatesScreen({ navigation }) {
 
         <View style={styles.main}>
           <Text style={{ marginTop: 40, padding: 5, fontSize: '20px', fontWeight: 'bold' }}>Tap the plates below to mark them as found</Text>
+          <View style={styles.topButtons}>
+            <TouchableOpacity onPress={() => navigation.navigate('History')} style={[styles.gameButton, styles.historyButton]}>
+              <Text style={{ fontSize: '30px' }}>Game History</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={[styles.gameButton, styles.infoButton]}>
+              <Text style={{ fontSize: '25px', fontWeight: '600' }}>ⓘ</Text>
+            </TouchableOpacity>
+          </View>
           {gameState.map((plate) => {
             return (
               <View key={plate.id}>
@@ -190,6 +198,7 @@ function PlatesScreen({ navigation }) {
         <View style={styles.progressContainer}>
           <Text style={styles.progressText}>Found: {progress[0]}/{progress[1]} Score: {score}</Text>
         </View>
+
 
         <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signYellow }]} onPress={reset}>
           <Text style={{ fontSize: '30px' }}>Restart</Text>
@@ -227,6 +236,15 @@ const styles = StyleSheet.create({
     marginBottom: -130,
     marginLeft: -70
   },
+  historyButton: {
+    backgroundColor: Colors.signGreen,
+    flex: 12,
+    marginLeft: 40
+  },
+  infoButton: {
+    backgroundColor: Colors.signBlue,
+    marginRight: 40
+  },
   main: {
     justifyContent: 'center',
     paddingBottom: 300
@@ -252,7 +270,13 @@ const styles = StyleSheet.create({
   text: {
     fontSize: '50px',
     fontWeight: '500',
+  },
+  topButtons: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   }
+
 });
 
 export default PlatesScreen;
