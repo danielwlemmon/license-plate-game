@@ -56,6 +56,10 @@ function PlatesScreen({ navigation }) {
     setDataLoaded(true);
   }
 
+  //conditional radius rings for point scoring.  
+  // < 80 degrees west && > 37 degrees north is the east coast.  
+  //or perhaps make different conditions for the west and south areas since their states are so large
+  //want to avoid giving bonus for same state plates when center of state is far away from border.
   const foundPlate = async (plate) => {
     if (plate.found) {
       Alert.alert( //confirm user wants to undo plate find
