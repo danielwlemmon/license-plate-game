@@ -31,21 +31,32 @@ function History({ navigation }) {
   };
 
   const handleDelete = async (id) => {
-    let newGameHistory = gameHistory;
-    for (let i = 0; i < gameHistory.length; i++) {
-      if (newGameHistory[i].id == id) {
-        newGameHistory.splice(i, 1)
-        setGameHistory(newGameHistory);
-        (newGameHistory.length == 0) ? setIsGameHistory(false) : null;
-        try {
-          await AsyncStorage.setItem('gameHistory', JSON.stringify(newGameHistory));
-        } catch (e) {
-          console.log(e)
-        }
-        return;
-      }
-    }
-    setRefresh(refresh + 1);
+    Alert.alert("Delete? Are you sure?",
+      "",
+      [
+        {
+          text: "No",
+          onPress: () => setRefresh(refresh + 1),
+          style: "cancel"
+        },
+        {
+          text: "Yes", onPress: async () => {
+            let newGameHistory = gameHistory;
+            for (let i = 0; i < gameHistory.length; i++) {
+              if (newGameHistory[i].id == id) {
+                newGameHistory.splice(i, 1)
+                setGameHistory([...newGameHistory]);
+                (newGameHistory.length == 0) ? setIsGameHistory(false) : null;
+                try {
+                  await AsyncStorage.setItem('gameHistory', JSON.stringify(newGameHistory));
+                } catch (e) {
+                  console.log(e)
+                }
+                return;
+              }
+            }
+          }
+        }])
   };
 
   return (
