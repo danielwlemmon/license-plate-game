@@ -86,7 +86,6 @@ function History({ navigation }) {
                     </TouchableOpacity>
                   </View>
                 </View>
-
               )
             })}
           </View> :
@@ -126,6 +125,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   deleteButton: {
+    margin: 0,
+    padding: 0
   },
   deleteContainer: {
     height: 60,

@@ -16,6 +16,7 @@ function PlatesScreen({ navigation }) {
   const [score, setScore] = useState(0);
   const [displayPoints, setDisplayPoints] = useState(false);
   const [lastPoints, setLastPoints] = useState(0);
+  const [lastPlateName, setLastPlateName] = useState('');
 
   useEffect(() => {
 
@@ -98,6 +99,7 @@ function PlatesScreen({ navigation }) {
       setGameState(gameArr);
       setScore(score + plate.score);
       setLastPoints(plate.score);
+      setLastPlateName(plate.name);
       setRefresh(refresh + 1);
       const saveGame = JSON.stringify(gameState);
       await AsyncStorage.setItem('currentGame', saveGame);
@@ -211,7 +213,7 @@ function PlatesScreen({ navigation }) {
   //create score view fixed to center of the screen, turn on and off display use timer
 
   return (
-    <View>
+    <View style={{ backgroundColor: Colors.slateGrey }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
 
         <View style={styles.main}>
@@ -220,7 +222,7 @@ function PlatesScreen({ navigation }) {
             <TouchableOpacity onPress={() => navigation.navigate('History')} style={[styles.gameButton, styles.historyButton]}>
               <Text style={{ fontSize: '30px' }}>Game History</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => console.log('info')} style={[styles.gameButton, styles.infoButton]}>
+            <TouchableOpacity onPress={() => navigation.navigate('InfoScreen')} style={[styles.gameButton, styles.infoButton]}>
               <Text style={{ fontSize: '25px', fontWeight: '600' }}>ⓘ</Text>
             </TouchableOpacity>
           </View>
@@ -245,7 +247,7 @@ function PlatesScreen({ navigation }) {
           justifyContent: 'center', alignItems: 'center', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0
         }}>
           <View style={styles.scoreAlert}>
-            <Text style={{ fontSize: 30 }}> Yes! you just scored {lastPoints} points!</Text>
+            <Text style={{ fontSize: 30 }}> {lastPlateName}! {lastPoints} points!</Text>
           </View>
         </View>
         : null}

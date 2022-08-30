@@ -5,6 +5,7 @@ import { Provider as PaperProvider } from 'react-native-paper';
 import HomeScreen from './screens/HomeScreen';
 import PlatesScreen from './screens/PlatesScreen';
 import History from './screens/History';
+import InfoScreen from './screens/InfoScreen';
 
 const Stack = createNativeStackNavigator()
 
@@ -16,6 +17,7 @@ export default function App() {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="PlatesScreen" component={PlatesScreen} />
           <Stack.Screen name="History" component={History} />
+          <Stack.Screen name="InfoScreen" component={InfoScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>
