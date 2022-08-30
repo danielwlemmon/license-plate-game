@@ -8,7 +8,7 @@ function InfoScreen({ navigation }) {
   const backSymbol = '\u2190';
   return (
     <View style={styles.mainContainer} >
-      <ImageBackground style={styles.backgroundImage} source={require('../assets/curveyRoad.jpg')} />
+      <ImageBackground style={styles.backgroundImage} source={require('../assets/RV.jpg')} />
       <SafeAreaView style={{ flexGrow: 1 }}>
         <ScrollView>
           <View style={styles.buttonBar}>
@@ -56,15 +56,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  deleteContainer: {
-    height: 60,
-    flex: .75,
-    marginRight: 25,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 15,
-    backgroundColor: Colors.signRed
   },
   infoText: {
     fontSize: 25,

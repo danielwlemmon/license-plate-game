@@ -214,6 +214,7 @@ function PlatesScreen({ navigation }) {
 
   return (
     <View style={{ backgroundColor: Colors.slateGrey }}>
+      <ImageBackground style={styles.backgroundImage} source={require('../assets/outWindow.jpg')} />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
 
         <View style={styles.main}>
@@ -270,6 +271,11 @@ function PlatesScreen({ navigation }) {
 };
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%'
+  },
   buttonBar: {
     flex: 1,
     flexDirection: 'row',
