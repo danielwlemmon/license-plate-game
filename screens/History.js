@@ -146,8 +146,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  iconContainer: {
-  },
   mainContainer: {
     flex: 1
   },

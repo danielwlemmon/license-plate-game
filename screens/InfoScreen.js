@@ -16,7 +16,20 @@ function InfoScreen({ navigation }) {
               <Text style={{ fontSize: 40 }}>{backSymbol}</Text>
             </TouchableOpacity>
           </View>
-
+          <View style={{ flex: 1 }}>
+            <View style={styles.textContainer}>
+              <Text style={styles.infoText}>Tap plates to record them as found.  Scores are based on several factors,
+                number of vehicles registered to a state (population for Canada), and distance from
+                location found to the plate's regional location. i.e. A South Dakota plate found while
+                in Florida. {'\n'} Conversely, points will be lower for plates that belong to nearby areas.
+              </Text>
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.infoText}>Privacy - Data will remain locally on your device.  Location data
+                is only used temporarily to calculate distances.  No data is sent to this developer or any third parties.
+              </Text>
+            </View>
+          </View>
         </ScrollView>
       </SafeAreaView >
     </View>
@@ -44,11 +57,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  buttonText: {
-    fontSize: 20,
-  },
-  deleteButton: {
-  },
   deleteContainer: {
     height: 60,
     flex: .75,
@@ -58,31 +66,21 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     backgroundColor: Colors.signRed
   },
-  gameCard: {
-    flexDirection: 'row',
-    margin: (0, 20, 0, 20),
-    flex: 1,
-    backgroundColor: Colors.signBlue,
-    borderRadius: 15,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  iconContainer: {
+  infoText: {
+    fontSize: 25,
+    padding: (0, 10, 0, 10)
   },
   mainContainer: {
     flex: 1
   },
-  statsContainer: {
+  textContainer: {
+    flexDirection: 'row',
+    margin: (0, 20, 0, 20),
+    backgroundColor: Colors.signBlue,
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 10,
-    flex: 4
-  },
-  statText: {
-    fontSize: 25
-  },
-  trashIcon: {
-    resizeMode: 'cover',
-    height: 30,
-    width: 25,
   },
 })
 
