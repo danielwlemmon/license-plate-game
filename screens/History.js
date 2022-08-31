@@ -127,7 +127,20 @@ function History({ navigation }) {
                     <View style={styles.statsContainer}>
                       <View style={styles.whiteBorder}>
                         <View style={styles.innerContainer}>
+                          <View style={styles.textContainer}>
+                            <Text style={[styles.statText, { fontWeight: '700' }]}>{game.date}</Text>
+                            <Text style={styles.statText}>Score: {game.score}</Text>
+                            <Text style={styles.statText}>Found: {game.found} plates</Text>
+                            <Text style={styles.statText}>non-USA: {game.nonUSA} plates</Text>
+                          </View>
 
+                          <View style={styles.deleteContainer}>
+                            <TouchableOpacity onPress={() => handleDelete(game.id)} style={styles.deleteButton}>
+                              <View style={styles.iconContainer}>
+                                <Image style={styles.trashIcon} source={require('../assets/trashIcon.png')} ></Image>
+                              </View>
+                            </TouchableOpacity>
+                          </View>
                         </View>
                       </View>
                     </View>
@@ -176,6 +189,15 @@ const styles = StyleSheet.create({
     flex: 1,
     transform: [{ rotate: '45deg' }]
   },
+  iconContainer: {
+    height: 40,
+    width: 30,
+    marginRight: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 5,
+    backgroundColor: Colors.pearlWhite,
+  },
   innerButtonContainer: {
     position: 'absolute',
     height: 63,
@@ -189,10 +211,11 @@ const styles = StyleSheet.create({
     position: 'absolute',
     height: 163,
     width: 338,
-    alignItems: 'center',
-    justifyContent: 'center',
     borderRadius: 20,
     backgroundColor: Colors.signBlue,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
   },
   main: {
     justifyContent: 'center',
@@ -221,6 +244,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.signBlue
+  },
+  statText: {
+    fontFamily: Fonts.Main,
+    fontSize: 20,
+    fontWeight: '500',
+    color: Colors.pearlWhite
+  },
+  textContainer: {
+    marginLeft: 20,
+
+  },
+  trashIcon: {
+    height: 30,
+    width: 25
   },
   whiteBorder: {
     position: 'absolute',
