@@ -6,4 +6,5 @@ export const Colors = {
   signYellow: "#FFFF00",
   white: "#fff",
   slateGrey: "#708090",
+  pearlWhite: "#F8F6F0"
 }

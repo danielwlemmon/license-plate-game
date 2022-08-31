@@ -6,6 +6,7 @@ import { Colors } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import imgSrc from '../assets/imgSrc';
 
+//savedGame
 
 function PlatesScreen({ navigation }) {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -25,37 +26,33 @@ function PlatesScreen({ navigation }) {
       try {
 
         const retrievedData = await AsyncStorage.getItem('gameInProgress') //setup initial game data
+
         if (!retrievedData) {
 
           setGameState(BlankPlates.PlateData);
           console.log('setting initial data')
         } else if (retrievedData == 'true') {
 
-          const savedGame = await AsyncStorage.getItem('currentGame')
+          let savedGame = await AsyncStorage.getItem('currentGame')
           savedGame = JSON.parse(savedGame);
           setGameState(savedGame);
 
-          const savedProgress = AsyncStorage.getItem('currentProgress')
+          let savedProgress = await AsyncStorage.getItem('currentProgress');
           savedProgress = parseInt(savedProgress);
           setProgress([savedProgress, totalPlates]);
 
-          const loadedScore = AsyncStorage.getItem('currentScore')
-          loadedScore = pareseInte(loadedScore);
+          let loadedScore = await AsyncStorage.getItem('currentScore');
+          loadedScore = parseInt(loadedScore);
           setScore(loadedScore);
-
         };
       } catch (e) {
         console.log(e);
       };
     };
 
+    retrieveData();
 
   }, []);
-
-  const dataHandler = async () => {
-    await retrieveData();
-    setDataLoaded(true);
-  }
 
   //conditional radius rings for point scoring.  
   // < 80 degrees west && > 37 degrees north is the east coast.  
