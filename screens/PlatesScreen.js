@@ -6,8 +6,6 @@ import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import imgSrc from '../assets/imgSrc';
 
-//savedGame
-
 function PlatesScreen({ navigation }) {
   const [dataLoaded, setDataLoaded] = useState(false);
   const totalPlates = 63;
