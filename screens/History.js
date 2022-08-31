@@ -3,7 +3,7 @@ import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert } from 'react-native';
 
-import { Colors } from '../assets/colors';
+import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function History({ navigation }) {
@@ -186,7 +186,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.signYellow,
   },
   innerContainer: {
-
+    position: 'absolute',
+    height: 163,
+    width: 338,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 20,
+    backgroundColor: Colors.signBlue,
   },
   main: {
     justifyContent: 'center',
@@ -212,17 +218,17 @@ const styles = StyleSheet.create({
     height: 175,
     width: 350,
     marginTop: 10,
-    alignContent: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.signBlue
   },
   whiteBorder: {
     position: 'absolute',
-    height: 165,
-    width: 340,
-    alignContent: 'center',
+    height: 167,
+    width: 342,
+    alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 20,
+    borderRadius: 22,
     backgroundColor: Colors.pearlWhite,
   },
 })
