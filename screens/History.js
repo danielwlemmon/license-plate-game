@@ -60,42 +60,89 @@ function History({ navigation }) {
   };
 
   return (
-    <View style={styles.mainContainer} >
+    // <View style={styles.mainContainer} >
+    //   <ImageBackground style={styles.backgroundImage} source={require('../assets/curveyRoad.jpg')} />
+    //   <SafeAreaView style={{ flexGrow: 1 }}>
+    //     <ScrollView>
+    //       <View style={styles.buttonBar}>
+    //         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+    //           <Text style={{ fontSize: 40 }}>{backSymbol}</Text>
+    //         </TouchableOpacity>
+    //       </View >
+    //       {isGameHistory ? <View style={{ flex: 1 }}>
+    //         {gameHistory.map((game) => {
+    //           return (
+    //             <View key={game.id} style={styles.gameCard}>
+    //               <View style={styles.whiteBorder}>
+    //                 <View style={styles.innerContainer}>
+    //                   <View style={styles.statsContainer}>
+    //                     <Text style={[styles.statText, { fontWeight: '800' }]}>{game.date}</Text>
+    //                     <Text style={styles.statText}>Score: {game.score}</Text>
+    //                     <Text style={styles.statText}>Found: {game.found} plates</Text>
+    //                     <Text style={styles.statText}>non-USA: {game.nonUSA} plates</Text>
+    //                   </View>
+
+    //                   <View style={styles.deleteContainer}>
+    //                     <TouchableOpacity onPress={() => handleDelete(game.id)} style={styles.deleteButton}>
+    //                       <View style={styles.iconContainer}>
+    //                         <Image style={styles.trashIcon} source={require('../assets/trashIcon.png')} ></Image>
+    //                       </View>
+    //                     </TouchableOpacity>
+    //                   </View>
+    //                 </View>
+    //               </View>
+    //             </View>
+    //           )
+    //         })}
+    //       </View> :
+    //         <View style={{ justifyContent: 'center', alignItems: 'center', position: 'relative', top: 75, left: 0, right: 0, bottom: 0 }}>
+    //           <View >
+    //             <Text style={[styles.statText, { color: 'white' }]}>No Game History Found...</Text>
+    //           </View>
+    //         </View>}
+    //     </ScrollView>
+    //   </SafeAreaView >
+    // </View>
+    <View style={{ flexGrow: 1 }}>
       <ImageBackground style={styles.backgroundImage} source={require('../assets/curveyRoad.jpg')} />
-      <SafeAreaView style={{ flexGrow: 1 }}>
-        <ScrollView>
-          <View style={styles.buttonBar}>
-            <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-              <Text style={{ fontSize: 40 }}>{backSymbol}</Text>
-            </TouchableOpacity>
-          </View>
-          {isGameHistory ? <View style={{ flex: 1 }}>
-            {gameHistory.map((game) => {
-              return (
-                <View key={game.id} style={styles.gameCard}>
-                  <View style={styles.statsContainer}>
-                    <Text style={[styles.statText, { fontWeight: '800' }]}>{game.date}</Text>
-                    <Text style={styles.statText}>Score: {game.score}</Text>
-                    <Text style={styles.statText}>Found: {game.found} plates</Text>
-                  </View>
-                  <View style={styles.deleteContainer}>
-                    <TouchableOpacity onPress={() => handleDelete(game.id)} style={styles.deleteButton}>
-                      <View style={styles.iconContainer}>
-                        <Image style={styles.trashIcon} source={require('../assets/trashIcon.png')} ></Image>
-                      </View>
-                    </TouchableOpacity>
+      <ScrollView contentInsetAdjustmentBehavior="automatic" contentInset={{ top: -50, left: 0, bottom: 250, right: 0 }} contentInsetAdjustmentBehavior="automatic" contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
+        <SafeAreaView style={styles.main}>
+          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.buttonContainer}>
+
+            <View style={styles.outerButtonContainer}>
+              <View style={styles.blackBorder}>
+                <View style={styles.innerButtonContainer}>
+                  <View style={styles.rotateText}>
+                    <Text style={[styles.infoText, { color: Colors.black, fontSize: 60, fontWeight: '500' }]}>←</Text>
                   </View>
                 </View>
-              )
-            })}
-          </View> :
+              </View>
+            </View>
+          </TouchableOpacity>
+          {isGameHistory ?
+            <View>
+              {gameHistory.map((game) => {
+                return (
+                  <View key={game.id}>
+                    <View style={styles.statsContainer}>
+                      <View style={styles.whiteBorder}>
+                        <View style={styles.innerContainer}>
+
+                        </View>
+                      </View>
+                    </View>
+                  </View>
+                )
+              })}
+            </View> :
             <View style={{ justifyContent: 'center', alignItems: 'center', position: 'relative', top: 75, left: 0, right: 0, bottom: 0 }}>
               <View >
                 <Text style={[styles.statText, { color: 'white' }]}>No Game History Found...</Text>
               </View>
             </View>}
-        </ScrollView>
-      </SafeAreaView >
+
+        </SafeAreaView>
+      </ScrollView>
     </View>
   )
 };
@@ -112,54 +159,71 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%'
   },
-  buttonBar: {
+  blackBorder: {
+    position: 'absolute',
+    height: 68,
+    width: 68,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 6,
+    backgroundColor: Colors.black,
+  },
+  buttonContainer: {
+    alignSelf: 'flex-start',
+    marginLeft: 50,
+    marginTop: 60,
+    marginBottom: 20,
     flex: 1,
-    width: 60,
-    marginLeft: 20,
-    backgroundColor: Colors.slateGrey,
-    borderRadius: 15,
+    transform: [{ rotate: '45deg' }]
+  },
+  innerButtonContainer: {
+    position: 'absolute',
+    height: 63,
+    width: 63,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 4,
+    backgroundColor: Colors.signYellow,
+  },
+  innerContainer: {
+
+  },
+  main: {
     justifyContent: 'center',
     alignItems: 'center'
   },
-  buttonText: {
-    fontSize: 20,
-  },
-  deleteButton: {
-    margin: 0,
-    padding: 0
-  },
-  deleteContainer: {
-    height: 60,
-    flex: .75,
-    marginRight: 25,
+  outerButtonContainer: {
+    height: 70,
+    width: 70,
+    borderRadius: 7,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 15,
-    backgroundColor: Colors.signRed
+    backgroundColor: Colors.signYellow,
   },
-  gameCard: {
-    flexDirection: 'row',
-    margin: (0, 20, 0, 20),
-    flex: 1,
-    backgroundColor: Colors.signBlue,
-    borderRadius: 15,
+  rotateText: {
+    position: 'absolute',
     justifyContent: 'center',
-    alignItems: 'center'
-  },
-  mainContainer: {
-    flex: 1
+    alignItems: 'start',
+    marginLeft: -25,
+    transform: [{ rotate: '-45deg' }]
   },
   statsContainer: {
-    padding: 10,
-    flex: 4
+    borderRadius: 25,
+    height: 175,
+    width: 350,
+    marginTop: 10,
+    alignContent: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.signBlue
   },
-  statText: {
-    fontSize: 25
-  },
-  trashIcon: {
-    resizeMode: 'cover',
-    height: 30,
-    width: 25,
+  whiteBorder: {
+    position: 'absolute',
+    height: 165,
+    width: 340,
+    alignContent: 'center',
+    justifyContent: 'center',
+    borderRadius: 20,
+    backgroundColor: Colors.pearlWhite,
   },
 })
 

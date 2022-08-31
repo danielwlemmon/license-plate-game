@@ -208,9 +208,9 @@ function PlatesScreen({ navigation }) {
   //create score view fixed to center of the screen, turn on and off display use timer
 
   return (
-    <View style={{ backgroundColor: Colors.slateGrey }}>
+    <View>
       <ImageBackground style={styles.backgroundImage} source={require('../assets/plateBack.jpg')} />
-      <ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
+      <ScrollView contentInset={{ top: -10, left: 0, bottom: 250, right: 0 }} contentInsetAdjustmentBehavior="automatic" contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
 
         <SafeAreaView style={styles.main}>
 
@@ -318,12 +318,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
-  },
-  finishInnerContainer: {
-
-  },
-  finishWhiteBorder: {
-
   },
   foundImage: {
     flex: 'start',

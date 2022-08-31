@@ -13,24 +13,6 @@ function InfoScreen({ navigation }) {
       <SafeAreaView style={{ flexGrow: 1 }}>
         <ScrollView >
 
-          {/* <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <View style={styles.topContainer}>
-              <View style={styles.topWhiteBorder}>
-                <View style={styles.topInnerContainer}>
-                  <Text style={styles.infoText}>Tap plates to record them as found.  Scores are based on several factors,
-                    number of vehicles registered to a state (population for Canada), and distance from
-                    location found to the plate's regional location. i.e. A South Dakota plate found while
-                    in Florida. {'\n'} Conversely, points will be lower for plates that belong to nearby areas.
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View style={styles.bottomContainer}>
-              <Text style={styles.infoText}>Privacy - Data will remain locally on your device.  Location data
-                is only used temporarily to calculate distances.  No data is sent to this developer or any third parties.
-              </Text>
-            </View>
-          </View> */}
           <View style={styles.container}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.buttonContainer}>
               <View style={styles.outerButtonContainer}>
