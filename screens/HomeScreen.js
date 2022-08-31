@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, TouchableOpacity, Alert } from 'react-native';
 import { Button, Card } from 'react-native-paper';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
-import { Colors } from '../assets/colors';
+import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function HomeScreen({ navigation }) {
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     position: 'absolute',
     height: '100%',
-    width: '100%'
+    width: '100%',
   },
   button: {
     position: 'absolute',
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerText: {
-    fontFamily: 'AvenirNext-Regular',
+    fontFamily: Fonts.Main,
     fontSize: 30,
     fontWeight: 'bold',
   },

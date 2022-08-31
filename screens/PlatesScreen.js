@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert } from 'react-native';
 import { Button, DefaultTheme } from 'react-native-paper';
 import BlankPlates from '../PlateData.json';
-import { Colors } from '../assets/colors';
+import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import imgSrc from '../assets/imgSrc';
 
@@ -211,59 +211,84 @@ function PlatesScreen({ navigation }) {
 
   return (
     <View style={{ backgroundColor: Colors.slateGrey }}>
-      <ImageBackground style={styles.backgroundImage} source={require('../assets/outWindow.jpg')} />
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
+      <ImageBackground style={styles.backgroundImage} source={require('../assets/plateBack.jpg')} />
+      <ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
 
-        <View style={styles.main}>
-          <Text style={{ marginTop: 40, padding: 5, fontSize: '20px', fontWeight: 'bold' }}>Tap the plates below to mark them as found</Text>
+        <SafeAreaView style={styles.main}>
+
           <View style={styles.topButtons}>
+
             <TouchableOpacity onPress={() => navigation.navigate('History')} style={[styles.gameButton, styles.historyButton]}>
-              <Text style={{ fontSize: '30px' }}>Game History</Text>
+              <View style={styles.historyWhiteBorder}>
+                <View style={styles.historyInnerContainer}>
+                  <Text style={styles.buttonText}>Game History</Text>
+                </View>
+              </View>
             </TouchableOpacity>
+
             <TouchableOpacity onPress={() => navigation.navigate('InfoScreen')} style={[styles.gameButton, styles.infoButton]}>
-              <Text style={{ fontSize: '25px', fontWeight: '600' }}>ⓘ</Text>
+              <View style={styles.infoWhiteBorder}>
+                <View style={styles.infoInnerContainer}>
+                  <Text style={[styles.buttonText, { fontWeight: '900' }]} >ⓘ</Text>
+                </View>
+              </View>
             </TouchableOpacity>
-          </View>
-          {gameState ?
-            <View>
-              {gameState.map((plate) => {
-                return (
-                  <View key={plate.id}>
-                    <TouchableOpacity onPress={() => { foundPlate(plate) }} style={styles.plateButton}>
-                      <Image source={imgSrc[plate.id].source} style={plate.found ? styles.foundImage : styles.notFoundImage} />
 
-                    </TouchableOpacity>
-                  </View>
-                );
-              })}
-            </View> : <Text>Loading Plate Data...</Text>}
-
-        </View>
-      </ScrollView>
-      {displayPoints ?
-        <View style={{
-          justifyContent: 'center', alignItems: 'center', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0
-        }}>
-          <View style={styles.scoreAlert}>
-            <Text style={{ fontSize: 30 }}> {lastPlateName}! {lastPoints} points!</Text>
           </View>
-        </View>
-        : null}
+          {
+            gameState ?
+              <View>
+                {gameState.map((plate) => {
+                  return (
+                    <View key={plate.id}>
+                      <TouchableOpacity onPress={() => { foundPlate(plate) }} style={styles.plateButton}>
+                        <Image source={imgSrc[plate.id].source} style={plate.found ? styles.foundImage : styles.notFoundImage} />
+
+                      </TouchableOpacity>
+                    </View>
+                  );
+                })}
+              </View> : <Text>Loading Plate Data...</Text>
+          }
+
+        </SafeAreaView >
+      </ScrollView >
+      {
+        displayPoints ?
+          <View style={{
+            justifyContent: 'center', alignItems: 'center', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0
+          }
+          } >
+            <View style={styles.scoreAlert}>
+              <Text style={{ fontSize: 30 }}> {lastPlateName}! {lastPoints} points!</Text>
+            </View>
+          </View >
+          : null
+      }
       <View style={styles.buttonBar}>
         <View style={styles.progressContainer}>
           <Text style={styles.progressText}>Found: {progress[0]}/{progress[1]} Score: {score}</Text>
         </View>
 
 
-        <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signYellow }]} onPress={reset}>
-          <Text style={{ fontSize: '30px' }}>Restart</Text>
+        <TouchableOpacity style={[styles.resetButton, {}]} onPress={reset}>
+          <View style={styles.resetBlackBorder}>
+            <View style={styles.resetInnerContainer}>
+              <Text style={[styles.buttonText, { color: Colors.black }]}>Restart</Text>
+            </View>
+          </View>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.gameButton, { backgroundColor: Colors.signRed }]} onPress={finishGame}>
-          <Text style={{ fontSize: '30px' }}>Finish</Text>
+
+        <TouchableOpacity style={[styles.finishButton, { backgroundColor: Colors.signRed }]} onPress={finishGame}>
+          <View style={[styles.resetBlackBorder, { backgroundColor: Colors.pearlWhite }]}>
+            <View style={[styles.resetInnerContainer, { backgroundColor: Colors.signRed }]}>
+              <Text style={styles.buttonText}>Finish</Text>
+            </View>
+          </View>
         </TouchableOpacity>
 
       </View>
-    </View>
+    </View >
   );
 };
 
@@ -271,7 +296,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     position: 'absolute',
     height: '100%',
-    width: '100%'
+    width: '100%',
   },
   buttonBar: {
     flex: 1,
@@ -282,13 +307,25 @@ const styles = StyleSheet.create({
     paddingBottom: 35,
     backgroundColor: Colors.slateGrey,
   },
-  gameButton: {
+  buttonText: {
+    fontFamily: Fonts.Main,
+    color: Colors.pearlWhite,
+    fontSize: 30,
+    fontWeight: '600'
+  },
+  finishButton: {
     flex: 3,
     height: 60,
     margin: (0, 5, 0, 5),
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10,
+    borderRadius: 7,
+  },
+  finishInnerContainer: {
+
+  },
+  finishWhiteBorder: {
+
   },
   foundImage: {
     flex: 'start',
@@ -296,14 +333,59 @@ const styles = StyleSheet.create({
     marginBottom: -130,
     marginLeft: -70
   },
+  gameButton: {
+    flex: 3,
+    height: 60,
+    margin: (0, 5, 0, 5),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 18,
+  },
   historyButton: {
     backgroundColor: Colors.signGreen,
     flex: 12,
     marginLeft: 40
   },
+  historyInnerContainer: {
+    position: 'absolute',
+    height: 46,
+    width: 257,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 11,
+    backgroundColor: Colors.signGreen,
+
+  },
+  historyWhiteBorder: {
+    position: 'absolute',
+    height: 50,
+    width: 260,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 13,
+    backgroundColor: Colors.pearlWhite,
+  },
   infoButton: {
     backgroundColor: Colors.signBlue,
     marginRight: 40
+  },
+  infoInnerContainer: {
+    position: 'absolute',
+    height: 46,
+    width: 54,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 11,
+    backgroundColor: Colors.signBlue,
+  },
+  infoWhiteBorder: {
+    position: 'absolute',
+    height: 50,
+    width: 57,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 13,
+    backgroundColor: Colors.pearlWhite,
   },
   main: {
     justifyContent: 'center',
@@ -327,6 +409,32 @@ const styles = StyleSheet.create({
     fontSize: '20px',
     margin: 10
   },
+  resetBlackBorder: {
+    position: 'absolute',
+    height: 55,
+    width: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+    backgroundColor: Colors.black
+  },
+  resetButton: {
+    flex: 3,
+    margin: (0, 5, 0, 5),
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.signYellow,
+    borderRadius: 7
+  },
+  resetInnerContainer: {
+    position: 'absolute',
+    height: 50,
+    width: 195,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 3,
+    backgroundColor: Colors.signYellow,
+  },
   scoreAlert: {
     backgroundColor: Colors.white,
     justifyContent: 'center',
@@ -334,6 +442,9 @@ const styles = StyleSheet.create({
     height: 100,
     width: 350,
     borderRadius: 15
+  },
+  scrollView: {
+
   },
   text: {
     fontSize: '50px',
