@@ -88,26 +88,31 @@ function PlatesScreen({ navigation }) {
         ]
       );
     } else { //mark plate as found, update game stats
-      const pointMultiplier = await getPointMultiple(plate);
-      console.log(pointMultiplier);
+      getPointMultiple(plate);
       let gameArr = gameState;
       const plateIdx = gameArr.findIndex(p => p.id === plate.id);
       gameArr[plateIdx].found = true;
       setProgress([progress[0] + 1, totalPlates]);
       setGameState(gameArr);
-      setScore(score + (plate.score * pointMultiplier));
-      setLastPoints(plate.score);
+
       setLastPlateName(plate.name);
       setRefresh(refresh + 1);
       const saveGame = JSON.stringify(gameState);
       await AsyncStorage.setItem('currentGame', saveGame);
       await AsyncStorage.setItem('gameInProgress', 'true');
       await AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString());
-      await AsyncStorage.setItem('currentScore', (score + plate.score).toString());
-      setDisplayPoints(true);
-      setTimeout(() => setDisplayPoints(false), 1250);
+
     };
   };
+
+  const addScore = async (plateScore, multiplier) => {
+    setScore(score + (plateScore * multiplier));
+    setLastPoints(plateScore * multiplier);
+    await AsyncStorage.setItem('currentScore', (score + (plateScore * multiplier)).toString());
+    setDisplayPoints(true);
+    setTimeout(() => setDisplayPoints(false), 1250);
+    console.log(plateScore);
+  }
 
   const getPointMultiple = async (plate) => {
 
@@ -140,14 +145,11 @@ function PlatesScreen({ navigation }) {
             //   "long: " + plateLong + " = " +
             //   distance);
             if (distance < 900) {
-              return 0.5;
-              console.log('1/2 points');
+              addScore(plate.score, .5);
             } else if (distance > 1800) {
-              return 2;
-              console.log('2X points');
+              addScore(plate.score, 2);
             } else {
-              return 1;
-              console.log('base points');
+              addScore(plate.score, 1);
             }
           }
         )
