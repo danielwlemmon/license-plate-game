@@ -306,14 +306,20 @@ function PlatesScreen({ navigation }) {
       </ScrollView >
       {
         displayPoints ?
-          <View style={{
-            justifyContent: 'center', alignItems: 'center', position: 'absolute', top: 0, left: 0, right: 0, bottom: 0
-          }
-          } >
-            <View style={styles.scoreAlert}>
-              <Text style={{ fontSize: 30 }}> {lastPlateName}! {lastPoints} points!</Text>
-            </View>
-          </View >
+          <View style={[styles.pointsContainer, { flexGrow: 1 }]}>
+            <View style={styles.pointsImageContainer} >
+              <Image style={styles.pointsImage} source={require("../assets/points.png")} />
+              <View style={styles.pointsTextContainer}>
+                <Text style={{ fontSize: 50, fontFamily: Fonts.Main, fontWeight: '700' }}>Points</Text>
+              </View>
+              <View style={styles.pointsStateContainer}>
+                <Text style={{ fontSize: 25, fontFamily: Fonts.Main, fontWeight: '700' }}>{lastPlateName}</Text>
+              </View>
+              <View style={styles.pointsValueContainer}>
+                <Text style={{ fontSize: 50, fontFamily: Fonts.Main, fontWeight: '700' }}>{lastPoints}</Text>
+              </View>
+            </View >
+          </View>
           : null
       }
       <View style={styles.buttonBar}>
@@ -330,7 +336,7 @@ function PlatesScreen({ navigation }) {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.finishButton, { backgroundColor: Colors.signRed }]} onPress={finishGame}>
+        <TouchableOpacity style={[styles.finishButton, { backgroundColor: Colors.signRed, borderRadius: 2 }]} onPress={finishGame}>
           <View style={[styles.resetBlackBorder, { backgroundColor: Colors.pearlWhite }]}>
             <View style={[styles.resetInnerContainer, { backgroundColor: Colors.signRed }]}>
               <Text style={styles.buttonText}>Finish</Text>
@@ -375,8 +381,8 @@ const styles = StyleSheet.create({
   foundImage: {
     flex: 'start',
     borderRadius: 15,
+    alignSelf: 'flex-start',
     marginBottom: -130,
-    marginLeft: -70
   },
   gameButton: {
     flex: 3,
@@ -416,8 +422,8 @@ const styles = StyleSheet.create({
   },
   infoInnerContainer: {
     position: 'absolute',
-    height: '96%',
-    width: '96%',
+    height: '94%',
+    width: '95%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 14,
@@ -425,8 +431,8 @@ const styles = StyleSheet.create({
   },
   infoWhiteBorder: {
     position: 'absolute',
-    height: '92%',
-    width: '90%',
+    height: '91%',
+    width: '89%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 15,
@@ -445,6 +451,47 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignItems: 'center'
   },
+  pointsAlert: {
+    display: 'none',
+    backgroundColor: Colors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 100,
+    width: 350,
+    borderRadius: 15
+  },
+  pointsContainer: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  pointsImage: {
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    borderRadius: 30,
+  },
+  pointsImageContainer: {
+    height: 300,
+    width: 300,
+    position: 'absolute',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  pointsStateContainer: {
+    position: 'absolute',
+    top: '38%'
+  },
+  pointsTextContainer: {
+    position: 'absolute',
+    top: 30
+  },
+  pointsValueContainer: {
+    position: 'absolute',
+    bottom: 80
+  },
   progressContainer: {
     width: '100%',
     alignItems: 'center',
@@ -456,11 +503,11 @@ const styles = StyleSheet.create({
   },
   resetBlackBorder: {
     position: 'absolute',
-    height: 55,
-    width: 200,
+    height: '96%',
+    width: '99%',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 5,
+    borderRadius: 7,
     backgroundColor: Colors.black
   },
   resetButton: {
@@ -473,20 +520,12 @@ const styles = StyleSheet.create({
   },
   resetInnerContainer: {
     position: 'absolute',
-    height: 50,
-    width: 195,
+    height: '92%',
+    width: '97%',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 3,
+    borderRadius: 5,
     backgroundColor: Colors.signYellow,
-  },
-  scoreAlert: {
-    backgroundColor: Colors.white,
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 100,
-    width: 350,
-    borderRadius: 15
   },
   scrollView: {
 
