@@ -88,13 +88,14 @@ function PlatesScreen({ navigation }) {
         ]
       );
     } else { //mark plate as found, update game stats
-      getPointMultiple(plate);
+      const pointMultiplier = await getPointMultiple(plate);
+      console.log(pointMultiplier);
       let gameArr = gameState;
       const plateIdx = gameArr.findIndex(p => p.id === plate.id);
       gameArr[plateIdx].found = true;
       setProgress([progress[0] + 1, totalPlates]);
       setGameState(gameArr);
-      setScore(score + plate.score);
+      setScore(score + (plate.score * pointMultiplier));
       setLastPoints(plate.score);
       setLastPlateName(plate.name);
       setRefresh(refresh + 1);
@@ -133,11 +134,21 @@ function PlatesScreen({ navigation }) {
               (1 - c((deviceLong - plateLong) * p)) / 2;
 
             const distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-            // console.log("found lat: " + deviceLat + " " +
+            // console.log("device lat: " + deviceLat + " " +  //this is to verify calculations with other source
             //   "long: " + deviceLong + " " +
             //   "plate lat: " + plateLat + " " +
             //   "long: " + plateLong + " = " +
             //   distance);
+            if (distance < 900) {
+              return 0.5;
+              console.log('1/2 points');
+            } else if (distance > 1800) {
+              return 2;
+              console.log('2X points');
+            } else {
+              return 1;
+              console.log('base points');
+            }
           }
         )
       } catch (e) {
