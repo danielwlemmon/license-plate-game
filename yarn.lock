@@ -1704,16 +1704,17 @@
     "query-string" "^6.13.6"
     "react-is" "^16.13.0"
 
-"@react-navigation/core@^6.2.2":
-  "integrity" "sha512-gEJ1gRqt1EIqRrnJIpSQ0wWJRue9maAQNKYrlQ0a/LSKErF3g6w+sD2wW4Bbb1yj88pGhKeuI4wdB9MVK766Pg=="
-  "resolved" "https://registry.npmjs.org/@react-navigation/core/-/core-6.2.2.tgz"
-  "version" "6.2.2"
+"@react-navigation/core@^6.3.0":
+  "integrity" "sha512-nyvReUB00SAfHdL/AA+GksdaTuiC31LxHp+f1kxuPNkcGR7zSMVT+Wrq4OHe+VPFfCxJxoseQ2ElsvE+4IYFoQ=="
+  "resolved" "https://registry.npmjs.org/@react-navigation/core/-/core-6.3.0.tgz"
+  "version" "6.3.0"
   dependencies:
-    "@react-navigation/routers" "^6.1.1"
+    "@react-navigation/routers" "^6.1.2"
     "escape-string-regexp" "^4.0.0"
     "nanoid" "^3.1.23"
     "query-string" "^7.0.0"
     "react-is" "^16.13.0"
+    "use-latest-callback" "^0.1.5"
 
 "@react-navigation/elements@^1.3.4":
   "integrity" "sha512-O0jICpjn3jskVo4yiWzZozmj7DZy1ZBbn3O7dbenuUjZSj/cscjwaapmZZFGcI/IMmjmx8UTKsybhCFEIbGf3g=="
@@ -1736,20 +1737,20 @@
     "hoist-non-react-statics" "^3.3.2"
     "react-native-safe-area-view" "^0.14.9"
 
-"@react-navigation/native@^6.0.0":
-  "integrity" "sha512-z0YTB7Czdb9SNjxfzcFNB3Vym0qmUcxpiYGOOXX8PH0s+xlIs/w+2RVp6YAvAC48A30o7MMCYqy5OeR6lrtWHg=="
-  "resolved" "https://registry.npmjs.org/@react-navigation/native/-/native-6.0.11.tgz"
-  "version" "6.0.11"
+"@react-navigation/native@^6.0.0", "@react-navigation/native@^6.0.12":
+  "integrity" "sha512-23n0pDsFvFxPIkB4zrAip05uUj6Jr+5dinqrDdEU26cPoki3/iJlirvbSIs/64Om/OuTyUjFdB/zI75ng+m5Pg=="
+  "resolved" "https://registry.npmjs.org/@react-navigation/native/-/native-6.0.12.tgz"
+  "version" "6.0.12"
   dependencies:
-    "@react-navigation/core" "^6.2.2"
+    "@react-navigation/core" "^6.3.0"
     "escape-string-regexp" "^4.0.0"
     "fast-deep-equal" "^3.1.3"
     "nanoid" "^3.1.23"
 
-"@react-navigation/routers@^6.1.1":
-  "integrity" "sha512-mWWj2yh4na/OBaE7bWrft4kdAtxnG8MlV6ph3Bi6tHqgcnxENX+dnQY6y0qg/6E7cmMlaJg5nAC5y4Enr5ir8A=="
-  "resolved" "https://registry.npmjs.org/@react-navigation/routers/-/routers-6.1.1.tgz"
-  "version" "6.1.1"
+"@react-navigation/routers@^6.1.2":
+  "integrity" "sha512-uJ+N7dyrZjA2L3ykyH0OyEiLNhzxDSfUqgOS4LmrLWlgly/oYFfPTqsxCD8zP0r3hv7ayLIPQPC1u1ubSO+42A=="
+  "resolved" "https://registry.npmjs.org/@react-navigation/routers/-/routers-6.1.2.tgz"
+  "version" "6.1.2"
   dependencies:
     "nanoid" "^3.1.23"
 
@@ -3132,6 +3133,13 @@
   "integrity" "sha512-kIRtO4Hmrvxh4E45IPWG/NiUZsuRe1AQwBT09pq+kx8nm6tUS4B9TeL6+1NFy+qVBLbGKDqoQD5Ez7XYTFtBeQ=="
   "resolved" "https://registry.npmjs.org/expo-keep-awake/-/expo-keep-awake-10.2.0.tgz"
   "version" "10.2.0"
+
+"expo-location@~14.3.0":
+  "integrity" "sha512-CKU6bW1rB6521LruyUsZm6dQXXBix9E64ZZmOpVgom1DQ3Bfd23IBvXXeUQeIhy+NbOzF1itFrPTLzspgl6wPg=="
+  "resolved" "https://registry.npmjs.org/expo-location/-/expo-location-14.3.0.tgz"
+  "version" "14.3.0"
+  dependencies:
+    "@expo/config-plugins" "~5.0.0"
 
 "expo-modules-autolinking@>=0.8.1", "expo-modules-autolinking@0.10.3":
   "integrity" "sha512-av9ln2zwUt303g98raX7sDmESgL3SXs1sbbtIjh1rL7R0676XIUacIKgbydR0/4tMbOShWx14Z9fozpk9xIAJA=="
@@ -6779,6 +6787,11 @@
   dependencies:
     "querystringify" "^2.1.1"
     "requires-port" "^1.0.0"
+
+"use-latest-callback@^0.1.5":
+  "integrity" "sha512-HtHatS2U4/h32NlkhupDsPlrbiD27gSH5swBdtXbCAlc6pfOFzaj0FehW/FO12rx8j2Vy4/lJScCiJyM01E+bQ=="
+  "resolved" "https://registry.npmjs.org/use-latest-callback/-/use-latest-callback-0.1.5.tgz"
+  "version" "0.1.5"
 
 "use-sync-external-store@^1.0.0":
   "integrity" "sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA=="

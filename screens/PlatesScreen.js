@@ -5,6 +5,7 @@ import BlankPlates from '../PlateData.json';
 import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import imgSrc from '../assets/imgSrc';
+import * as Location from 'expo-location';
 
 function PlatesScreen({ navigation }) {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -57,6 +58,7 @@ function PlatesScreen({ navigation }) {
   //or perhaps make different conditions for the west and south areas since their states are so large
   //want to avoid giving bonus for same state plates when center of state is far away from border.
   const foundPlate = async (plate) => {
+
     if (plate.found) {
       Alert.alert( //confirm user wants to undo plate find
         "Do you want to mark " + plate.name + " as not found?",
@@ -86,7 +88,7 @@ function PlatesScreen({ navigation }) {
         ]
       );
     } else { //mark plate as found, update game stats
-
+      getPointMultiple();
       let gameArr = gameState;
       const plateIdx = gameArr.findIndex(p => p.id === plate.id);
       gameArr[plateIdx].found = true;
@@ -104,6 +106,31 @@ function PlatesScreen({ navigation }) {
       setDisplayPoints(true);
       setTimeout(() => setDisplayPoints(false), 1250);
     };
+  };
+
+  const getPointMultiple = async (plate) => {
+
+    const foregroundPermission = await Location.requestForegroundPermissionsAsync();
+    let foregroundSubscrition = null;
+
+    if (foregroundPermission.granted) {
+      try {
+        foregroundSubscrition = await Location.watchPositionAsync(
+          {
+            // Tracking options
+            accuracy: Location.Accuracy.High,
+            distanceInterval: 10,
+          },
+          location => {
+            const deviceLat = location.coords.latitude * Math.PI / 180;;
+            const long = location.coords.longitude;
+
+          }
+        )
+      } catch (e) {
+        console.log(e);
+      }
+    }
   };
 
   const reset = async (isGameFinished = false) => {  //reset game stats and update stored game data
