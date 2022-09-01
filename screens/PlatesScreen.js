@@ -89,29 +89,41 @@ function PlatesScreen({ navigation }) {
       );
     } else { //mark plate as found, update game stats
       getPointMultiple(plate);
-      let gameArr = gameState;
-      const plateIdx = gameArr.findIndex(p => p.id === plate.id);
-      gameArr[plateIdx].found = true;
-      setProgress([progress[0] + 1, totalPlates]);
-      setGameState(gameArr);
+      // let gameArr = gameState;
+      // const plateIdx = gameArr.findIndex(p => p.id === plate.id);
+      // gameArr[plateIdx].found = true;
+      // setProgress([progress[0] + 1, totalPlates]);
+      // setGameState(gameArr);
 
-      setLastPlateName(plate.name);
-      setRefresh(refresh + 1);
-      const saveGame = JSON.stringify(gameState);
-      await AsyncStorage.setItem('currentGame', saveGame);
-      await AsyncStorage.setItem('gameInProgress', 'true');
-      await AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString());
+      // setLastPlateName(plate.name);
+      // setRefresh(refresh + 1);
+      // const saveGame = JSON.stringify(gameState);
+      // await AsyncStorage.setItem('currentGame', saveGame);
+      // await AsyncStorage.setItem('gameInProgress', 'true');
+      // await AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString());
 
     };
   };
 
-  const addScore = async (plateScore, multiplier) => {
-    setScore(score + (plateScore * multiplier));
-    setLastPoints(plateScore * multiplier);
-    await AsyncStorage.setItem('currentScore', (score + (plateScore * multiplier)).toString());
+  const addScore = async (plate, multiplier) => {
+    const pointsScored = plate.baseScore * multiplier;
+    let gameArr = gameState;
+    const plateIdx = gameArr.findIndex(p => p.id === plate.id);
+    gameArr[plateIdx].found = true;
+    gameArr[plateIdx].score = pointsScored;
+    setProgress([progress[0] + 1, totalPlates]);
+    setGameState(gameArr);
+    setLastPlateName(plate.name);
+    setRefresh(refresh + 1);
+    const saveGame = JSON.stringify(gameState);
+    await AsyncStorage.setItem('currentGame', saveGame);
+    await AsyncStorage.setItem('gameInProgress', 'true');
+    await AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString());
+    setScore(score + (pointsScored));
+    setLastPoints(pointsScored);
+    await AsyncStorage.setItem('currentScore', (score + (pointsScored)).toString());
     setDisplayPoints(true);
     setTimeout(() => setDisplayPoints(false), 1250);
-    console.log(plateScore);
   }
 
   const getPointMultiple = async (plate) => {
@@ -145,11 +157,11 @@ function PlatesScreen({ navigation }) {
             //   "long: " + plateLong + " = " +
             //   distance);
             if (distance < 900) {
-              addScore(plate.score, .5);
+              addScore(plate, .5);
             } else if (distance > 1800) {
-              addScore(plate.score, 2);
+              addScore(plate, 2);
             } else {
-              addScore(plate.score, 1);
+              addScore(plate, 1);
             }
           }
         )
