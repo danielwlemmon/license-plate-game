@@ -7,7 +7,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 32.3182,
-        "longitude": 86.9023
+        "longitude": -86.9023
       },
       "foundAt": {
         "latitude": null,
@@ -22,7 +22,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 64.2008,
-        "longitude": 149.4937
+        "longitude": -149.4937
       },
       "foundAt": {
         "latitude": null,
@@ -37,7 +37,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 34.0489,
-        "longitude": 111.0937
+        "longitude": -111.0937
       },
       "foundAt": {
         "latitude": null,
@@ -50,9 +50,13 @@
       "name": "Arkansas",
       "country":"USA",
       "found":false,
-      "foundAt": {
+      "plateLocation": {
         "latitude": 34.5574,
-        "longitude": 92.2863
+        "longitude": -92.2863
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
       },
       "score": 57
     },
@@ -63,7 +67,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 36.7783,
-        "longitude": 119.4179
+        "longitude": -119.4179
       },
       "foundAt": {
         "latitude": null,
@@ -78,7 +82,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 39.5501,
-        "longitude": 105.7821
+        "longitude": -105.7821
       },
       "foundAt": {
         "latitude": null,
@@ -93,7 +97,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 41.6032,
-        "longitude": 73.0877
+        "longitude": -73.0877
       },
       "foundAt": {
         "latitude": null,
@@ -108,7 +112,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 38.9108,
-        "longitude": 75.5277
+        "longitude": -75.5277
       },
       "foundAt": {
         "latitude": null,
@@ -123,7 +127,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 27.6648,
-        "longitude": 81.5158
+        "longitude": -81.5158
       },
       "foundAt": {
         "latitude": null,
@@ -138,7 +142,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 32.1656,
-        "longitude": 82.9001
+        "longitude": -82.9001
       },
       "foundAt": {
         "latitude": null,
@@ -153,7 +157,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 19.8968,
-        "longitude": 155.5828
+        "longitude": -155.5828
       },
       "foundAt": {
         "latitude": null,
@@ -168,7 +172,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 44.0682,
-        "longitude": 114.7420
+        "longitude": -114.7420
       },
       "foundAt": {
         "latitude": null,
@@ -183,7 +187,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 40.6331,
-        "longitude": 89.3985
+        "longitude": -89.3985
       },
       "foundAt": {
         "latitude": null,
@@ -198,7 +202,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 40.2672,
-        "longitude": 86.1349
+        "longitude": -86.1349
       },
       "foundAt": {
         "latitude": null,
@@ -213,7 +217,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 41.8780,
-        "longitude": 93.0977
+        "longitude": -93.0977
       },
       "foundAt": {
         "latitude": null,
@@ -228,7 +232,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 39.0119,
-        "longitude": 98.4842
+        "longitude": -98.4842
       },
       "foundAt": {
         "latitude": null,
@@ -243,7 +247,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 37.8393,
-        "longitude": 84.2700
+        "longitude": -84.2700
       },
       "foundAt": {
         "latitude": null,
@@ -258,7 +262,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 30.9843,
-        "longitude": 91.9623
+        "longitude": -91.9623
       },
       "foundAt": {
         "latitude": null,
@@ -273,7 +277,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 45.2538,
-        "longitude": 69.4455
+        "longitude": -69.4455
       },
       "foundAt": {
         "latitude": null,
@@ -288,7 +292,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 39.0458,
-        "longitude": 76.6413
+        "longitude": -76.6413
       },
       "foundAt": {
         "latitude": null,
@@ -303,7 +307,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 42.4072,
-        "longitude": 71.3824
+        "longitude": -71.3824
       },
       "foundAt": {
         "latitude": null,
@@ -318,7 +322,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 44.3148,
-        "longitude": 85.6024
+        "longitude": -85.6024
       },
       "foundAt": {
         "latitude": null,
@@ -333,7 +337,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 46.7296,
-        "longitude": 94.6859
+        "longitude": -94.6859
       },
       "foundAt": {
         "latitude": null,
@@ -348,7 +352,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 32.3547,
-        "longitude": 89.3985
+        "longitude": -89.3985
       },
       "foundAt": {
         "latitude": null,
@@ -363,7 +367,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 37.9643,
-        "longitude": 91.8318
+        "longitude": -91.8318
       },
       "foundAt": {
         "latitude": null,
@@ -378,7 +382,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 46.8797,
-        "longitude": 110.3626
+        "longitude": -110.3626
       },
       "foundAt": {
         "latitude": null,
@@ -393,7 +397,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 41.4925,
-        "longitude": 99.9018
+        "longitude": -99.9018
       },
       "foundAt": {
         "latitude": null,
@@ -408,7 +412,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 38.8026,
-        "longitude": 116.4194
+        "longitude": -116.4194
       },
       "foundAt": {
         "latitude": null,
@@ -423,7 +427,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 43.1939,
-        "longitude": 71.5724
+        "longitude": -71.5724
       },
       "foundAt": {
         "latitude": null,
@@ -438,7 +442,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 40.0583,
-        "longitude": 74.4057
+        "longitude": -74.4057
       },
       "foundAt": {
         "latitude": null,
@@ -453,7 +457,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 34.5199,
-        "longitude": 105.8701
+        "longitude": -105.8701
       },
       "foundAt": {
         "latitude": null,
@@ -468,7 +472,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 40.7128,
-        "longitude": 74.0060
+        "longitude": -74.0060
       },
       "foundAt": {
         "latitude": null,
@@ -483,7 +487,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 35.7596,
-        "longitude": 79.0193
+        "longitude": -79.0193
       },
       "foundAt": {
         "latitude": null,
@@ -498,7 +502,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 47.5515,
-        "longitude": 101.0020
+        "longitude": -101.0020
       },
       "foundAt": {
         "latitude": null,
@@ -513,7 +517,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 40.4173,
-        "longitude": 82.9071
+        "longitude": -82.9071
       },
       "foundAt": {
         "latitude": null,
@@ -528,7 +532,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 35.0078,
-        "longitude": 97.0929
+        "longitude": -97.0929
       },
       "foundAt": {
         "latitude": null,
@@ -543,7 +547,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 43.8041,
-        "longitude": 120.5542
+        "longitude": -120.5542
       },
       "foundAt": {
         "latitude": null,
@@ -558,7 +562,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 41.2033,
-        "longitude": 77.1945
+        "longitude": -77.1945
       },
       "foundAt": {
         "latitude": null,
@@ -573,7 +577,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 41.5801,
-        "longitude": 71.4774
+        "longitude": -71.4774
       },
       "foundAt": {
         "latitude": null,
@@ -588,7 +592,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 33.8361,
-        "longitude": 81.1637
+        "longitude": -81.1637
       },
       "foundAt": {
         "latitude": null,
@@ -603,7 +607,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 43.9695,
-        "longitude": 99.9018
+        "longitude": -99.9018
       },
       "foundAt": {
         "latitude": null,
@@ -618,7 +622,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 35.5175,
-        "longitude": 86.5804
+        "longitude": -86.5804
       },
       "foundAt": {
         "latitude": null,
@@ -633,7 +637,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 31.9686,
-        "longitude": 99.9018
+        "longitude": -99.9018
       },
       "foundAt": {
         "latitude": null,
@@ -648,7 +652,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 39.3210,
-        "longitude": 111.0937
+        "longitude": -111.0937
       },
       "foundAt": {
         "latitude": null,
@@ -663,7 +667,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 44.5588,
-        "longitude": 72.5778
+        "longitude": -72.5778
       },
       "foundAt": {
         "latitude": null,
@@ -678,7 +682,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 37.4316,
-        "longitude": 78.6569
+        "longitude": -78.6569
       },
       "foundAt": {
         "latitude": null,
@@ -693,7 +697,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 47.7511,
-        "longitude": 120.7401
+        "longitude": -120.7401
       },
       "foundAt": {
         "latitude": null,
@@ -708,7 +712,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 38.5976,
-        "longitude": 80.4549
+        "longitude": -80.4549
       },
       "foundAt": {
         "latitude": null,
@@ -723,7 +727,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 43.7844,
-        "longitude": 88.7879
+        "longitude": -88.7879
       },
       "foundAt": {
         "latitude": null,
@@ -738,7 +742,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 43.0760,
-        "longitude": 107.2903
+        "longitude": -107.2903
       },
       "foundAt": {
         "latitude": null,
@@ -753,7 +757,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 53.9333,
-        "longitude": 116.5765
+        "longitude": -116.5765
       },
       "foundAt": {
         "latitude": null,
@@ -768,7 +772,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 53.7267,
-        "longitude": 127.6476
+        "longitude": -127.6476
       },
       "foundAt": {
         "latitude": null,
@@ -783,7 +787,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 53.7609,
-        "longitude": 98.9139
+        "longitude": -98.9139
       },
       "foundAt": {
         "latitude": null,
@@ -798,7 +802,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 46.5653,
-        "longitude": 66.4619
+        "longitude": -66.4619
       },
       "foundAt": {
         "latitude": null,
@@ -813,7 +817,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 53.1355,
-        "longitude": 57.6604
+        "longitude": -57.6604
       },
       "foundAt": {
         "latitude": null,
@@ -828,7 +832,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 64.8255,
-        "longitude": 124.8457
+        "longitude": -124.8457
       },
       "foundAt": {
         "latitude": null,
@@ -843,7 +847,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 44.6820,
-        "longitude": 63.7443
+        "longitude": -63.7443
       },
       "foundAt": {
         "latitude": null,
@@ -858,7 +862,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 70.2998,
-        "longitude": 83.1076
+        "longitude": -83.1076
       },
       "foundAt": {
         "latitude": null,
@@ -873,7 +877,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 51.2538,
-        "longitude": 85.3232
+        "longitude": -85.3232
       },
       "foundAt": {
         "latitude": null,
@@ -888,7 +892,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 46.5107,
-        "longitude": 63.4168
+        "longitude": -63.4168
       },
       "foundAt": {
         "latitude": null,
@@ -903,7 +907,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 46.8131,
-        "longitude": 71.2075
+        "longitude": -71.2075
       },
       "foundAt": {
         "latitude": null,
@@ -918,7 +922,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 52.9399,
-        "longitude": 106.4509
+        "longitude": -106.4509
       },
       "foundAt": {
         "latitude": null,
@@ -933,7 +937,7 @@
       "found": false,
       "plateLocation": {
         "latitude": 64.2823,
-        "longitude": 135.0000
+        "longitude": -135.0000
       },
       "foundAt": {
         "latitude": null,
