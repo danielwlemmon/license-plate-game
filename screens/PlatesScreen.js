@@ -222,59 +222,74 @@ function PlatesScreen({ navigation }) {
   };
 
   const finishGame = async () => {
-    //await AsyncStorage.setItem('gameHistory', '');
-    const today = new Date().toDateString();
-    let highestPointPlate = 0;
-    let highestPointName = '';
-    let nonUSACount = 0;
-    gameState.forEach(plate => {
-      //find num non-usa plates found and highest scoring plate
-      (plate.score > highestPointPlate && plate.found == true) ?
-        (highestPointPlate = plate.score, highestPointName = plate.name) : null;
-      if (plate.country != 'USA' && plate.found) {
-        nonUSACount++;
-      }
-    });
+    Alert.alert(
+      "Are you sure?",
+      "This will save the stats for this game, and reset the game data",
+      [
+        {
+          text: "No",
+          onPress: () => setRefresh(refresh + 1),
+          style: "cancel"
+        },
+        {
+          text: "Yes", onPress: async () => {
 
-    try { //get current game stats, add new game stats and save
-      let gameHistory = await AsyncStorage.getItem('gameHistory');
-      let parsedGameHistory = JSON.parse(gameHistory);
-      const stats = {
-        "id": 0,
-        "date": today,
-        "nonUSA": nonUSACount,
-        "found": progress[0],
-        "score": score,
-        "highPoint": highestPointPlate,
-        "highName": highestPointName
-      };
+            //await AsyncStorage.setItem('gameHistory', '');
+            const today = new Date().toDateString();
+            let highestPointPlate = 0;
+            let highestPointName = '';
+            let nonUSACount = 0;
+            gameState.forEach(plate => {
+              //find num non-usa plates found and highest scoring plate
+              (plate.score > highestPointPlate && plate.found == true) ?
+                (highestPointPlate = plate.score, highestPointName = plate.name) : null;
+              if (plate.country != 'USA' && plate.found) {
+                nonUSACount++;
+              }
+            });
 
-      if (gameHistory != null) {
-        //get a unique id to store.
-        const ids = parsedGameHistory.map(game => {
-          return game.id;
-        });
-        const maxId = Math.max(...ids);
-        stats.id = (maxId + 1);
+            try { //get current game stats, add new game stats and save
+              let gameHistory = await AsyncStorage.getItem('gameHistory');
+              let parsedGameHistory = JSON.parse(gameHistory);
+              const stats = {
+                "id": 0,
+                "date": today,
+                "nonUSA": nonUSACount,
+                "found": progress[0],
+                "score": score,
+                "highPoint": highestPointPlate,
+                "highName": highestPointName
+              };
 
-        parsedGameHistory.push(stats);
-        await AsyncStorage.setItem('gameHistory', JSON.stringify(parsedGameHistory))
-      } else {
-        await AsyncStorage.setItem('gameHistory', JSON.stringify([stats]));
-      }
+              if (gameHistory != null) {
+                //get a unique id to store.
+                const ids = parsedGameHistory.map(game => {
+                  return game.id;
+                });
+                const maxId = Math.max(...ids);
+                stats.id = (maxId + 1);
 
-    } catch (e) {
-      console.log(e);
-    };
+                parsedGameHistory.push(stats);
+                await AsyncStorage.setItem('gameHistory', JSON.stringify(parsedGameHistory))
+              } else {
+                await AsyncStorage.setItem('gameHistory', JSON.stringify([stats]));
+              }
 
-    Alert.alert("Road Trip Stats:", //display stats
-      today + '\n' +
-      "License Plates Found: " + progress[0] + '\n' +
-      "International Plates: " + nonUSACount + '\n' +
-      "Score: " + score + '\n' +
-      "Best Find: " + highestPointName + " " + highestPointPlate + " points"
-    )
-    reset(true);
+            } catch (e) {
+              console.log(e);
+            };
+
+            Alert.alert("Road Trip Stats:", //display stats
+              today + '\n' +
+              "License Plates Found: " + progress[0] + '\n' +
+              "International Plates: " + nonUSACount + '\n' +
+              "Score: " + score + '\n' +
+              "Best Find: " + highestPointName + " " + highestPointPlate + " points"
+            )
+            reset(true);
+          }
+        }
+      ])
   };
 
   //create score view fixed to center of the screen, turn on and off display use timer
