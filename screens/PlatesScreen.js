@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert } from 'react-native';
+import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, AppState, Alert } from 'react-native';
 import { Button, DefaultTheme } from 'react-native-paper';
 import BlankPlates from '../PlateData.json';
 import { Colors, Fonts } from '../assets/colors';
@@ -17,29 +17,25 @@ function PlatesScreen({ navigation }) {
   const [displayPoints, setDisplayPoints] = useState(false);
   const [lastPoints, setLastPoints] = useState(0);
   const [lastPlateName, setLastPlateName] = useState('');
+  const [latitude, setLatitude] = useState(0);
+  const [longitude, setLongitude] = useState(0);
+  const [lastLocUpdate, setLastLocUpdate] = useState();
 
   useEffect(() => {
 
     const retrieveData = async () => {
-
       try {
-
         const retrievedData = await AsyncStorage.getItem('gameInProgress') //setup initial game data
-
         if (!retrievedData) {
-
           setGameState(BlankPlates.PlateData);
           console.log('setting initial data')
         } else if (retrievedData == 'true') {
-
           let savedGame = await AsyncStorage.getItem('currentGame')
           savedGame = JSON.parse(savedGame);
           setGameState(savedGame);
-
           let savedProgress = await AsyncStorage.getItem('currentProgress');
           savedProgress = parseInt(savedProgress);
           setProgress([savedProgress, totalPlates]);
-
           let loadedScore = await AsyncStorage.getItem('currentScore');
           loadedScore = parseInt(loadedScore);
           setScore(loadedScore);
@@ -49,6 +45,32 @@ function PlatesScreen({ navigation }) {
       };
     };
 
+    const getLocation = async () => {
+      const foregroundPermission = await Location.requestForegroundPermissionsAsync();
+      let locationSubscrition = null;
+
+      if (foregroundPermission.granted) {
+        try {
+          foregroundSubscrition = await Location.watchPositionAsync(
+
+            {
+              // Tracking options
+              accuracy: Location.Accuracy.Low,
+              distanceInterval: 10,
+            },
+            location => {
+              setLatitude(location.coords.latitude);
+              setLongitude(location.coords.longitude);
+              console.log('getting location')
+            }
+          )
+        } catch (e) {
+          console.log(e);
+        }
+      }
+    };
+
+    getLocation()
     retrieveData();
 
   }, []);
@@ -58,7 +80,7 @@ function PlatesScreen({ navigation }) {
   //or perhaps make different conditions for the west and south areas since their states are so large
   //want to avoid giving bonus for same state plates when center of state is far away from border.
   const foundPlate = async (plate) => {
-
+    console.log('plate found function')
     if (plate.found) {
       Alert.alert( //confirm user wants to undo plate find
         "Do you want to mark " + plate.name + " as not found?",
@@ -74,51 +96,60 @@ function PlatesScreen({ navigation }) {
               let gameArr = gameState;
               const plateIdx = gameArr.findIndex(p => p.id === plate.id);
               gameArr[plateIdx].found = false;
-              setProgress([progress[0] - 1, totalPlates]);
-              setGameState(gameArr);
-              setScore(score - plate.score);
-              setRefresh(refresh + 1);
               const saveGame = JSON.stringify(gameState);
               await AsyncStorage.setItem('currentGame', saveGame);
               await AsyncStorage.setItem('gameInProgress', 'true');
               await AsyncStorage.setItem('currentProgress', (progress[0] - 1).toString());
               await AsyncStorage.setItem('currentScore', (score - plate.score).toString());
+              setProgress([progress[0] - 1, totalPlates]);
+              setGameState(gameArr);
+              setScore(score - plate.score);
+              setRefresh(refresh + 1);
             }
           }
         ]
       );
     } else { //mark plate as found, update game stats
       getPointMultiple(plate);
-      // let gameArr = gameState;
-      // const plateIdx = gameArr.findIndex(p => p.id === plate.id);
-      // gameArr[plateIdx].found = true;
-      // setProgress([progress[0] + 1, totalPlates]);
-      // setGameState(gameArr);
+    };
+  };
 
-      // setLastPlateName(plate.name);
-      // setRefresh(refresh + 1);
-      // const saveGame = JSON.stringify(gameState);
-      // await AsyncStorage.setItem('currentGame', saveGame);
-      // await AsyncStorage.setItem('gameInProgress', 'true');
-      // await AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString());
 
+
+  const getPointMultiple = async (plate) => {
+    console.log('point multiplier function')
+
+
+    console.log('getting location')
+    const plateLat = plate.plateLocation.latitude;
+    const plateLong = plate.plateLocation.longitude;
+    const deviceLat = latitude;
+    const deviceLong = longitude;
+    let p = 0.017453292519943295;    // Math.PI / 180
+    let c = Math.cos;
+    let a = 0.5 - c((deviceLat - plateLat) * p) / 2 +
+      c(plateLat * p) * c(deviceLat * p) *
+      (1 - c((deviceLong - plateLong) * p)) / 2;
+
+    const distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
+
+    if (distance < 900) {
+      addScore(plate, 0.5);
+    } else if (distance > 1800) {
+      addScore(plate, 2);
+    } else {
+      addScore(plate, 1);
     };
   };
 
   const addScore = async (plate, multiplier) => {
+    console.log('adding score');
 
     const pointsScored = plate.baseScore * multiplier;
     let gameArr = gameState;
     const plateIdx = gameArr.findIndex(p => p.id === plate.id); //find the found plate's index
     gameArr[plateIdx].found = true; //set found to true
     gameArr[plateIdx].score = pointsScored; //track the points given for the found plate
-
-
-    setProgress([progress[0] + 1, totalPlates]); //increment plate found count
-    setGameState(gameArr); //update the game State with found plate info
-    setLastPlateName(plate.name); //track last plate to be displayed    
-    setScore(score + (pointsScored)); //increa
-    setLastPoints(pointsScored);
 
     const saveGame = JSON.stringify(gameState);
     const promises = [
@@ -128,57 +159,20 @@ function PlatesScreen({ navigation }) {
       AsyncStorage.setItem('currentScore', (score + (pointsScored)).toString())
     ];
     Promise.all(promises);
+
+    setProgress([progress[0] + 1, totalPlates]); //increment plate found count
+    setGameState(gameArr); //update the game State with found plate info
+    setLastPlateName(plate.name); //track last plate to be displayed    
+    setScore(score + (pointsScored)); //increa
+    setLastPoints(pointsScored);
+
     setTimeout(() => setDisplayPoints(false), 1000);
     setDisplayPoints(true);
-  }
 
-  const getPointMultiple = async (plate) => {
-
-    const foregroundPermission = await Location.requestForegroundPermissionsAsync();
-    let foregroundSubscrition = null;
-
-    if (foregroundPermission.granted) {
-      try {
-        foregroundSubscrition = await Location.watchPositionAsync(
-          {
-            // Tracking options
-            accuracy: Location.Accuracy.High,
-            distanceInterval: 10,
-          },
-          location => {
-            const plateLat = plate.plateLocation.latitude;
-            const plateLong = plate.plateLocation.longitude;
-            const deviceLat = location.coords.latitude;
-            const deviceLong = location.coords.longitude;
-            let p = 0.017453292519943295;    // Math.PI / 180
-            let c = Math.cos;
-            let a = 0.5 - c((deviceLat - plateLat) * p) / 2 +
-              c(plateLat * p) * c(deviceLat * p) *
-              (1 - c((deviceLong - plateLong) * p)) / 2;
-
-            const distance = 12742 * Math.asin(Math.sqrt(a)); // 2 * R; R = 6371 km
-            // console.log("device lat: " + deviceLat + " " +  //this is to verify calculations with other source
-            //   "long: " + deviceLong + " " +
-            //   "plate lat: " + plateLat + " " +
-            //   "long: " + plateLong + " = " +
-            //   distance);
-            if (distance < 900) {
-              addScore(plate, .5);
-            } else if (distance > 1800) {
-              addScore(plate, 2);
-            } else {
-              addScore(plate, 1);
-            }
-          }
-        )
-      } catch (e) {
-        console.log(e);
-      }
-    }
   };
 
   const reset = async (isGameFinished = false) => {  //reset game stats and update stored game data
-
+    console.log('reset function')
     if (isGameFinished == true) {
       let gameArr = gameState;
       gameArr.forEach((plate) => {
@@ -228,6 +222,7 @@ function PlatesScreen({ navigation }) {
   };
 
   const finishGame = async () => {
+    console.log('finish game function')
     Alert.alert(
       "Are you sure?",
       "This will save the stats for this game, and reset the game data",
@@ -297,6 +292,7 @@ function PlatesScreen({ navigation }) {
         }
       ])
   };
+
 
   //create score view fixed to center of the screen, turn on and off display use timer
 
