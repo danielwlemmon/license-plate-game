@@ -106,24 +106,30 @@ function PlatesScreen({ navigation }) {
   };
 
   const addScore = async (plate, multiplier) => {
+
     const pointsScored = plate.baseScore * multiplier;
     let gameArr = gameState;
-    const plateIdx = gameArr.findIndex(p => p.id === plate.id);
-    gameArr[plateIdx].found = true;
-    gameArr[plateIdx].score = pointsScored;
-    setProgress([progress[0] + 1, totalPlates]);
-    setGameState(gameArr);
-    setLastPlateName(plate.name);
-    setRefresh(refresh + 1);
-    const saveGame = JSON.stringify(gameState);
-    await AsyncStorage.setItem('currentGame', saveGame);
-    await AsyncStorage.setItem('gameInProgress', 'true');
-    await AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString());
-    setScore(score + (pointsScored));
+    const plateIdx = gameArr.findIndex(p => p.id === plate.id); //find the found plate's index
+    gameArr[plateIdx].found = true; //set found to true
+    gameArr[plateIdx].score = pointsScored; //track the points given for the found plate
+
+
+    setProgress([progress[0] + 1, totalPlates]); //increment plate found count
+    setGameState(gameArr); //update the game State with found plate info
+    setLastPlateName(plate.name); //track last plate to be displayed    
+    setScore(score + (pointsScored)); //increa
     setLastPoints(pointsScored);
-    await AsyncStorage.setItem('currentScore', (score + (pointsScored)).toString());
+
+    const saveGame = JSON.stringify(gameState);
+    const promises = [
+      AsyncStorage.setItem('currentGame', saveGame),
+      AsyncStorage.setItem('gameInProgress', 'true'),
+      AsyncStorage.setItem('currentProgress', (progress[0] + 1).toString()),
+      AsyncStorage.setItem('currentScore', (score + (pointsScored)).toString())
+    ];
+    Promise.all(promises);
+    setTimeout(() => setDisplayPoints(false), 1000);
     setDisplayPoints(true);
-    setTimeout(() => setDisplayPoints(false), 1250);
   }
 
   const getPointMultiple = async (plate) => {
