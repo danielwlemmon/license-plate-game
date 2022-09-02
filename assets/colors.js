@@ -8,6 +8,7 @@ export const Colors = {
   slateBlue: "#5572b9",
   slateGrey: "#708090",
   white: "#fff",
+  plateGrey: "#9f9893"
 }
 
 export const Fonts = {

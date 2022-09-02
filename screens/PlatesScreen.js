@@ -224,9 +224,13 @@ function PlatesScreen({ navigation }) {
   const finishGame = async () => {
     //await AsyncStorage.setItem('gameHistory', '');
     const today = new Date().toDateString();
+    let highestPointPlate = 0;
+    let highestPointName = '';
     let nonUSACount = 0;
     gameState.forEach(plate => {
-      //find num non-usa plates found
+      //find num non-usa plates found and highest scoring plate
+      (plate.score > highestPointPlate && plate.found == true) ?
+        (highestPointPlate = plate.score, highestPointName = plate.name) : null;
       if (plate.country != 'USA' && plate.found) {
         nonUSACount++;
       }
@@ -240,7 +244,9 @@ function PlatesScreen({ navigation }) {
         "date": today,
         "nonUSA": nonUSACount,
         "found": progress[0],
-        "score": score
+        "score": score,
+        "highPoint": highestPointPlate,
+        "highName": highestPointName
       };
 
       if (gameHistory != null) {
@@ -265,7 +271,8 @@ function PlatesScreen({ navigation }) {
       today + '\n' +
       "License Plates Found: " + progress[0] + '\n' +
       "International Plates: " + nonUSACount + '\n' +
-      "Score: " + score
+      "Score: " + score + '\n' +
+      "Best Find: " + highestPointName + " " + highestPointPlate + " points"
     )
     reset(true);
   };
@@ -373,8 +380,8 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     position: 'absolute',
     bottom: 0,
-    paddingBottom: 35,
-    backgroundColor: Colors.slateGrey,
+    paddingBottom: '7%',
+    backgroundColor: Colors.plateGrey,
   },
   buttonText: {
     fontFamily: Fonts.Main,
@@ -511,7 +518,7 @@ const styles = StyleSheet.create({
   progressText: {
     color: 'white',
     fontSize: '20px',
-    margin: 10
+    padding: '2%'
   },
   resetBlackBorder: {
     position: 'absolute',

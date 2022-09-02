@@ -132,6 +132,7 @@ function History({ navigation }) {
                             <Text style={styles.statText}>Score: {game.score}</Text>
                             <Text style={styles.statText}>Found: {game.found} plates</Text>
                             <Text style={styles.statText}>non-USA: {game.nonUSA} plates</Text>
+                            <Text style={styles.statText}>Top Find: {game.highName} {game.highPoint} points</Text>
                           </View>
 
                           <View style={styles.deleteContainer}>
@@ -252,6 +253,7 @@ const styles = StyleSheet.create({
     color: Colors.pearlWhite
   },
   textContainer: {
+    maxWidth: '80%',
     marginLeft: 20,
 
   },
