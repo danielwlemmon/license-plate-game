@@ -8,13 +8,17 @@
       "distribution": "internal"
     },
     "preview": {
-      "ios": {
-        "simulator": true
-      }
+      "distribution": "internal"
     },
     "production": {}
   },
   "submit": {
-    "production": {}
+    "production": {
+      "ios": {
+        "appleId": "danielwlemmon@gmail.com",
+        "appleTeamId": "C86X522W2S"
+    }
+  }
   }
 }
+

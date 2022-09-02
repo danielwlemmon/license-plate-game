@@ -61,7 +61,7 @@ function PlatesScreen({ navigation }) {
             location => {
               setLatitude(location.coords.latitude);
               setLongitude(location.coords.longitude);
-              console.log('getting location')
+
             }
           )
         } catch (e) {
@@ -80,7 +80,7 @@ function PlatesScreen({ navigation }) {
   //or perhaps make different conditions for the west and south areas since their states are so large
   //want to avoid giving bonus for same state plates when center of state is far away from border.
   const foundPlate = async (plate) => {
-    console.log('plate found function')
+
     if (plate.found) {
       Alert.alert( //confirm user wants to undo plate find
         "Do you want to mark " + plate.name + " as not found?",
@@ -117,10 +117,6 @@ function PlatesScreen({ navigation }) {
 
 
   const getPointMultiple = async (plate) => {
-    console.log('point multiplier function')
-
-
-    console.log('getting location')
     const plateLat = plate.plateLocation.latitude;
     const plateLong = plate.plateLocation.longitude;
     const deviceLat = latitude;
@@ -143,8 +139,6 @@ function PlatesScreen({ navigation }) {
   };
 
   const addScore = async (plate, multiplier) => {
-    console.log('adding score');
-
     const pointsScored = plate.baseScore * multiplier;
     let gameArr = gameState;
     const plateIdx = gameArr.findIndex(p => p.id === plate.id); //find the found plate's index

@@ -2,9 +2,9 @@
   "expo": {
     "name": "license-plate-game",
     "slug": "license-plate-game",
-    "version": "1.0.0",
+    "version": "0.5.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/plateGameIcon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/loading-Splash.png",
@@ -18,7 +18,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "licenseplate.1.0"
     },
     "android": {
@@ -28,7 +28,7 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/plateGameIcon.png"
     },
     "extra": {
       "eas": {

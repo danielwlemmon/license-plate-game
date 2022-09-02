@@ -2941,6 +2941,11 @@
   dependencies:
     "path-type" "^4.0.0"
 
+"eas@^0.1.0":
+  "integrity" "sha512-w88fTTTkfDLHwcaVW8wiYjOtnBBToguzc6AyIldD1vOrCRTKxhQEDS8oIE7nWeSJ+kCoIeoHd79Mhwvntydixg=="
+  "resolved" "https://registry.npmjs.org/eas/-/eas-0.1.0.tgz"
+  "version" "0.1.0"
+
 "ee-first@1.1.1":
   "integrity" "sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow=="
   "resolved" "https://registry.npmjs.org/ee-first/-/ee-first-1.1.1.tgz"
