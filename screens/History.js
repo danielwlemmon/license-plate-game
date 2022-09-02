@@ -210,9 +210,9 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     position: 'absolute',
-    height: 163,
-    width: 338,
-    borderRadius: 20,
+    height: '97.5%',
+    width: '99%',
+    borderRadius: 21,
     backgroundColor: Colors.signBlue,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
   },
   statsContainer: {
     borderRadius: 25,
-    height: 175,
+    height: 185,
     width: 350,
     marginTop: 10,
     alignItems: 'center',
@@ -263,8 +263,8 @@ const styles = StyleSheet.create({
   },
   whiteBorder: {
     position: 'absolute',
-    height: 167,
-    width: 342,
+    height: '97%',
+    width: '98%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 22,
