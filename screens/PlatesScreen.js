@@ -131,8 +131,6 @@ function PlatesScreen({ navigation }) {
 
     if (distance < 900) {
       addScore(plate, 0.5);
-    } else if (distance > 1800) {
-      addScore(plate, 2);
     } else {
       addScore(plate, 1);
     };
