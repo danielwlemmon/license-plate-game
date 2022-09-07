@@ -32,7 +32,7 @@ function PlatesScreen({ navigation }) {
         } else if (retrievedData == 'true') {
           let savedGame = await AsyncStorage.getItem('currentGame')
           savedGame = JSON.parse(savedGame);
-          setGameState(savedGame);
+          sortPlatesByFound(savedGame);
           let savedProgress = await AsyncStorage.getItem('currentProgress');
           savedProgress = parseInt(savedProgress);
           setProgress([savedProgress, totalPlates]);
@@ -102,7 +102,7 @@ function PlatesScreen({ navigation }) {
               await AsyncStorage.setItem('currentProgress', (progress[0] - 1).toString());
               await AsyncStorage.setItem('currentScore', (score - plate.score).toString());
               setProgress([progress[0] - 1, totalPlates]);
-              setGameState(gameArr);
+              sortPlatesByFound(gameArr);
               setScore(score - plate.score);
               setRefresh(refresh + 1);
             }
@@ -114,7 +114,12 @@ function PlatesScreen({ navigation }) {
     };
   };
 
-
+  const sortPlatesByFound = (gameArr) => {
+    const alphaSort = gameArr.sort((a, b) => (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0)
+    const countrySort = alphaSort.sort((a, b) => (b.country < a.country) ? -1 : (a.country > b.country) ? 1 : 0)
+    const foundFirst = countrySort.sort((a, b) => Number(b.found) - Number(a.found));
+    setGameState(foundFirst);
+  };
 
   const getPointMultiple = async (plate) => {
     const plateLat = plate.plateLocation.latitude;
@@ -153,7 +158,7 @@ function PlatesScreen({ navigation }) {
     Promise.all(promises);
 
     setProgress([progress[0] + 1, totalPlates]); //increment plate found count
-    setGameState(gameArr); //update the game State with found plate info
+    sortPlatesByFound(gameArr); //update the game State with found plate info
     setLastPlateName(plate.name); //track last plate to be displayed    
     setScore(score + (pointsScored)); //increa
     setLastPoints(pointsScored);
@@ -164,14 +169,13 @@ function PlatesScreen({ navigation }) {
   };
 
   const reset = async (isGameFinished = false) => {  //reset game stats and update stored game data
-    console.log('reset function')
     if (isGameFinished == true) {
       let gameArr = gameState;
       gameArr.forEach((plate) => {
         plate.found = false;
       });
       setProgress([0, totalPlates]);
-      setGameState(gameArr);
+      sortPlatesByFound(gameArr);
       setScore(0);
       setRefresh(refresh + 1);
       await AsyncStorage.setItem('currentGame', '');
@@ -196,7 +200,7 @@ function PlatesScreen({ navigation }) {
                   plate.found = false;
                 });
                 setProgress([0, totalPlates]);
-                setGameState(gameArr);
+                sortPlatesByFound(gameArr);
                 setScore(0);
                 setRefresh(refresh + 1);
                 await AsyncStorage.setItem('currentGame', '');
@@ -317,9 +321,9 @@ function PlatesScreen({ navigation }) {
           {
             gameState ?
               <View>
-                {gameState.map((plate) => {
+                {gameState.map((plate, i) => {
                   return (
-                    <View key={plate.id}>
+                    <View key={plate.id} style={(plate.found == true && gameState[i + 1].found == false) ? { marginBottom: 160 } : null}>
                       <TouchableOpacity onPress={() => { foundPlate(plate) }} style={styles.plateButton}>
                         <Image source={imgSrc[plate.id].source} style={plate.found ? styles.foundImage : styles.notFoundImage} />
 
@@ -473,7 +477,7 @@ const styles = StyleSheet.create({
   notFoundImage: {
     flex: 1,
     opacity: 1,
-    borderRadius: 15
+    borderRadius: 19,
   },
   plateButton: {
     marginTop: 10,
