@@ -323,7 +323,7 @@ function PlatesScreen({ navigation }) {
               <View>
                 {gameState.map((plate, i) => {
                   return (
-                    <View key={plate.id} style={(plate.found == true && gameState[i + 1].found == false) ? { marginBottom: 160 } : null}>
+                    <View key={plate.id} style={(plate.found == true && gameState[i + 1].found == false) ? { borderBottomColor: Colors.pearlWhite, borderBottomWidth: 4, paddingBottom: 135 } : null}>
                       <TouchableOpacity onPress={() => { foundPlate(plate) }} style={styles.plateButton}>
                         <Image source={imgSrc[plate.id].source} style={plate.found ? styles.foundImage : styles.notFoundImage} />
 
@@ -480,7 +480,7 @@ const styles = StyleSheet.create({
     borderRadius: 19,
   },
   plateButton: {
-    marginTop: 10,
+    marginTop: 5,
     alignItems: 'center'
   },
   pointsAlert: {
