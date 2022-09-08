@@ -28,7 +28,7 @@ function PlatesScreen({ navigation }) {
         const retrievedData = await AsyncStorage.getItem('gameInProgress') //setup initial game data
         if (!retrievedData) {
           setGameState(BlankPlates.PlateData);
-          console.log('setting initial data')
+          //console.log('setting initial data')
         } else if (retrievedData == 'true') {
           let savedGame = await AsyncStorage.getItem('currentGame')
           savedGame = JSON.parse(savedGame);
@@ -218,7 +218,7 @@ function PlatesScreen({ navigation }) {
   };
 
   const finishGame = async () => {
-    console.log('finish game function')
+    //console.log('finish game function')
     Alert.alert(
       "Are you sure?",
       "This will save the stats for this game, and reset the game data",
