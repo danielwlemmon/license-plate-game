@@ -30,7 +30,7 @@ function InfoScreen({ navigation }) {
                 <View style={styles.innerContainer}>
                   <Text style={styles.infoText}>Tap plates to record them as found.  Scores are based on several factors,
                     number of vehicles registered to a state (population for Canada), and points will be lowered for
-                    plates found near the place for which they belong</Text>
+                    plates found near the place for which they belong.</Text>
                 </View>
               </View>
             </View>
@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
   },
   innerContainer: {
     position: 'absolute',
-    height: 465,
-    width: 340,
+    height: "99%",
+    width: "99%",
     alignItems: 'center',
     justifyContent: 'start',
     borderRadius: 17,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.signYellow,
   },
   outerContainer: {
-    height: 475,
+    height: 330,
     width: 350,
     alignItems: 'center',
     justifyContent: 'center',
@@ -147,8 +147,8 @@ const styles = StyleSheet.create({
   },
   whiteBorder: {
     position: 'absolute',
-    height: 469,
-    width: 344,
+    height: "97%",
+    width: "97%",
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 19,
