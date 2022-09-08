@@ -411,9 +411,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
   },
   foundImage: {
-    flex: 'start',
     borderRadius: 15,
-    alignSelf: 'flex-start',
     marginBottom: -130,
   },
   gameButton: {
