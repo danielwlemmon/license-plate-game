@@ -42,7 +42,9 @@ function HomeScreen({ navigation }) {
       </View>
     </PaperProvider>
   )
-}
+};
+
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -57,7 +59,12 @@ const styles = StyleSheet.create({
     height: 150,
   },
   buttonText: {
-    fontFamily: 'AvenirNext-Regular',
+
+    ...Platform.select({
+      ios: {
+        fontFamily: Fonts.Avenir,
+      }
+    }),
     color: Colors.pearlWhite,
     fontSize: 30,
     fontWeight: '600'
@@ -73,7 +80,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerText: {
-    fontFamily: Fonts.Main,
+    ...Platform.select({
+      ios: {
+        fontFamily: Fonts.Main,
+      }
+    }),
     fontSize: 30,
     fontWeight: 'bold',
   },
@@ -106,5 +117,3 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.pearlWhite,
   },
 });
-
-export default HomeScreen

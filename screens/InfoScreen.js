@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert } from 'react-native';
+import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert, Platform } from 'react-native';
 import { Colors, Fonts } from '../assets/colors';
 
 function InfoScreen({ navigation }) {
@@ -19,7 +19,7 @@ function InfoScreen({ navigation }) {
                 <View style={styles.blackBorder}>
                   <View style={styles.innerButtonContainer}>
                     <View style={styles.rotateText}>
-                      <Text style={[styles.infoText, { color: Colors.black, fontSize: 60, fontWeight: '500' }]}>←</Text>
+                      <Text style={[styles.infoBtnText]}>←</Text>
                     </View>
                   </View>
                 </View>
@@ -50,6 +50,8 @@ function InfoScreen({ navigation }) {
     </View>
   )
 };
+
+export default InfoScreen;
 
 const styles = StyleSheet.create({
   backButton: {
@@ -87,9 +89,24 @@ const styles = StyleSheet.create({
   },
   infoText: {
     color: Colors.pearlWhite,
-    fontFamily: Fonts.main,
+    ...Platform.select({
+      ios: {
+        fontFamily: Fonts.Main,
+      }
+    }),
     fontSize: 25,
     padding: 20
+  },
+  infoBtnText: {
+    color: Colors.black,
+    fontSize: 60,
+    fontWeight: '500',
+    ...Platform.select({
+      android: {
+        fontSize: 80,
+        marginTop: -40,
+      }
+    })
   },
   innerButtonContainer: {
     position: 'absolute',
@@ -99,13 +116,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 4,
     backgroundColor: Colors.signYellow,
+
   },
   innerContainer: {
     position: 'absolute',
     height: "99%",
     width: "99%",
     alignItems: 'center',
-    justifyContent: 'start',
+    justifyContent: 'flex-start',
     borderRadius: 17,
     backgroundColor: Colors.signBlue,
   },
@@ -132,7 +150,7 @@ const styles = StyleSheet.create({
   rotateText: {
     position: 'absolute',
     justifyContent: 'center',
-    alignItems: 'start',
+    alignItems: 'flex-start',
     marginLeft: -25,
     transform: [{ rotate: '-45deg' }]
   },
@@ -155,6 +173,4 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.pearlWhite,
   },
 
-})
-
-export default InfoScreen;
+});

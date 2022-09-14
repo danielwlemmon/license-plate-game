@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert } from 'react-native';
+import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert, Platform } from 'react-native';
 
 import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -60,49 +60,6 @@ function History({ navigation }) {
   };
 
   return (
-    // <View style={styles.mainContainer} >
-    //   <ImageBackground style={styles.backgroundImage} source={require('../assets/curveyRoad.jpg')} />
-    //   <SafeAreaView style={{ flexGrow: 1 }}>
-    //     <ScrollView>
-    //       <View style={styles.buttonBar}>
-    //         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-    //           <Text style={{ fontSize: 40 }}>{backSymbol}</Text>
-    //         </TouchableOpacity>
-    //       </View >
-    //       {isGameHistory ? <View style={{ flex: 1 }}>
-    //         {gameHistory.map((game) => {
-    //           return (
-    //             <View key={game.id} style={styles.gameCard}>
-    //               <View style={styles.whiteBorder}>
-    //                 <View style={styles.innerContainer}>
-    //                   <View style={styles.statsContainer}>
-    //                     <Text style={[styles.statText, { fontWeight: '800' }]}>{game.date}</Text>
-    //                     <Text style={styles.statText}>Score: {game.score}</Text>
-    //                     <Text style={styles.statText}>Found: {game.found} plates</Text>
-    //                     <Text style={styles.statText}>non-USA: {game.nonUSA} plates</Text>
-    //                   </View>
-
-    //                   <View style={styles.deleteContainer}>
-    //                     <TouchableOpacity onPress={() => handleDelete(game.id)} style={styles.deleteButton}>
-    //                       <View style={styles.iconContainer}>
-    //                         <Image style={styles.trashIcon} source={require('../assets/trashIcon.png')} ></Image>
-    //                       </View>
-    //                     </TouchableOpacity>
-    //                   </View>
-    //                 </View>
-    //               </View>
-    //             </View>
-    //           )
-    //         })}
-    //       </View> :
-    //         <View style={{ justifyContent: 'center', alignItems: 'center', position: 'relative', top: 75, left: 0, right: 0, bottom: 0 }}>
-    //           <View >
-    //             <Text style={[styles.statText, { color: 'white' }]}>No Game History Found...</Text>
-    //           </View>
-    //         </View>}
-    //     </ScrollView>
-    //   </SafeAreaView >
-    // </View>
     <View style={{ flexGrow: 1 }}>
       <ImageBackground style={styles.backgroundImage} source={require('../assets/curveyRoad.jpg')} />
       <ScrollView contentInsetAdjustmentBehavior="automatic" contentInset={{ top: -50, left: 0, bottom: 250, right: 0 }} contentInsetAdjustmentBehavior="automatic" contentContainerStyle={{ flexGrow: 1 }} style={styles.scrollView}>
@@ -113,7 +70,7 @@ function History({ navigation }) {
               <View style={styles.blackBorder}>
                 <View style={styles.innerButtonContainer}>
                   <View style={styles.rotateText}>
-                    <Text style={[styles.infoText, { color: Colors.black, fontSize: 60, fontWeight: '500' }]}>←</Text>
+                    <Text style={[styles.infoText]}>←</Text>
                   </View>
                 </View>
               </View>
@@ -161,6 +118,7 @@ function History({ navigation }) {
   )
 };
 
+export default History;
 const styles = StyleSheet.create({
   backButton: {
     flexGrow: 1,
@@ -175,8 +133,8 @@ const styles = StyleSheet.create({
   },
   blackBorder: {
     position: 'absolute',
-    height: 68,
-    width: 68,
+    height: '98%',
+    width: '98%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 6,
@@ -199,12 +157,22 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: Colors.pearlWhite,
   },
+  infoText: {
+    fontSize: 60,
+    ...Platform.select({
+      android: {
+        fontSize: 100,
+        marginTop: -40,
+        marginLeft: -15,
+      }
+    })
+  },
   innerButtonContainer: {
     position: 'absolute',
-    height: 63,
-    width: 63,
-    alignItems: 'center',
+    height: '98%',
+    width: '98%',
     justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 4,
     backgroundColor: Colors.signYellow,
   },
@@ -232,9 +200,10 @@ const styles = StyleSheet.create({
   },
   rotateText: {
     position: 'absolute',
+    borderWidth: 2,
+    borderColor: 'red',
     justifyContent: 'center',
-    alignItems: 'start',
-    marginLeft: -25,
+    alignItems: 'flex-start',
     transform: [{ rotate: '-45deg' }]
   },
   statsContainer: {
@@ -247,7 +216,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.signBlue
   },
   statText: {
-    fontFamily: Fonts.Main,
+    ...Platform.select({
+      ios: {
+        fontFamily: Fonts.Main,
+      }
+    }),
     fontSize: 20,
     fontWeight: '500',
     color: Colors.pearlWhite
@@ -255,7 +228,6 @@ const styles = StyleSheet.create({
   textContainer: {
     maxWidth: '80%',
     marginLeft: 20,
-
   },
   trashIcon: {
     height: 30,
@@ -270,6 +242,4 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     backgroundColor: Colors.pearlWhite,
   },
-})
-
-export default History;
+});

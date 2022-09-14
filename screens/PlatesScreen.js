@@ -22,7 +22,6 @@ function PlatesScreen({ navigation }) {
   const [lastLocUpdate, setLastLocUpdate] = useState();
 
   useEffect(() => {
-
     const retrieveData = async () => {
       try {
         const retrievedData = await AsyncStorage.getItem('gameInProgress') //setup initial game data
@@ -304,7 +303,7 @@ function PlatesScreen({ navigation }) {
             <TouchableOpacity onPress={() => navigation.navigate('History')} style={[styles.gameButton, styles.historyButton]}>
               <View style={styles.historyWhiteBorder}>
                 <View style={styles.historyInnerContainer}>
-                  <Text style={styles.buttonText}>Game History</Text>
+                  <Text style={[styles.buttonText, { fontSize: 30 }]}>Game History</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -312,7 +311,7 @@ function PlatesScreen({ navigation }) {
             <TouchableOpacity onPress={() => navigation.navigate('InfoScreen')} style={[styles.gameButton, styles.infoButton]}>
               <View style={styles.infoWhiteBorder}>
                 <View style={styles.infoInnerContainer}>
-                  <Text style={[styles.buttonText, { fontWeight: '900' }]} >ⓘ</Text>
+                  <Text style={[styles.buttonText, { fontWeight: '900', fontSize: 30 }]} >ⓘ</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -342,13 +341,13 @@ function PlatesScreen({ navigation }) {
             <View style={styles.pointsImageContainer} >
               <Image style={styles.pointsImage} source={require("../assets/points.png")} />
               <View style={styles.pointsTextContainer}>
-                <Text style={{ fontSize: 50, fontFamily: Fonts.Main, fontWeight: '700' }}>Points</Text>
+                <Text style={{ fontSize: 50, fontWeight: '700' }}>Points</Text>
               </View>
               <View style={styles.pointsStateContainer}>
-                <Text style={{ fontSize: 25, fontFamily: Fonts.Main, fontWeight: '700' }}>{lastPlateName}</Text>
+                <Text style={{ fontSize: 25, fontWeight: '700' }}>{lastPlateName}</Text>
               </View>
               <View style={styles.pointsValueContainer}>
-                <Text style={{ fontSize: 50, fontFamily: Fonts.Main, fontWeight: '700' }}>{lastPoints}</Text>
+                <Text style={{ fontSize: 50, fontWeight: '700' }}>{lastPoints}</Text>
               </View>
             </View >
           </View>
@@ -356,14 +355,14 @@ function PlatesScreen({ navigation }) {
       }
       <View style={styles.buttonBar}>
         <View style={styles.progressContainer}>
-          <Text style={styles.progressText}>Found: {progress[0]}/{progress[1]} Score: {score}</Text>
+          <Text style={[styles.progressText, { fontSize: 30 }]}>Found: {progress[0]}/{progress[1]} Score: {score}</Text>
         </View>
 
 
         <TouchableOpacity style={[styles.resetButton, {}]} onPress={reset}>
           <View style={styles.resetBlackBorder}>
             <View style={styles.resetInnerContainer}>
-              <Text style={[styles.buttonText, { color: Colors.black }]}>Restart</Text>
+              <Text style={[styles.buttonText, { color: Colors.black, fontSize: 30 }]}>Restart</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -371,7 +370,7 @@ function PlatesScreen({ navigation }) {
         <TouchableOpacity style={[styles.finishButton, { backgroundColor: Colors.signRed, borderRadius: 2 }]} onPress={finishGame}>
           <View style={[styles.resetBlackBorder, { backgroundColor: Colors.pearlWhite }]}>
             <View style={[styles.resetInnerContainer, { backgroundColor: Colors.signRed }]}>
-              <Text style={styles.buttonText}>Finish</Text>
+              <Text style={[styles.buttonText, { fontSize: 30 }]}>Finish</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -380,6 +379,8 @@ function PlatesScreen({ navigation }) {
     </View >
   );
 };
+
+export default PlatesScreen;
 
 const styles = StyleSheet.create({
   backgroundImage: {
@@ -397,9 +398,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.plateGrey,
   },
   buttonText: {
-    fontFamily: Fonts.Main,
+    ...Platform.select({
+      ios: {
+        fontFamily: Fonts.Main,
+
+      }
+    }),
     color: Colors.pearlWhite,
-    fontSize: 30,
     fontWeight: '600'
   },
   finishButton: {
@@ -528,8 +533,7 @@ const styles = StyleSheet.create({
   },
   progressText: {
     color: 'white',
-    fontSize: '20px',
-    padding: '2%'
+    padding: 2
   },
   resetBlackBorder: {
     position: 'absolute',
@@ -561,7 +565,6 @@ const styles = StyleSheet.create({
 
   },
   text: {
-    fontSize: '50px',
     fontWeight: '500',
   },
   topButtons: {
@@ -571,5 +574,3 @@ const styles = StyleSheet.create({
   }
 
 });
-
-export default PlatesScreen;
