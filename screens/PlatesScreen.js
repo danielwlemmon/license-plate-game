@@ -308,10 +308,10 @@ function PlatesScreen({ navigation }) {
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate('InfoScreen')} style={[styles.gameButton, styles.infoButton]}>
+            <TouchableOpacity onPress={() => navigation.navigate('ScavengerScreen')} style={[styles.gameButton, styles.infoButton]}>
               <View style={styles.infoWhiteBorder}>
                 <View style={styles.infoInnerContainer}>
-                  <Text style={[styles.buttonText, { fontWeight: '900', fontSize: 30 }]} >ⓘ</Text>
+                  <Text style={[styles.buttonText]} >Scavenger Hunt</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -429,7 +429,7 @@ const styles = StyleSheet.create({
   },
   historyButton: {
     backgroundColor: Colors.signGreen,
-    flex: 12,
+    flex: 1,
     marginLeft: 40
   },
   historyInnerContainer: {
@@ -452,6 +452,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.pearlWhite,
   },
   infoButton: {
+    flex: 1,
     backgroundColor: Colors.signBlue,
     marginRight: 40
   },
