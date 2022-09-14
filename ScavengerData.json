@@ -1,0 +1,280 @@
+{
+  "ScavengerData": [
+    {
+      "id": 0,
+      "text": "Traffic Cone or Barrel",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 1,
+      "text": "Double Trailer Semi",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 2,
+      "text": "Tumble Weed",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 3,
+      "text": "Car Top Luggage Box",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 4,
+      "text": "Police Car",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 5,
+      "text": "Train",
+      "found": false,
+      "difficulty": 1
+    },
+        {
+      "id": 7,
+      "text": "Bumper Sticker",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 8,
+      "text": "Bicyclist",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 9,
+      "text": "Camper Being Towed",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 10,
+      "text": "Starbucks",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 11,
+      "text": "Kid In Another Car",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 12,
+      "text": "Fast Food Billboard",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 13,
+      "text": "RV or Motor Home",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 14,
+      "text": "Cow",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 15,
+      "text": "Barbed Wire Fence",
+      "found": false,
+      "difficulty": 1
+    },
+    {
+      "id": 16,
+      "text": "Rest Stop Sign",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 17,
+      "text": "Driver Looking At Their Phone",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 20,
+      "text": "Moving Truck",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 21,
+      "text": "National Park Sign",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 22,
+      "text": "Police Car",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 23,
+      "text": "Train",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 24,
+      "text": "Motor Boat",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 25,
+      "text": "Grafiti",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 26,
+      "text": "Significantly Damaged Vehicle",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 27,
+      "text": "Large Bird",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 28,
+      "text": "Airplane",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 29,
+      "text": "Panhandler",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 30,
+      "text": "Vehicle With Bikes",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 31,
+      "text": "Free Square",
+      "found": true,
+      "difficulty": 2
+    },
+    {
+      "id": 32,
+      "text": "Motorcycle Group of 3+",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 33,
+      "text": "Tesla",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 34,
+      "text": "Stick Figure Family Sticker",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 35,
+      "text": "Lifted Pickup Truck",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 36,
+      "text": "Speeder 10+ Over Limit",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 37,
+      "text": "Deer, Elk, Moose, or Buffalo",
+      "found": false,
+      "difficulty": 2
+    },
+    {
+      "id": 38,
+      "text": "Free Square",
+      "found": true,
+      "difficulty": 3
+    },
+    {
+      "id": 39,
+      "text": "Vintage Vehicle Pre 1980",
+      "found": false,
+      "difficulty": 3
+    },
+    {
+      "id": 40,
+      "text": "Electric Pickup",
+      "found": false,
+      "difficulty": 3
+    },
+    {
+      "id": 41,
+      "text": "Oversized Load",
+      "found": false,
+      "difficulty": 3
+    },
+    {
+      "id": 42,
+      "text": "Military Transport Vehicle",
+      "found": false,
+      "difficulty": 3
+    },
+    {
+      "id": 43,
+      "text": "Ferrari or Porche",
+      "found": false,
+      "difficulty": 3
+    },
+    {
+      "id": 18,
+      "text": "Abandoned Vehicle",
+      "found": false,
+      "difficulty": 3
+    },
+    {
+      "id": 19,
+      "text": "Furniture On Roadside",
+      "found": false,
+      "difficulty": 3
+    },
+    {
+      "id": 44,
+      "text": "Car Missing A Headlight",
+      "found": false,
+      "difficulty": 3
+    },
+    {
+      "id": 45,
+      "text": "Car Missing Taillight",
+      "found": false,
+      "difficulty": 3
+    },
+    {
+      "id": 47,
+      "text": "Non-Semi Rollling Coal",
+      "found": false,
+      "difficulty": 3
+    }
+  ]
+}

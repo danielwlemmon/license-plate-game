@@ -200,8 +200,6 @@ const styles = StyleSheet.create({
   },
   rotateText: {
     position: 'absolute',
-    borderWidth: 2,
-    borderColor: 'red',
     justifyContent: 'center',
     alignItems: 'flex-start',
     transform: [{ rotate: '-45deg' }]

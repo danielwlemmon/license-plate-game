@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, TouchableOpacity, Alert } from 'react-native';
+import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, TouchableOpacity, Alert, Platform } from 'react-native';
 import { Button, Card } from 'react-native-paper';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { Colors, Fonts } from '../assets/colors';
@@ -25,21 +25,54 @@ function HomeScreen({ navigation }) {
         <ImageBackground style={styles.backgroundImage} source={require('../assets/RoadCropped.jpg')} />
 
         <SafeAreaView style={styles.header}>
-          <Text style={styles.headerText}>Road Trip Games</Text>
-        </SafeAreaView>
+          <View style={styles.headerContainer}>
+            <Text style={styles.headerText}>Road Trip Games</Text>
+          </View>
 
-        <TouchableOpacity onPress={() => navigation.navigate('PlatesScreen')} style={styles.button}>
-          <View style={styles.outerContainer}>
-            <View style={styles.whiteBorder}>
-              <View style={styles.innerContainer}>
-                <Text style={styles.buttonText}>License Plate!</Text>
+          <View style={styles.platesGameItems}>
+            <TouchableOpacity onPress={() => navigation.navigate('PlatesScreen')} style={styles.platesGameButton}>
+              <View style={styles.outerContainer}>
+                <View style={styles.whiteBorder}>
+                  <View style={styles.innerContainer}>
+                    <Text style={styles.buttonText}>License Plate!</Text>
+                  </View>
+                </View>
               </View>
+            </TouchableOpacity>
+
+            <View style={styles.topButtons}>
+              <TouchableOpacity onPress={() => navigation.navigate('History')} style={[styles.gameButton, styles.historyButton]}>
+                <View style={styles.historyWhiteBorder}>
+                  <View style={styles.historyInnerContainer}>
+                    <Text style={[styles.buttonText, { fontSize: 25, fontWeight: '300' }]}>Game History</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
+
+              <TouchableOpacity onPress={() => navigation.navigate('InfoScreen')} style={[styles.gameButton, styles.infoButton]}>
+                <View style={styles.infoWhiteBorder}>
+                  <View style={styles.infoInnerContainer}>
+                    <Text style={[styles.buttonText, { fontWeight: '900', fontSize: 30 }]} >ⓘ</Text>
+                  </View>
+                </View>
+              </TouchableOpacity>
             </View>
           </View>
-        </TouchableOpacity>
-
+          <View style={styles.scavengerGameItems}>
+            <TouchableOpacity onPress={() => navigation.navigate('ScavengerScreen')} style={styles.scavengerBtn}>
+              <View style={styles.scavengerBtnContainer}>
+                <Text style={styles.scavengerBtnText}>Scavenger Hunt</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('CustomScreen')} style={styles.customBtn}>
+              <View style={styles.customBtnContainer}>
+                <Text style={styles.customBtnText}>Custom items</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        </SafeAreaView>
       </View>
-    </PaperProvider>
+    </PaperProvider >
   )
 };
 
@@ -50,12 +83,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     height: '100%',
     width: '100%',
-  },
-  button: {
-    position: 'absolute',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 150,
   },
   buttonText: {
 
@@ -73,10 +100,40 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  header: {
-    top: '15%',
-    position: 'absolute',
+  customBtn: {
+    justifyContent: 'center',
     alignItems: 'center',
+    height: 150,
+  },
+  customBtnContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+    backgroundColor: Colors.slateBlue,
+  },
+  customBtnText: {
+    color: Colors.pearlWhite,
+    ...Platform.select({
+      ios: {
+        fontSize: 30,
+        fontFamily: 'AvenirNext-Regular',
+      },
+      android: {
+        fontSize: 25,
+      }
+    })
+  },
+  header: {
+    alignItems: 'center',
+  },
+  headerContainer: {
+    flex: 1,
+    ...Platform.select({
+      android: {
+        marginTop: 20
+      }
+    })
   },
   headerText: {
     ...Platform.select({
@@ -87,11 +144,64 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold',
   },
-  innerContainer: {
+  historyButton: {
+    backgroundColor: Colors.signGreen,
+    flex: 12,
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 18,
+  },
+  historyInnerContainer: {
     position: 'absolute',
-    height: 132,
-    width: 339,
-    marginTop: '100%',
+    height: '95%',
+    width: '99%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 14,
+    backgroundColor: Colors.signGreen,
+
+  },
+  historyWhiteBorder: {
+    position: 'absolute',
+    height: '88%',
+    width: '97%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 14,
+    backgroundColor: Colors.pearlWhite,
+  },
+  infoButton: {
+    flex: 3,
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 18,
+    backgroundColor: Colors.signBlue,
+  },
+  infoInnerContainer: {
+    position: 'absolute',
+    height: '94%',
+    width: '95%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 14,
+    backgroundColor: Colors.signBlue,
+  },
+  infoWhiteBorder: {
+    position: 'absolute',
+    height: '91%',
+    width: '89%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 15,
+    backgroundColor: Colors.pearlWhite,
+  },
+  innerContainer: {
+    dispaly: 'none',
+    position: 'absolute',
+    height: '97%',
+    width: '99%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 17,
@@ -105,10 +215,51 @@ const styles = StyleSheet.create({
     borderRadius: 22,
     backgroundColor: Colors.signGreen,
   },
+  platesGameButton: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 150,
+  },
+  platesGameItems: {
+    flex: 1
+  },
+  scavengerBtn: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 150,
+  },
+  scavengerBtnContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 8,
+    backgroundColor: Colors.slateBlue,
+  },
+  scavengerBtnText: {
+    color: Colors.pearlWhite,
+    ...Platform.select({
+      ios: {
+        fontSize: 30,
+        fontFamily: 'AvenirNext-Regular',
+      },
+      android: {
+        fontSize: 25,
+      }
+    })
+  },
+  scavengerGameItems: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  topButtons: {
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
   whiteBorder: {
     position: 'absolute',
-    height: 136,
-    width: 344,
+    height: '91%',
+    width: '98%',
     marginTop: '100%',
     alignItems: 'center',
     justifyContent: 'center',

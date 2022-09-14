@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, AppState, Alert } from 'react-native';
+import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, AppState, Alert, Platform } from 'react-native';
 import { Button, DefaultTheme } from 'react-native-paper';
 import BlankPlates from '../PlateData.json';
 import { Colors, Fonts } from '../assets/colors';
@@ -300,10 +300,10 @@ function PlatesScreen({ navigation }) {
 
           <View style={styles.topButtons}>
 
-            <TouchableOpacity onPress={() => navigation.navigate('History')} style={[styles.gameButton, styles.historyButton]}>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={[styles.gameButton, styles.historyButton]}>
               <View style={styles.historyWhiteBorder}>
                 <View style={styles.historyInnerContainer}>
-                  <Text style={[styles.buttonText, { fontSize: 30 }]}>Game History</Text>
+                  <Text style={[styles.buttonText, { fontSize: 30 }]}>Home Screen</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -475,7 +475,12 @@ const styles = StyleSheet.create({
   },
   main: {
     justifyContent: 'center',
-    paddingBottom: 300
+    paddingBottom: 300,
+    ...Platform.select({
+      android: {
+        marginTop: 20
+      }
+    })
   },
   notFoundImage: {
     flex: 1,

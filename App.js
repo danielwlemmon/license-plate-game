@@ -6,6 +6,7 @@ import HomeScreen from './screens/HomeScreen';
 import PlatesScreen from './screens/PlatesScreen';
 import History from './screens/History';
 import InfoScreen from './screens/InfoScreen';
+import ScavengerScreen from './screens/ScavengerScreen';
 
 const Stack = createNativeStackNavigator()
 
@@ -18,6 +19,7 @@ export default function App() {
           <Stack.Screen name="PlatesScreen" component={PlatesScreen} />
           <Stack.Screen name="History" component={History} />
           <Stack.Screen name="InfoScreen" component={InfoScreen} />
+          <Stack.Screen name="ScavengerScreen" component={ScavengerScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

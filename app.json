@@ -4,7 +4,7 @@
     "slug": "license-plate-game",
     "version": "0.5.0",
     "orientation": "portrait",
-    "icon": "./assets/icon-simple2.png",
+    "icon": "./assets/icon-simple.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/loading-Splash.png",
