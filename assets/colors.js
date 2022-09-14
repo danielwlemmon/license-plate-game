@@ -1,5 +1,7 @@
 export const Colors = {
   black: "#000",
+  scavengerButton: '#0c99ff',
+  scavengerButtonPress: '#14ae5c',
   pearlWhite: "#F8F6F0",
   signBlue: "#0F398B",
   signGreen: "#215a33",
@@ -7,6 +9,9 @@ export const Colors = {
   signYellow: "#FFFF00",
   slateBlue: "#5572b9",
   slateGrey: "#708090",
+  slateLightGrey: "#C0C2C9",
+  slateRed: "#E47297",
+  slateYellow: "#FEFD98",
   white: "#fff",
   plateGrey: "#9f9893"
 }
