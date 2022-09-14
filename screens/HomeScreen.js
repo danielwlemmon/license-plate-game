@@ -6,18 +6,18 @@ import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function HomeScreen({ navigation }) {
-  const [buttonText, setButtonText] = useState('');
+  // const [buttonText, setButtonText] = useState('');
 
-  useEffect(() => {
-    AsyncStorage.getItem('gameInProgress')
-      .then((res) => {
-        if (res == 'false' || !res) {
-          setButtonText('BEGIN GAME')
-        } else {
-          setButtonText('CONTINUE GAME')
-        };
-      });
-  }, [])
+  // useEffect(() => {
+  //   AsyncStorage.getItem('gameInProgress')
+  //     .then((res) => {
+  //       if (res == 'false' || !res) {
+  //         setButtonText('BEGIN GAME')
+  //       } else {
+  //         setButtonText('CONTINUE GAME')
+  //       };
+  //     });
+  // }, [])
 
   return (
     <PaperProvider style={{ flexGrow: 1 }} >
@@ -25,15 +25,14 @@ function HomeScreen({ navigation }) {
         <ImageBackground style={styles.backgroundImage} source={require('../assets/RoadCropped.jpg')} />
 
         <SafeAreaView style={styles.header}>
-          <Text style={styles.headerText}>Collect License Plates</Text>
-          <Text style={styles.headerText}>North America</Text>
+          <Text style={styles.headerText}>Road Trip Games</Text>
         </SafeAreaView>
 
         <TouchableOpacity onPress={() => navigation.navigate('PlatesScreen')} style={styles.button}>
           <View style={styles.outerContainer}>
             <View style={styles.whiteBorder}>
               <View style={styles.innerContainer}>
-                <Text style={styles.buttonText}>{buttonText}</Text>
+                <Text style={styles.buttonText}>License Plate!</Text>
               </View>
             </View>
           </View>
