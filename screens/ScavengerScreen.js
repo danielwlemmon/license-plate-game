@@ -218,42 +218,30 @@ export default function ScavengerScreen({ navigation }) {
           }
         </View>
 
-        {/* <View style={styles.bottomArea}>
-          <View id='placeholder container' style={{ flex: 1 }}>
-            <View id='placeholder container' style={{ flex: 1 }}>
+        <View style={[styles.bottomArea]}>
+          <View style={[{ justifyContent: 'space-around', flex: 2 }]}>
 
-            </View>
-            <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.backButton}>
-              <View style={styles.bottomButtonContainer}>
-                <Text style={styles.buttonText}>Home</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={cancelGame} style={styles.backButton}>
-              <View style={[styles.bottomButtonContainer, { backgroundColor: Colors.slateRed }]}>
-                <Text style={styles.buttonText}>Cancel Game</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View> */}
-        <View style={[styles.bottomArea, { borderWidth: 1 }]}>
-          <View style={[{ flex: 2, borderWidth: 1, borderColor: 'red' }]}>
-
-            <View style={[{ flex: 1, borderWidth: 1, borderColor: 'red' }]}>
-              <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.backButton}>
+            <View style={[styles.homeContainer]}>
+              <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.homeButton}>
                 <View style={styles.bottomButtonContainer}>
                   <Text style={styles.buttonText}>Home</Text>
                 </View>
               </TouchableOpacity>
             </View>
-            <View style={[{ flex: 1, borderWidth: 1, borderColor: 'red' }]}>
-              <TouchableOpacity onPress={cancelGame} style={styles.backButton}>
+            <View style={[styles.cancelContainer]}>
+              <TouchableOpacity onPress={cancelGame} style={styles.homeButton}>
                 <View style={[styles.bottomButtonContainer, { backgroundColor: Colors.slateRed }]}>
                   <Text style={styles.buttonText}>Cancel Game</Text>
                 </View>
               </TouchableOpacity>
             </View>
           </View>
-          <View style={[{ flex: 1, borderWidth: 1, borderColor: 'red' }]}></View>
+          <View style={[{ flex: 1, marginBottom: 5 }]}>
+            <TouchableOpacity onPress={() => navigation.navigate('PlatesScreen')} style={styles.platesBtn} >
+              <Image source={require('../assets/plateBack.jpg')} style={[styles.platesImg,]} />
+
+            </TouchableOpacity>
+          </View>
         </View>
 
 
@@ -264,13 +252,6 @@ export default function ScavengerScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  backButton: {
-    flex: 1,
-    marginBottom: 10,
-    width: 300,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   bottomArea: {
     flex: 3,
     flexDirection: 'row'
@@ -331,6 +312,9 @@ const styles = StyleSheet.create({
       }
     })
   },
+  cancelContainer: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     backgroundColor: Colors.pearlWhite,
@@ -350,12 +334,32 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap'
   },
+  homeButton: {
+    flex: 1,
+    marginBottom: 5,
+    marginTop: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  homeContainer: {
+    flex: 1
+  },
   midArea: {
     flex: 6,
     justifyContent: 'center',
     alignItems: 'center',
     flexWrap: 'wrap'
   },
+  platesBtn: {
+    flex: 1
+  },
+  platesImg: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 20,
+    opacity: .8
+  },
+
   progress: {
     flex: 1,
     backgroundColor: Colors.slateYellow,
