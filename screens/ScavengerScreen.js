@@ -85,8 +85,7 @@ export default function ScavengerScreen({ navigation }) {
       //store new game state
       let gameArrString = JSON.stringify([...gameArr]);
       try {
-        await AsyncStorage.setItem('progressBar', (newProgressBar).toString())
-        await AsyncStorage.setItem('scavengerGameInProgress', 'true');
+        await AsyncStorage.setItem('progressBar', (newProgressBar).toString());
         await AsyncStorage.setItem('currentGrid', (gameArrString));
         await AsyncStorage.setItem('gridLevel', (nextLevel).toString());
       } catch (e) {
@@ -102,6 +101,7 @@ export default function ScavengerScreen({ navigation }) {
   };
 
   const foundItem = async (item, rowI) => {
+    await AsyncStorage.setItem('scavengerGameInProgress', 'true');
     let gridChange = [...currentGrid];
     let nextProgressBar = progressBar;
     const itemIdx = gridChange[rowI].findIndex(i => i.id === item.id);

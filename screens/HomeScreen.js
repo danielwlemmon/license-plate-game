@@ -7,6 +7,26 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function HomeScreen({ navigation }) {
 
+  const handleCustomNav = () => {
+    AsyncStorage.getItem('scavengerGameInProgress').then((res) => {
+      console.log(res)
+      if (!res || res == 'false') {
+        navigation.navigate('CustomScreen');
+      } else {
+        Alert.alert(
+          "Game In Progress",
+          "Unable to edit game items",
+          [
+            {
+              text: "Ugh Fine!",
+              style: "cancel"
+            }
+          ]
+        )
+      }
+    });
+  }
+
   return (
     <PaperProvider style={{ flexGrow: 1 }} >
       <View style={styles.container}>
@@ -52,7 +72,7 @@ function HomeScreen({ navigation }) {
                 <Text style={styles.scavengerBtnText}>Scavenger Hunt</Text>
               </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('CustomScreen')} style={styles.customBtn}>
+            <TouchableOpacity onPress={() => handleCustomNav()} style={styles.customBtn}>
               <View style={styles.customBtnContainer}>
                 <Text style={styles.customBtnText}>Customize Items</Text>
               </View>
