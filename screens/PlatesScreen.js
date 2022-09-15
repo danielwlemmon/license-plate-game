@@ -300,18 +300,18 @@ function PlatesScreen({ navigation }) {
 
           <View style={styles.topButtons}>
 
-            <TouchableOpacity onPress={() => navigation.goBack()} style={[styles.gameButton, styles.historyButton]}>
+            <TouchableOpacity onPress={() => navigation.navigate('Home')} style={[styles.gameButton, styles.historyButton]}>
               <View style={styles.historyWhiteBorder}>
                 <View style={styles.historyInnerContainer}>
-                  <Text style={[styles.buttonText, { fontSize: 30 }]}>Home Screen</Text>
+                  <Text style={[styles.buttonText, { fontSize: 20 }]}>Home Screen</Text>
                 </View>
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate('ScavengerScreen')} style={[styles.gameButton, styles.infoButton]}>
-              <View style={styles.infoWhiteBorder}>
-                <View style={styles.infoInnerContainer}>
-                  <Text style={[styles.buttonText]} >Scavenger Hunt</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('ScavengerScreen')} style={[styles.scavengerButton]}>
+              <View style={styles.scavengerWhiteBorder}>
+                <View style={styles.scavengerInnerContainer}>
+                  <Text style={[styles.buttonText, { fontSize: 20 }]} >Scavenger Hunt</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -435,7 +435,7 @@ const styles = StyleSheet.create({
   historyInnerContainer: {
     position: 'absolute',
     height: '95%',
-    width: '99%',
+    width: '98%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 14,
@@ -449,29 +449,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 14,
-    backgroundColor: Colors.pearlWhite,
-  },
-  infoButton: {
-    flex: 1,
-    backgroundColor: Colors.signBlue,
-    marginRight: 40
-  },
-  infoInnerContainer: {
-    position: 'absolute',
-    height: '94%',
-    width: '95%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 14,
-    backgroundColor: Colors.signBlue,
-  },
-  infoWhiteBorder: {
-    position: 'absolute',
-    height: '91%',
-    width: '89%',
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 15,
     backgroundColor: Colors.pearlWhite,
   },
   main: {
@@ -566,6 +543,34 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderRadius: 5,
     backgroundColor: Colors.signYellow,
+  },
+  scavengerButton: {
+    flex: 1,
+    backgroundColor: Colors.signBlue,
+    marginRight: 40,
+    height: 60,
+    margin: (0, 5, 0, 5),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 18,
+  },
+  scavengerInnerContainer: {
+    position: 'absolute',
+    height: '94%',
+    width: '98%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 14,
+    backgroundColor: Colors.signBlue,
+  },
+  scavengerWhiteBorder: {
+    position: 'absolute',
+    height: '90%',
+    width: '95%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 15,
+    backgroundColor: Colors.pearlWhite,
   },
   scrollView: {
 

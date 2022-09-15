@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Alert, Platform } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Alert, Platform, Touchable } from 'react-native';
 import { Fonts, Colors } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BaseScavengerData from '../ScavengerData.json';
 import { TextInput } from 'react-native-gesture-handler';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 
-export default function CustomScreen() {
+export default function CustomScreen({ navigation }) {
   const [allScavengerItems, setAllScavengerItems] = useState();
   const [mappedItems, setMappedItems] = useState();
   const [buttonSelect, setButtonSelect] = useState([true, false, false]);
@@ -167,9 +168,16 @@ export default function CustomScreen() {
 
   return (
     <View style={{ flex: 1 }}>
-      <View style={[styles.container,]}>
+      <SafeAreaView style={[styles.container,]}>
         <View id='top_section_container' style={{ height: 200 }}>
-          <View style={{ flex: 1 }}></View>
+
+          <View style={styles.navBackContainer}>
+            <TouchableOpacity onPress={() => navigation.goBack()} style={styles.navBackBtn}>
+              <View style={styles.navBackTextContainer}>
+                <Text style={styles.navBackText}>←</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
           <View style={styles.levelButtonsContainer}>
             {buttonSelect.map((b, i) => {
               return (
@@ -212,7 +220,7 @@ export default function CustomScreen() {
             : <Text>Loading Items</Text>
         }
 
-      </View>
+      </SafeAreaView>
     </View >
   )
 };
@@ -227,10 +235,6 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   backBtn: {
-    position: 'absolute',
-    bottom: 0,
-    top: 0,
-    justifyContent: 'center',
   },
   backBtnInner: {
     alignItems: 'center',
@@ -334,6 +338,32 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.scavengerButtonPress,
     borderWidth: 2,
     borderColor: Colors.black
+  },
+  navBackBtn: {
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    marginLeft: 20,
+  },
+  navBackContainer: {
+    flex: 1,
+  },
+  navBackText: {
+    fontSize: 35,
+    fontWeight: '600',
+    ...Platform.select({
+      android: {
+        fontSize: 40,
+        top: -5
+      }
+    })
+  },
+  navBackTextContainer: {
+    borderWidth: 1,
+    width: 50,
+    borderRadius: 10,
+    backgroundColor: Colors.slateGrey,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   rowBack: {
     flex: 1,

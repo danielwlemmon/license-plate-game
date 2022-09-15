@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "license-plate-game",
-    "slug": "license-plate-game",
-    "version": "0.5.0",
+    "name": "Road Trip Games",
+    "slug": "road-trip-games",
+    "version": "1.0",
     "orientation": "portrait",
-    "icon": "./assets/icon-simple.png",
+    "icon": "./assets/icon-simple2.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/loading-Splash.png",
@@ -25,7 +25,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "road.trip.games"
     },
     "web": {
       "favicon": "./assets/plateGameIcon.png"

@@ -6,18 +6,6 @@ import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function HomeScreen({ navigation }) {
-  // const [buttonText, setButtonText] = useState('');
-
-  // useEffect(() => {
-  //   AsyncStorage.getItem('gameInProgress')
-  //     .then((res) => {
-  //       if (res == 'false' || !res) {
-  //         setButtonText('BEGIN GAME')
-  //       } else {
-  //         setButtonText('CONTINUE GAME')
-  //       };
-  //     });
-  // }, [])
 
   return (
     <PaperProvider style={{ flexGrow: 1 }} >
@@ -25,11 +13,11 @@ function HomeScreen({ navigation }) {
         <ImageBackground style={styles.backgroundImage} source={require('../assets/RoadCropped.jpg')} />
 
         <SafeAreaView style={styles.header}>
-          <View style={styles.headerContainer}>
+          <View style={[styles.headerContainer]}>
             <Text style={styles.headerText}>Road Trip Games</Text>
           </View>
 
-          <View style={styles.platesGameItems}>
+          <View style={[styles.platesGameItems]}>
             <TouchableOpacity onPress={() => navigation.navigate('PlatesScreen')} style={styles.platesGameButton}>
               <View style={styles.outerContainer}>
                 <View style={styles.whiteBorder}>
@@ -58,7 +46,7 @@ function HomeScreen({ navigation }) {
               </TouchableOpacity>
             </View>
           </View>
-          <View style={styles.scavengerGameItems}>
+          <View style={[styles.scavengerGameItems]}>
             <TouchableOpacity onPress={() => navigation.navigate('ScavengerScreen')} style={styles.scavengerBtn}>
               <View style={styles.scavengerBtnContainer}>
                 <Text style={styles.scavengerBtnText}>Scavenger Hunt</Text>
@@ -66,7 +54,7 @@ function HomeScreen({ navigation }) {
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate('CustomScreen')} style={styles.customBtn}>
               <View style={styles.customBtnContainer}>
-                <Text style={styles.customBtnText}>Custom items</Text>
+                <Text style={styles.customBtnText}>Customize Items</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -100,34 +88,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  customBtn: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 150,
-  },
-  customBtnContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 8,
-    backgroundColor: Colors.slateBlue,
-  },
-  customBtnText: {
-    color: Colors.pearlWhite,
-    ...Platform.select({
-      ios: {
-        fontSize: 30,
-        fontFamily: 'AvenirNext-Regular',
-      },
-      android: {
-        fontSize: 25,
-      }
-    })
-  },
   header: {
     alignItems: 'center',
+    marginBottom: 150
   },
   headerContainer: {
+    justifyContent: 'center',
     flex: 1,
     ...Platform.select({
       android: {
@@ -210,6 +176,7 @@ const styles = StyleSheet.create({
   outerContainer: {
     height: 150,
     width: 350,
+    marginBottom: 10,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 22,
@@ -217,26 +184,27 @@ const styles = StyleSheet.create({
   },
   platesGameButton: {
     justifyContent: 'center',
-    alignItems: 'center',
     height: 150,
   },
   platesGameItems: {
-    flex: 1
+    flex: 4,
+    paddingTop: 20,
   },
   scavengerBtn: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 150,
   },
   scavengerBtnContainer: {
-    flex: 1,
+    marginBottom: 10,
+    borderRadius: 8,
+    height: 110,
+    backgroundColor: Colors.slateBlue,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 8,
-    backgroundColor: Colors.slateBlue,
+    borderColor: Colors.pearlWhite,
+    borderWidth: 2,
   },
   scavengerBtnText: {
     color: Colors.pearlWhite,
+    fontWeight: '600',
     ...Platform.select({
       ios: {
         fontSize: 30,
@@ -248,8 +216,31 @@ const styles = StyleSheet.create({
     })
   },
   scavengerGameItems: {
-    flex: 1,
-    flexDirection: 'row',
+    width: 350,
+    flex: 4,
+    justifyContent: 'flex-start',
+  },
+  customBtn: {
+  },
+  customBtnContainer: {
+    height: 60,
+    borderRadius: 8,
+    backgroundColor: Colors.slateGrey,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  customBtnText: {
+    fontWeight: '300',
+    color: Colors.pearlWhite,
+    ...Platform.select({
+      ios: {
+        fontSize: 30,
+        fontFamily: 'AvenirNext-Regular',
+      },
+      android: {
+        fontSize: 25,
+      }
+    })
   },
   topButtons: {
     flex: 1,

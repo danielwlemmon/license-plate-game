@@ -17,7 +17,7 @@ export default function ScavengerScreen({ navigation }) {
 
     const retrieveData = async () => {
       try {
-        const retrievedData = await AsyncStorage.getItem('gameInProgress');
+        const retrievedData = await AsyncStorage.getItem('scavengerGameInProgress');
 
         if (!retrievedData) {
           setLevel(1);
@@ -86,7 +86,7 @@ export default function ScavengerScreen({ navigation }) {
       let gameArrString = JSON.stringify([...gameArr]);
       try {
         await AsyncStorage.setItem('progressBar', (newProgressBar).toString())
-        await AsyncStorage.setItem('gameInProgress', 'true');
+        await AsyncStorage.setItem('scavengerGameInProgress', 'true');
         await AsyncStorage.setItem('currentGrid', (gameArrString));
         await AsyncStorage.setItem('gridLevel', (nextLevel).toString());
       } catch (e) {
@@ -155,17 +155,17 @@ export default function ScavengerScreen({ navigation }) {
 
   const cancelGame = async () => {
     try {
-      await AsyncStorage.setItem('gameInProgress', 'false');
+      await AsyncStorage.setItem('scavengerGameInProgress', 'false');
       await AsyncStorage.setItem('currentGrid', '');
       await AsyncStorage.setItem('gridLevel', '');
-      await AsyncStorage.setItem('gameInProgress', '');
+      await AsyncStorage.setItem('scavengerGameInProgress', '');
       await AsyncStorage.setItem('progressBar', '1')
     } catch (e) {
       console.log('unable to set Data')
     };
     setGridLevel(1);
     setProgressBar(1);
-    navigation.goBack();
+    navigation.navigate('Home');
   }
 
   return (
@@ -218,20 +218,42 @@ export default function ScavengerScreen({ navigation }) {
           }
         </View>
 
-        <View style={styles.bottomArea}>
+        {/* <View style={styles.bottomArea}>
           <View id='placeholder container' style={{ flex: 1 }}>
+            <View id='placeholder container' style={{ flex: 1 }}>
 
+            </View>
+            <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.backButton}>
+              <View style={styles.bottomButtonContainer}>
+                <Text style={styles.buttonText}>Home</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={cancelGame} style={styles.backButton}>
+              <View style={[styles.bottomButtonContainer, { backgroundColor: Colors.slateRed }]}>
+                <Text style={styles.buttonText}>Cancel Game</Text>
+              </View>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
-            <View style={styles.bottomButtonContainer}>
-              <Text style={styles.buttonText}>Home</Text>
+        </View> */}
+        <View style={[styles.bottomArea, { borderWidth: 1 }]}>
+          <View style={[{ flex: 2, borderWidth: 1, borderColor: 'red' }]}>
+
+            <View style={[{ flex: 1, borderWidth: 1, borderColor: 'red' }]}>
+              <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.backButton}>
+                <View style={styles.bottomButtonContainer}>
+                  <Text style={styles.buttonText}>Home</Text>
+                </View>
+              </TouchableOpacity>
             </View>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={cancelGame} style={styles.backButton}>
-            <View style={[styles.bottomButtonContainer, { backgroundColor: Colors.slateRed }]}>
-              <Text style={styles.buttonText}>Cancel Game</Text>
+            <View style={[{ flex: 1, borderWidth: 1, borderColor: 'red' }]}>
+              <TouchableOpacity onPress={cancelGame} style={styles.backButton}>
+                <View style={[styles.bottomButtonContainer, { backgroundColor: Colors.slateRed }]}>
+                  <Text style={styles.buttonText}>Cancel Game</Text>
+                </View>
+              </TouchableOpacity>
             </View>
-          </TouchableOpacity>
+          </View>
+          <View style={[{ flex: 1, borderWidth: 1, borderColor: 'red' }]}></View>
         </View>
 
 
@@ -251,7 +273,7 @@ const styles = StyleSheet.create({
   },
   bottomArea: {
     flex: 3,
-    alignItems: 'center'
+    flexDirection: 'row'
   },
   bottomButtonContainer: {
     width: '100%',
