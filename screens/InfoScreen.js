@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
   },
   blackBorder: {
     position: 'absolute',
-    height: 68,
-    width: 68,
+    height: '97%',
+    width: '97%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 6,
@@ -110,10 +110,10 @@ const styles = StyleSheet.create({
   },
   innerButtonContainer: {
     position: 'absolute',
-    height: 63,
-    width: 63,
-    alignItems: 'center',
+    height: '93%',
+    width: '93%',
     justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 4,
     backgroundColor: Colors.signYellow,
 
@@ -131,8 +131,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   outerButtonContainer: {
-    height: 70,
-    width: 70,
+    height: 71,
+    width: 71,
     borderRadius: 7,
     justifyContent: 'center',
     alignItems: 'center',

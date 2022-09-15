@@ -133,8 +133,8 @@ const styles = StyleSheet.create({
   },
   blackBorder: {
     position: 'absolute',
-    height: '98%',
-    width: '98%',
+    height: '97%',
+    width: '97%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 6,
@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
   },
   innerButtonContainer: {
     position: 'absolute',
-    height: '98%',
-    width: '98%',
+    height: '93%',
+    width: '93%',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
@@ -191,8 +191,8 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   outerButtonContainer: {
-    height: 70,
-    width: 70,
+    height: 71,
+    width: 71,
     borderRadius: 7,
     justifyContent: 'center',
     alignItems: 'center',
