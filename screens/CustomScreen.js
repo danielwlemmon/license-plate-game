@@ -94,11 +94,15 @@ export default function CustomScreen({ navigation }) {
     }
   };
 
-  // const restoreDefault = async () => {
-  //   setAllScavengerItems([...BaseScavengerData.ScavengerData]);
-  //   await AsyncStorage.setItem('scavengerItems', '');
-  //   setRefresh(refresh + 1);
-  // };
+  const restoreDefault = async () => {
+    try {
+      await AsyncStorage.setItem('scavengerItems', '');
+    } catch (e) {
+      console.log(e);
+    }
+    setAllScavengerItems([...BaseScavengerData.ScavengerData]);
+    levelChange([...BaseScavengerData.ScavengerData], levelSelect);
+  };
 
   const addItem = (itemText, level) => {
     const tempAllItems = [...allScavengerItems];
@@ -169,7 +173,7 @@ export default function CustomScreen({ navigation }) {
   return (
     <View style={{ flex: 1 }}>
       <SafeAreaView style={[styles.container,]}>
-        <View id='top_section_container' style={{ height: 200 }}>
+        <View style={styles.topSectionContainer}>
 
           <View style={styles.navBackContainer}>
             <TouchableOpacity onPress={() => navigation.goBack()} style={styles.navBackBtn}>
@@ -177,6 +181,11 @@ export default function CustomScreen({ navigation }) {
                 <Text style={styles.navBackText}>←</Text>
               </View>
             </TouchableOpacity>
+            <View style={styles.restoreDefaultContainer}>
+              <TouchableOpacity onPress={() => restoreDefault()} >
+                <Text style={styles.restoreDefaultText}>Restore Default Items</Text>
+              </TouchableOpacity>
+            </View>
           </View>
           <View style={styles.levelButtonsContainer}>
             {buttonSelect.map((b, i) => {
@@ -346,6 +355,8 @@ const styles = StyleSheet.create({
   },
   navBackContainer: {
     flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center'
   },
   navBackText: {
     fontSize: 35,
@@ -363,7 +374,16 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: Colors.slateGrey,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+  },
+  restoreDefaultContainer: {
+    flex: 1,
+    marginRight: 20,
+    alignItems: 'flex-end'
+  },
+  restoreDefaultText: {
+    color: Colors.signRed,
+    fontSize: 20
   },
   rowBack: {
     flex: 1,
@@ -388,4 +408,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
   },
+  topSectionContainer: {
+    height: 200
+  }
 });

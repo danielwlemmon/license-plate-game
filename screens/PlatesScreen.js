@@ -398,7 +398,7 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         fontFamily: Fonts.Main,
-        fontSize: 23
+        fontSize: 21
       },
       android: {
         fontWeight: '300',
