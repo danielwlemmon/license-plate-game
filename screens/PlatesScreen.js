@@ -288,9 +288,6 @@ function PlatesScreen({ navigation }) {
       ])
   };
 
-
-  //create score view fixed to center of the screen, turn on and off display use timer
-
   return (
     <View>
       <ImageBackground style={styles.backgroundImage} source={require('../assets/plateBack.jpg')} />
@@ -298,20 +295,20 @@ function PlatesScreen({ navigation }) {
 
         <SafeAreaView style={styles.main}>
 
-          <View style={styles.topButtons}>
+          <View style={styles.topBtns}>
 
-            <TouchableOpacity onPress={() => navigation.navigate('Home')} style={[styles.gameButton, styles.historyButton]}>
-              <View style={styles.historyWhiteBorder}>
-                <View style={styles.historyInnerContainer}>
-                  <Text style={[styles.buttonText, { fontSize: 20 }]}>Home Screen</Text>
+            <TouchableOpacity onPress={reset} style={[styles.resetButton]}>
+              <View style={styles.resetBlackBorder}>
+                <View style={styles.resetInnerContainer}>
+                  <Text style={styles.topBtnText}>Reset</Text>
                 </View>
               </View>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate('ScavengerScreen')} style={[styles.scavengerButton]}>
-              <View style={styles.scavengerWhiteBorder}>
-                <View style={styles.scavengerInnerContainer}>
-                  <Text style={[styles.buttonText, { fontSize: 20 }]} >Scavenger Hunt</Text>
+            <TouchableOpacity onPress={finishGame} style={[styles.finishButton, { backgroundColor: Colors.signRed, borderRadius: 2 }]}>
+              <View style={[styles.resetBlackBorder, { backgroundColor: Colors.pearlWhite }]}>
+                <View style={[styles.resetInnerContainer, { backgroundColor: Colors.signRed }]}>
+                  <Text style={[styles.topBtnText, { color: 'white' }]} >Finish</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -355,22 +352,22 @@ function PlatesScreen({ navigation }) {
       }
       <View style={styles.buttonBar}>
         <View style={styles.progressContainer}>
-          <Text style={[styles.progressText, { fontSize: 30 }]}>Found: {progress[0]}/{progress[1]} Score: {score}</Text>
+          <Text style={[styles.progressText]}>Found: {progress[0]}/{progress[1]} Score: {score}</Text>
         </View>
 
 
-        <TouchableOpacity style={[styles.resetButton, {}]} onPress={reset}>
-          <View style={styles.resetBlackBorder}>
-            <View style={styles.resetInnerContainer}>
-              <Text style={[styles.buttonText, { color: Colors.black, fontSize: 30 }]}>Restart</Text>
+        <TouchableOpacity style={[styles.bottomBtn, styles.homeBtn]} onPress={() => navigation.navigate('Home')}>
+          <View style={styles.homeWhiteBorder}>
+            <View style={styles.homeInnerContainer}>
+              <Text style={[styles.bottomBtnText]}>Home</Text>
             </View>
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.finishButton, { backgroundColor: Colors.signRed, borderRadius: 2 }]} onPress={finishGame}>
-          <View style={[styles.resetBlackBorder, { backgroundColor: Colors.pearlWhite }]}>
-            <View style={[styles.resetInnerContainer, { backgroundColor: Colors.signRed }]}>
-              <Text style={[styles.buttonText, { fontSize: 30 }]}>Finish</Text>
+        <TouchableOpacity style={[styles.bottomBtn, styles.scavengerButton]} onPress={() => navigation.navigate('ScavengerScreen')}>
+          <View style={styles.scavengerWhiteBorder}>
+            <View style={styles.scavengerInnerContainer}>
+              <Text style={styles.bottomBtnText}>Scavenger Hunt</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -388,29 +385,46 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
   },
+  bottomBtn: {
+    flex: 3,
+    height: 60,
+    margin: (0, 5, 0, 5),
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 18,
+  },
+  bottomBtnText: {
+    color: Colors.pearlWhite,
+    ...Platform.select({
+      ios: {
+        fontFamily: Fonts.Main,
+        fontSize: 23
+      },
+      android: {
+        fontWeight: '300',
+        fontSize: 20
+      }
+    })
+  },
   buttonBar: {
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
     position: 'absolute',
     bottom: 0,
-    paddingBottom: '7%',
-    backgroundColor: Colors.plateGrey,
-  },
-  buttonText: {
     ...Platform.select({
       ios: {
-        fontFamily: Fonts.Main,
 
+        paddingBottom: '7%',
       }
     }),
-    color: Colors.pearlWhite,
-    fontWeight: '600'
+    backgroundColor: Colors.plateGrey,
   },
   finishButton: {
-    flex: 3,
+    flex: 1,
     height: 60,
-    margin: (0, 5, 0, 5),
+    marginLeft: 5,
+    marginRight: 40,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
@@ -419,33 +433,23 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     marginBottom: -130,
   },
-  gameButton: {
-    flex: 3,
-    height: 60,
-    margin: (0, 5, 0, 5),
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 18,
-  },
-  historyButton: {
+  homeBtn: {
     backgroundColor: Colors.signGreen,
-    flex: 1,
-    marginLeft: 40
   },
-  historyInnerContainer: {
+  homeInnerContainer: {
     position: 'absolute',
-    height: '95%',
+    height: '94%',
     width: '98%',
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 14,
     backgroundColor: Colors.signGreen,
 
   },
-  historyWhiteBorder: {
+  homeWhiteBorder: {
     position: 'absolute',
     height: '88%',
-    width: '97%',
+    width: '96%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 14,
@@ -516,20 +520,30 @@ const styles = StyleSheet.create({
   },
   progressText: {
     color: 'white',
-    padding: 2
+    padding: 2,
+    ...Platform.select({
+      ios: {
+        fontFamily: Fonts.Main,
+        fontSize: 25,
+      },
+      android: {
+        fontSize: 22
+      }
+    })
   },
   resetBlackBorder: {
     position: 'absolute',
     height: '96%',
-    width: '99%',
+    width: '98%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
     backgroundColor: Colors.black
   },
   resetButton: {
-    flex: 3,
-    margin: (0, 5, 0, 5),
+    flex: 1,
+    marginLeft: 40,
+    marginRight: 5,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.signYellow,
@@ -537,48 +551,51 @@ const styles = StyleSheet.create({
   },
   resetInnerContainer: {
     position: 'absolute',
-    height: '92%',
-    width: '97%',
+    height: '93%',
+    width: '96%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 5,
     backgroundColor: Colors.signYellow,
   },
   scavengerButton: {
-    flex: 1,
     backgroundColor: Colors.signBlue,
-    marginRight: 40,
-    height: 60,
-    margin: (0, 5, 0, 5),
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 18,
   },
   scavengerInnerContainer: {
     position: 'absolute',
     height: '94%',
     width: '98%',
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 14,
     backgroundColor: Colors.signBlue,
   },
   scavengerWhiteBorder: {
     position: 'absolute',
-    height: '90%',
-    width: '95%',
+    height: '88%',
+    width: '96%',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 15,
+    borderRadius: 14,
     backgroundColor: Colors.pearlWhite,
-  },
-  scrollView: {
-
   },
   text: {
     fontWeight: '500',
   },
-  topButtons: {
+  topBtnText: {
+    ...Platform.select({
+      ios: {
+        fontFamily: Fonts.Main,
+        fontWeight: '600',
+        fontSize: 30
+      },
+      android: {
+        fontWeight: '900',
+        fontSize: 28
+      }
+    })
+  },
+  topBtns: {
     flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
