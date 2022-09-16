@@ -5,6 +5,11 @@ import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Imag
 
 import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import EStyleSheet from 'react-native-extended-stylesheet';
+
+EStyleSheet.build({ // always call EStyleSheet.build() even if you don't use global variables!
+
+});
 
 function History({ navigation }) {
   const backSymbol = '\u2190';
@@ -70,7 +75,7 @@ function History({ navigation }) {
               <View style={styles.blackBorder}>
                 <View style={styles.innerButtonContainer}>
                   <View style={styles.rotateText}>
-                    <Text style={[styles.infoText]}>←</Text>
+                    <Text style={[eStyles.arrowText, styles.infoText]}>←</Text>
                   </View>
                 </View>
               </View>
@@ -119,6 +124,18 @@ function History({ navigation }) {
 };
 
 export default History;
+const eStyles = EStyleSheet.create({
+  arrowText: {
+    ...Platform.select({
+      ios: {
+        fontSize: '4rem'
+      },
+      android: {
+        fontSize: '5rem'
+      }
+    })
+  },
+})
 const styles = StyleSheet.create({
   backButton: {
     flexGrow: 1,
@@ -158,12 +175,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.pearlWhite,
   },
   infoText: {
-    fontSize: 60,
     ...Platform.select({
       android: {
-        fontSize: 100,
         marginTop: -40,
-        marginLeft: -15,
+        marginLeft: -10,
       }
     })
   },

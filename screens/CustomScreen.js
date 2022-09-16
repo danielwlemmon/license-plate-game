@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, Alert, Platform, Touchable } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Alert, Platform, StatusBar } from 'react-native';
 import { Fonts, Colors } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BaseScavengerData from '../ScavengerData.json';
@@ -173,6 +173,9 @@ export default function CustomScreen({ navigation }) {
   return (
     <View style={{ flex: 1 }}>
       <SafeAreaView style={[styles.container,]}>
+        <StatusBar
+          barStyle={'dark-content'}
+        />
         <View style={styles.topSectionContainer}>
 
           <View style={styles.navBackContainer}>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, AppState, Alert, Platform } from 'react-native';
+import { StyleSheet, View, StatusBar, SafeAreaView, Text, Image, TouchableOpacity, AppState, Alert, Platform } from 'react-native';
 import { Fonts, Colors } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BaseScavengerData from '../ScavengerData.json';
@@ -177,7 +177,9 @@ export default function ScavengerScreen({ navigation }) {
 
     <View style={{ flex: 1 }}>
       <SafeAreaView style={styles.container}>
-
+        <StatusBar
+          barStyle={'dark-content'}
+        />
         <View style={[styles.topRowArea]}>
           <View style={{ flex: 1 }}>
 
