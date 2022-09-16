@@ -175,6 +175,7 @@ export default function CustomScreen({ navigation }) {
       <SafeAreaView style={[styles.container,]}>
         <StatusBar
           barStyle={'dark-content'}
+          backgroundColor={Colors.slateBlue}
         />
         <View style={styles.topSectionContainer}>
 

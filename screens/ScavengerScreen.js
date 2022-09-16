@@ -179,6 +179,7 @@ export default function ScavengerScreen({ navigation }) {
       <SafeAreaView style={styles.container}>
         <StatusBar
           barStyle={'dark-content'}
+          backgroundColor={Colors.slateBlue}
         />
         <View style={[styles.topRowArea]}>
           <View style={{ flex: 1 }}>
