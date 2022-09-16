@@ -3,6 +3,11 @@ import { StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, Touchable
 import { Fonts, Colors } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BaseScavengerData from '../ScavengerData.json';
+import EStyleSheet from 'react-native-extended-stylesheet';
+
+EStyleSheet.build({ // always call EStyleSheet.build() even if you don't use global variables!
+
+});
 
 
 export default function ScavengerScreen({ navigation }) {
@@ -206,7 +211,7 @@ export default function ScavengerScreen({ navigation }) {
                         return (
                           <TouchableOpacity style={styles.gameButton} onPress={() => foundItem(item, i)} key={item.id} >
                             <View style={item.found ? styles.buttonFoundContainer : styles.buttonContainer} key={item.id} >
-                              <Text style={styles.buttonText} >{item.text}</Text>
+                              <Text style={[eStyles.buttonText, styles.buttonText]} >{item.text}</Text>
                             </View>
                           </TouchableOpacity>
                         )
@@ -224,14 +229,14 @@ export default function ScavengerScreen({ navigation }) {
             <View style={[styles.homeContainer]}>
               <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.homeButton}>
                 <View style={styles.bottomButtonContainer}>
-                  <Text style={styles.buttonText}>Home</Text>
+                  <Text style={[eStyles.buttonText, styles.buttonText]}>Home</Text>
                 </View>
               </TouchableOpacity>
             </View>
             <View style={[styles.cancelContainer]}>
               <TouchableOpacity onPress={cancelGame} style={styles.homeButton}>
                 <View style={[styles.bottomButtonContainer, { backgroundColor: Colors.slateRed }]}>
-                  <Text style={styles.buttonText}>Cancel Game</Text>
+                  <Text style={[eStyles.buttonText, styles.buttonText]}>Cancel Game</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -250,6 +255,17 @@ export default function ScavengerScreen({ navigation }) {
     </View >
   )
 }
+
+const eStyles = EStyleSheet.create({
+  buttonText: {
+    fontSize: '1.5rem'
+  },
+  '@media (max-width: 400)': {
+    buttonText: {
+      fontSize: '1.3rem'
+    }
+  }
+})
 
 const styles = StyleSheet.create({
   bottomArea: {
@@ -299,17 +315,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    padding: 2,
+    padding: 1,
     textAlign: 'center',
     color: Colors.pearlWhite,
     ...Platform.select({
       ios: {
         fontFamily: Fonts.Avenir,
-        fontSize: 25,
       },
-      android: {
-        fontSize: 22,
-      }
+
     })
   },
   cancelContainer: {

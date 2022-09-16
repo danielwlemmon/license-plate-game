@@ -3,6 +3,11 @@ import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert, Platform } from 'react-native';
 import { Colors, Fonts } from '../assets/colors';
+import EStyleSheet from 'react-native-extended-stylesheet';
+
+EStyleSheet.build({ // always call EStyleSheet.build() even if you don't use global variables!
+  $textColor: '#0275d8'
+});
 
 function InfoScreen({ navigation }) {
   const backSymbol = '\u2190';
@@ -19,7 +24,7 @@ function InfoScreen({ navigation }) {
                 <View style={styles.blackBorder}>
                   <View style={styles.innerButtonContainer}>
                     <View style={styles.rotateText}>
-                      <Text style={[styles.infoBtnText]}>←</Text>
+                      <Text style={[eStyles.arrowText, styles.infoBtnText]}>←</Text>
                     </View>
                   </View>
                 </View>
@@ -28,7 +33,7 @@ function InfoScreen({ navigation }) {
             <View style={styles.outerContainer}>
               <View style={styles.whiteBorder}>
                 <View style={styles.innerContainer}>
-                  <Text style={styles.infoText}>Tap plates to record them as found.  Scores are based on several factors,
+                  <Text style={[styles.infoText, eStyles.text]}>Tap plates to record them as found.  Scores are based on several factors,
                     number of vehicles registered to a state (population for Canada), and points will be lowered for
                     plates found near the place for which they belong.</Text>
                 </View>
@@ -37,7 +42,7 @@ function InfoScreen({ navigation }) {
             <View style={styles.outerContainer}>
               <View style={styles.whiteBorder}>
                 <View style={styles.innerContainer}>
-                  <Text style={styles.infoText}>Data will remain locally on your device.  Location data
+                  <Text style={[styles.infoText, eStyles.text]}>Data will remain locally on your device.  Location data
                     is only used temporarily to calculate distances.  No data is sent to this developer or any third parties.</Text>
                 </View>
               </View>
@@ -52,6 +57,22 @@ function InfoScreen({ navigation }) {
 };
 
 export default InfoScreen;
+
+const eStyles = EStyleSheet.create({
+  arrowText: {
+    fontSize: '4rem'
+  },
+  text: {
+    color: Colors.pearlWhite,
+    fontSize: '1.4rem',
+    ...Platform.select({
+      ios: {
+
+        fontFamily: Fonts.Main
+      }
+    })
+  }
+})
 
 const styles = StyleSheet.create({
   backButton: {
@@ -88,23 +109,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   infoText: {
-    color: Colors.pearlWhite,
-    ...Platform.select({
-      ios: {
-        fontFamily: Fonts.Main,
-      }
-    }),
-    fontSize: 25,
     padding: 20
   },
   infoBtnText: {
     color: Colors.black,
-    fontSize: 60,
+
     fontWeight: '500',
     ...Platform.select({
       android: {
-        fontSize: 80,
-        marginTop: -40,
+
+        marginTop: -30,
       }
     })
   },
@@ -123,7 +137,7 @@ const styles = StyleSheet.create({
     height: "99%",
     width: "99%",
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     borderRadius: 17,
     backgroundColor: Colors.signBlue,
   },
