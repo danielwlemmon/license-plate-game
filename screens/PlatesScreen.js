@@ -6,6 +6,7 @@ import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import imgSrc from '../assets/imgSrc';
 import * as Location from 'expo-location';
+import BaseScavengerData from '../ScavengerData.json';
 
 function PlatesScreen({ navigation }) {
   const [dataLoaded, setDataLoaded] = useState(false);
@@ -51,7 +52,6 @@ function PlatesScreen({ navigation }) {
       if (foregroundPermission.granted) {
         try {
           foregroundSubscrition = await Location.watchPositionAsync(
-
             {
               // Tracking options
               accuracy: Location.Accuracy.Low,
@@ -60,7 +60,6 @@ function PlatesScreen({ navigation }) {
             location => {
               setLatitude(location.coords.latitude);
               setLongitude(location.coords.longitude);
-
             }
           )
         } catch (e) {
@@ -285,6 +284,20 @@ function PlatesScreen({ navigation }) {
       ])
   };
 
+  const handleScavengeNav = async () => {
+    try {
+      const itemsRetrieved = await AsyncStorage.getItem('scavengerItems')
+      if (itemsRetrieved) {
+        const parsedItems = JSON.parse(itemsRetrieved);
+        navigation.navigate('ScavengerScreen', { data: parsedItems });
+      } else {
+        navigation.navigate('ScavengerScreen', { data: BaseScavengerData.ScavengerData });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <View>
       <ImageBackground style={styles.backgroundImage} source={require('../assets/plateBack.jpg')} />
@@ -360,7 +373,7 @@ function PlatesScreen({ navigation }) {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.bottomBtn, styles.scavengerButton]} onPress={() => navigation.navigate('ScavengerScreen')}>
+        <TouchableOpacity style={[styles.bottomBtn, styles.scavengerButton]} onPress={() => handleScavengeNav()}>
           <View style={styles.scavengerWhiteBorder}>
             <View style={styles.scavengerInnerContainer}>
               <Text style={styles.bottomBtnText}>Scavenger Hunt</Text>

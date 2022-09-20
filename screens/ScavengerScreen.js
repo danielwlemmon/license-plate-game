@@ -20,7 +20,7 @@ export default function ScavengerScreen({ route, navigation }) {
 
 
   useEffect(() => {
-    console.log(dataItems)
+
     const retrieveData = async () => {
       try {
         const retrievedData = await AsyncStorage.getItem('scavengerGameInProgress');
