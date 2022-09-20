@@ -28,7 +28,7 @@ function PlatesScreen({ navigation }) {
         const retrievedData = await AsyncStorage.getItem('gameInProgress') //setup initial game data
         if (!retrievedData) {
           sortPlatesByFound(BlankPlates.PlateData);
-          //console.log('setting initial data')
+          // console.log('setting initial data')
         } else if (retrievedData == 'true') {
           let savedGame = await AsyncStorage.getItem('currentGame')
           savedGame = JSON.parse(savedGame);
@@ -110,6 +110,7 @@ function PlatesScreen({ navigation }) {
   };
 
   const sortPlatesByFound = (gameArr) => {
+    // console.log('sorting plates')
     const alphaSort = gameArr.sort((a, b) => (a.name < b.name) ? -1 : (a.name > b.name) ? 1 : 0)
     const countrySort = alphaSort.sort((a, b) => (b.country < a.country) ? -1 : (a.country > b.country) ? 1 : 0)
     const foundFirst = countrySort.sort((a, b) => Number(b.found) - Number(a.found));
@@ -137,7 +138,14 @@ function PlatesScreen({ navigation }) {
   };
 
   const addScore = async (plate, multiplier) => {
-    const pointsScored = plate.baseScore * multiplier;
+    let pointsScored;
+    if (plate.id == 63 || plate.id == 64) {
+      pointsScored = score * 2
+      setLastPlateName("!2x score!"); //track last plate to be displayed
+    } else {
+      pointsScored = plate.baseScore * multiplier;
+      setLastPlateName(plate.name); //track last plate to be displayed
+    }
     let gameArr = gameState;
     const plateIdx = gameArr.findIndex(p => p.id === plate.id); //find the found plate's index
     gameArr[plateIdx].found = true; //set found to true
@@ -153,8 +161,8 @@ function PlatesScreen({ navigation }) {
     Promise.all(promises);
 
     setProgress([progress[0] + 1, totalPlates]); //increment plate found count
-    sortPlatesByFound(gameArr); //update the game State with found plate info
-    setLastPlateName(plate.name); //track last plate to be displayed    
+    sortPlatesByFound(gameArr); //update the game State with found plate info    
+
     setScore(score + (pointsScored)); //increa
     setLastPoints(pointsScored);
 

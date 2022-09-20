@@ -4,7 +4,7 @@
     "slug": "road-trip-games",
     "version": "1.0",
     "orientation": "portrait",
-    "icon": "./assets/icon-simple2.png",
+    "icon": "./assets/icon-simple.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/loading-Splash.png",
@@ -23,7 +23,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon-simple2.png",
+        "foregroundImage": "./assets/icon-simple.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "road.trip.games"

@@ -55,7 +55,7 @@ function HomeScreen({ navigation }) {
 
         <SafeAreaView style={styles.header}>
           <View style={[styles.headerContainer]}>
-            <Text style={styles.headerText}>Road Trip Games</Text>
+            <Text style={styles.headerText}>Road Trip Fun Day</Text>
           </View>
 
           <View style={[styles.platesGameItems]}>
