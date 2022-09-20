@@ -26,7 +26,7 @@ function PlatesScreen({ navigation }) {
       try {
         const retrievedData = await AsyncStorage.getItem('gameInProgress') //setup initial game data
         if (!retrievedData) {
-          setGameState(BlankPlates.PlateData);
+          sortPlatesByFound(BlankPlates.PlateData);
           //console.log('setting initial data')
         } else if (retrievedData == 'true') {
           let savedGame = await AsyncStorage.getItem('currentGame')
@@ -74,10 +74,7 @@ function PlatesScreen({ navigation }) {
 
   }, []);
 
-  //conditional radius rings for point scoring.  
-  // < 80 degrees west && > 37 degrees north is the east coast.  
-  //or perhaps make different conditions for the west and south areas since their states are so large
-  //want to avoid giving bonus for same state plates when center of state is far away from border.
+
   const foundPlate = async (plate) => {
 
     if (plate.found) {
@@ -322,7 +319,6 @@ function PlatesScreen({ navigation }) {
                     <View key={plate.id} style={(plate.found == true && gameState[i + 1].found == false) ? { borderBottomColor: Colors.pearlWhite, borderBottomWidth: 10, paddingBottom: 135 } : null}>
                       <TouchableOpacity onPress={() => { foundPlate(plate) }} style={styles.plateButton}>
                         <Image source={imgSrc[plate.id].source} style={plate.found ? styles.foundImage : styles.notFoundImage} />
-
                       </TouchableOpacity>
                     </View>
                   );

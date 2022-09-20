@@ -2,7 +2,7 @@
 
 const imgSrc = [
   {
-    "source": require("../assets/USA/AL.jpg")
+    "source": require("../assets/USA/AL.jpeg")
   },
   {
     "source": require("../assets/USA/AK.jpg")
@@ -11,10 +11,10 @@ const imgSrc = [
     "source": require("../assets/USA/AZ.jpg")
   },
   {
-    "source": require("../assets/USA/AR.jpg")
+    "source": require("../assets/USA/AR.jpeg")
   },
   {
-    "source": require("../assets/USA/CA.jpg")
+    "source": require("../assets/USA/CA.jpeg")
   },
   {
     "source": require("../assets/USA/CO.jpg")
@@ -23,7 +23,7 @@ const imgSrc = [
     "source": require("../assets/USA/CT.jpg")
   },
   {
-    "source": require("../assets/USA/DE.jpg")
+    "source": require("../assets/USA/DE.jpeg")
   },
   {
     "source": require("../assets/USA/FL.jpg")
@@ -32,37 +32,37 @@ const imgSrc = [
     "source": require("../assets/USA/GA.jpg")
   },
   {
-    "source": require("../assets/USA/HI.jpg")
+    "source": require("../assets/USA/HI.jpeg")
   },
   {
     "source": require("../assets/USA/ID.jpg")
   },
   {
-    "source": require("../assets/USA/IL.jpg")
+    "source": require("../assets/USA/IL.png")
   },
   {
     "source": require("../assets/USA/IN.jpg")
   },
   {
-    "source": require("../assets/USA/IA.jpg")
+    "source": require("../assets/USA/IA.png")
   },
   {
-    "source": require("../assets/USA/KS.jpg")
+    "source": require("../assets/USA/KS.png")
   },
   {
-    "source": require("../assets/USA/KY.jpg")
+    "source": require("../assets/USA/KY.png")
   },
   {
     "source": require("../assets/USA/LA.jpg")
   },
   {
-    "source": require("../assets/USA/ME.jpg")
+    "source": require("../assets/USA/ME.gif")
   },
   {
     "source": require("../assets/USA/MD.jpg")
   },
   {
-    "source": require("../assets/USA/MA.jpg")
+    "source": require("../assets/USA/MA.png")
   },
   {
     "source": require("../assets/USA/MI.jpg")
@@ -71,19 +71,19 @@ const imgSrc = [
     "source": require("../assets/USA/MN.jpg")
   },
   {
-    "source": require("../assets/USA/MS.jpg")
+    "source": require("../assets/USA/MS.png")
   },
   {
-    "source": require("../assets/USA/MO.jpg")
+    "source": require("../assets/USA/MO.png")
   },
   {
     "source": require("../assets/USA/MT.jpg")
   },
   {
-    "source": require("../assets/USA/NE.jpg")
+    "source": require("../assets/USA/NE.png")
   },
   {
-    "source": require("../assets/USA/NV.jpg")
+    "source": require("../assets/USA/NV.png")
   },
   {
     "source": require("../assets/USA/NH.jpg")
@@ -95,7 +95,7 @@ const imgSrc = [
     "source": require("../assets/USA/NM.jpg")
   },
   {
-    "source": require("../assets/USA/NY.jpg")
+    "source": require("../assets/USA/NY.png")
   },
   {
     "source": require("../assets/USA/NC.jpg")
@@ -104,13 +104,13 @@ const imgSrc = [
     "source": require("../assets/USA/ND.jpg")
   },
   {
-    "source": require("../assets/USA/OH.jpg")
+    "source": require("../assets/USA/OH.png")
   },
   {
-    "source": require("../assets/USA/OK.jpg")
+    "source": require("../assets/USA/OK.png")
   },
   {
-    "source": require("../assets/USA/OR.jpg")
+    "source": require("../assets/USA/OR.jpeg")
   },
   {
     "source": require("../assets/USA/PA.jpg")
@@ -119,31 +119,31 @@ const imgSrc = [
     "source": require("../assets/USA/RI.jpg")
   },
   {
-    "source": require("../assets/USA/SC.jpg")
+    "source": require("../assets/USA/SC.png")
   },
   {
     "source": require("../assets/USA/SD.jpg")
   },
   {
-    "source": require("../assets/USA/TN.jpg")
+    "source": require("../assets/USA/TN.png")
   },
   {
-    "source": require("../assets/USA/TX.jpg")
+    "source": require("../assets/USA/TX.png")
   },
   {
-    "source": require("../assets/USA/UT.jpg")
+    "source": require("../assets/USA/UT.png")
   },
   {
-    "source": require("../assets/USA/VT.jpg")
+    "source": require("../assets/USA/VT.jpeg")
   },
   {
-    "source": require("../assets/USA/VA.jpg")
+    "source": require("../assets/USA/VA.png")
   },
   {
     "source": require("../assets/USA/WA.jpg")
   },
   {
-    "source": require("../assets/USA/WV.jpg")
+    "source": require("../assets/USA/WV.jpeg")
   },
   {
     "source": require("../assets/USA/WI.jpg")
@@ -189,7 +189,110 @@ const imgSrc = [
   },
   {
     "source": require("../assets/Canada/YK.jpg")
-  }
+  },
+  {
+    "source": require("../assets/USA/DC.png")
+  },
+  {
+    "source": require("../assets/USA/US.jpg")
+  },
+  {
+    "source": require("../assets/MX/AC.jpg")
+  },
+  {
+    "source": require("../assets/MX/BJ.jpg")
+  },
+  {
+    "source": require("../assets/MX/BJS.jpg")
+  },
+  {
+    "source": require("../assets/MX/CDMX.jpg")
+  },
+  {
+    "source": require("../assets/MX/CH.jpg")
+  },
+  {
+    "source": require("../assets/MX/CL.jpg")
+  },
+  {
+    "source": require("../assets/MX/CP.jpeg")
+  },
+  {
+    "source": require("../assets/MX/CA.jpg")
+  },
+  {
+    "source": require("../assets/MX/CZ.jpg")
+  },
+  {
+    "source": require("../assets/MX/DG.jpg")
+  },
+  {
+    "source": require("../assets/MX/GTO.jpeg")
+  },
+  {
+    "source": require("../assets/MX/GU.jpg")
+  },
+  {
+    "source": require("../assets/MX/HD.jpg")
+  },
+  {
+    "source": require("../assets/MX/JA.jpeg")
+  },
+  {
+    "source": require("../assets/MX/MC.png")
+  },
+  {
+    "source": require("../assets/MX/MR.jpeg")
+  },
+  {
+    "source": require("../assets/MX/MX.jpeg")
+  },
+  {
+    "source": require("../assets/MX/NL.png")
+  },
+  {
+    "source": require("../assets/MX/NY.jpg")
+  },
+  {
+    "source": require("../assets/MX/OA.jpg")
+  },
+  {
+    "source": require("../assets/MX/PB.png")
+  },
+  {
+    "source": require("../assets/MX/QDA.jpg")
+  },
+  {
+    "source": require("../assets/MX/QR.jpg")
+  },
+  {
+    "source": require("../assets/MX/SI.jpg")
+  },
+  {
+    "source": require("../assets/MX/SLP.jpg")
+  },
+  {
+    "source": require("../assets/MX/SN.jpeg")
+  },
+  {
+    "source": require("../assets/MX/TB.jpg")
+  },
+  {
+    "source": require("../assets/MX/TL.jpg")
+  },
+  {
+    "source": require("../assets/MX/TX.jpg")
+  },
+  {
+    "source": require("../assets/MX/VC.jpeg")
+  },
+  {
+    "source": require("../assets/MX/YC.jpg")
+  },
+  {
+    "source": require("../assets/MX/ZT.jpg")
+  },
+
 ]
 
 export default imgSrc;

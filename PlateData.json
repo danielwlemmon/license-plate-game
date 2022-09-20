@@ -1007,6 +1007,550 @@
       },
       "baseScore": 7712,
       "score": 7712
-    }
+    },
+    {
+      "id": 63,
+      "name": "Washington DC",
+      "country": "USA",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 848,
+      "score": 848
+    },
+    {
+      "id": 64,
+      "name": "US Gov",
+      "country": "USA",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 1188,
+      "score": 1188
+    },
+    {
+      "id": 65,
+      "name": "Aguascalientes",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 388,
+      "score": 388
+    },
+    {
+      "id": 66,
+      "name": "Baja California",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 146,
+      "score": 146
+    },
+    {
+      "id": 67,
+      "name": "Baja California Sur",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 692,
+      "score": 692
+    },
+    {
+      "id": 68,
+      "name": "Ciudad de México",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 60,
+      "score": 60
+    },
+    {
+      "id": 69,
+      "name": "Chihuahua",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 148,
+      "score": 148
+    },
+    {
+      "id": 70,
+      "name": "Colima",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 756,
+      "score": 756
+    },
+    {
+      "id": 71,
+      "name": "Chiapas",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 100,
+      "score": 100
+    },
+    {
+      "id": 72,
+      "name": "Campeche",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 594,
+      "score": 594
+    },
+    {
+      "id": 73,
+      "name": "Coahuila de Zaragoza",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 176,
+      "score": 176
+    },
+    {
+      "id": 74,
+      "name": "Durango",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 302,
+      "score": 302
+    },
+    {
+      "id": 75,
+      "name": "Guanajuato",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 90,
+      "score": 90
+    },
+    {
+      "id": 76,
+      "name": "Guerrero",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 156,
+      "score": 156
+    },
+    {
+      "id": 77,
+      "name": "Hidalgo",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 178,
+      "score": 178
+    },
+    {
+      "id": 78,
+      "name": "Jalisco",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 66,
+      "score": 66
+    },
+    {
+      "id": 79,
+      "name": "Michoacán",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 116,
+      "score": 116
+    },
+    {
+      "id": 80,
+      "name": "Morelos",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 280,
+      "score": 280
+    },
+    {
+      "id": 81,
+      "name": "Estado De México",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 68,
+      "score": 68
+    },
+    {
+      "id":82,
+      "name": "Nuevo León",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 96,
+      "score": 96
+    },
+    {
+      "id": 83,
+      "name": "Nayarit",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 448,
+      "score": 448
+    },
+    {
+      "id": 84,
+      "name": "Oaxaca",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 134,
+      "score": 134
+    },
+    {
+      "id": 85,
+      "name": "Puebla",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 84,
+      "score": 84
+    },
+    {
+      "id": 86,
+      "name": "Querétaro de Arteaga",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 234,
+      "score": 234
+    },
+    {
+      "id": 87,
+      "name": "Quintana Roo",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 298,
+      "score": 298
+    },
+    {
+      "id": 88,
+      "name": "Sinaloa",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 182,
+      "score": 182
+    },
+    {
+      "id": 89,
+      "name": "San Luis Potosí",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 196,
+      "score": 196
+    },
+    {
+      "id": 90,
+      "name": "Sonora",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 188,
+      "score": 188
+    },
+    {
+      "id": 91,
+      "name": "Tabasco",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 230,
+      "score": 230
+    },
+    {
+      "id": 92,
+      "name": "Tamaulipas",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 156,
+      "score": 156
+    },
+    {
+      "id": 93,
+      "name": "Tlaxcala",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 412,
+      "score": 412
+    },
+    {
+      "id": 94,
+      "name": "Veracruz",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 68,
+      "score": 68
+    },
+    {
+      "id": 95,
+      "name": "Yucatán",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 238,
+      "score": 238
+    },
+    {
+      "id": 96,
+      "name": " Zacatecas",
+      "country": "BMX",
+      "found": false,
+      "plateLocation": {
+        "latitude": 64.2823,
+        "longitude": -135.0000
+      },
+      "foundAt": {
+        "latitude": null,
+        "longitude": null
+      },
+      "baseScore": 340,
+      "score": 340
+    }    
   ]
 }
