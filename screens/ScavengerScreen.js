@@ -9,24 +9,25 @@ EStyleSheet.build({ // always call EStyleSheet.build() even if you don't use glo
 
 });
 
-
-export default function ScavengerScreen({ navigation }) {
-  const [baseArr, setBaseArr] = useState([...BaseScavengerData.ScavengerData]);
+export default function ScavengerScreen({ route, navigation }) {
+  const dataItems = route.params.data;
+  const [baseArr, setBaseArr] = useState([...dataItems]);
   const [currentGrid, setCurrentGrid] = useState();
   const [gridLevel, setGridLevel] = useState();
   const [refresh, setRefresh] = useState(0);
   const [displayProgress, setDisplayProgress] = useState(false);
   const [progressBar, setProgressBar] = useState(1);
 
-  useEffect(() => {
 
+  useEffect(() => {
+    console.log(dataItems)
     const retrieveData = async () => {
       try {
         const retrievedData = await AsyncStorage.getItem('scavengerGameInProgress');
-
         if (!retrievedData) {
+
           setLevel(1);
-          //console.log('setting initial data')
+
         } else if (retrievedData == 'true') {
           let savedGrid = await AsyncStorage.getItem('currentGrid');
           let savedLevel = await AsyncStorage.getItem('gridLevel');
@@ -35,7 +36,6 @@ export default function ScavengerScreen({ navigation }) {
           savedGrid = JSON.parse(savedGrid);
           savedLevel = parseInt(savedLevel);
           savedProgressBar = parseInt(savedProgressBar);
-
           setCurrentGrid(savedGrid);
           setGridLevel(savedLevel);
           setProgressBar(savedProgressBar);
@@ -73,7 +73,7 @@ export default function ScavengerScreen({ navigation }) {
       let gameArr = [[], [], []];
       let randItem = 0;
       let newProgressBar = (nextLevel != 1) ? newProgressBar = (nextLevel - 1) * 33 : 1;
-      let oldBaseArr = JSON.parse(JSON.stringify(BaseScavengerData.ScavengerData));
+      let oldBaseArr = JSON.parse(JSON.stringify(baseArr));
       let levelItems = [];
       oldBaseArr.forEach(item => {
         (item.difficulty == nextLevel) ? levelItems.push(item) : null;
@@ -97,10 +97,10 @@ export default function ScavengerScreen({ navigation }) {
         console.log('unable to store');
       }
       //update state
+      setBaseArr([...dataItems]);
       setProgressBar(newProgressBar);
       setCurrentGrid([...gameArr]);
       setGridLevel(nextLevel);
-      setBaseArr([...BaseScavengerData.ScavengerData])
       setRefresh(refresh + 1);
     }
   };

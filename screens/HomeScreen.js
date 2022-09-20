@@ -4,8 +4,28 @@ import { Button, Card } from 'react-native-paper';
 import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
 import { Colors, Fonts } from '../assets/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import BaseScavengerData from '../ScavengerData.json';
 
 function HomeScreen({ navigation }) {
+
+
+  const handleScavengeNav = async () => {
+    try {
+      const itemsRetrieved = await AsyncStorage.getItem('scavengerItems')
+      if (itemsRetrieved) {
+        const parsedItems = JSON.parse(itemsRetrieved);
+        navigation.navigate('ScavengerScreen', { data: parsedItems })
+
+        console.log('setting found items')
+      } else {
+        navigation.navigate('ScavengerScreen', { data: BaseScavengerData.ScavengerData })
+        console.log('setting base items');
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
 
   const handleCustomNav = () => {
     AsyncStorage.getItem('scavengerGameInProgress').then((res) => {
@@ -25,7 +45,8 @@ function HomeScreen({ navigation }) {
         )
       }
     });
-  }
+  };
+
 
   return (
     <PaperProvider style={{ flexGrow: 1 }} >
@@ -67,7 +88,7 @@ function HomeScreen({ navigation }) {
             </View>
           </View>
           <View style={[styles.scavengerGameItems]}>
-            <TouchableOpacity onPress={() => navigation.navigate('ScavengerScreen')} style={styles.scavengerBtn}>
+            <TouchableOpacity onPress={handleScavengeNav} style={styles.scavengerBtn}>
               <View style={styles.scavengerBtnContainer}>
                 <Text style={styles.scavengerBtnText}>Scavenger Hunt</Text>
               </View>
