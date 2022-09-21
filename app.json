@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Road Trip Fun Day",
-    "slug": "road-trip-fun-day",
+    "name": "Road Trip Games",
+    "slug": "road-trip-games",
     "version": "1.0",
     "orientation": "portrait",
     "icon": "./assets/icon-simple.png",
