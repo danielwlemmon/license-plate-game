@@ -10,6 +10,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 
+
 export default function CustomScreen({ navigation }) {
   const [allScavengerItems, setAllScavengerItems] = useState();
   const [mappedItems, setMappedItems] = useState();
@@ -363,20 +364,23 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   navBackText: {
-    fontSize: 35,
-    fontWeight: '600',
+    fontSize: 40,
+    fontWeight: '300',
     ...Platform.select({
       android: {
-        fontSize: 40,
+        fontSize: 45,
         top: -5
       }
     })
   },
   navBackTextContainer: {
-    borderWidth: 1,
+    ...Platform.select({
+      android: {
+        display: 'none'
+      }
+    }),
     width: 50,
     borderRadius: 10,
-    backgroundColor: Colors.slateGrey,
     justifyContent: 'center',
     alignItems: 'center',
   },
