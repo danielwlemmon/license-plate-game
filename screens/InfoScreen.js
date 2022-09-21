@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, RefreshControl, Alert, Platform } from 'react-native';
+import { ScrollView, StyleSheet, View, ImageBackground, SafeAreaView, Text, Image, TouchableOpacity, Linking, Platform } from 'react-native';
 import { Colors, Fonts } from '../assets/colors';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -44,6 +44,9 @@ function InfoScreen({ navigation }) {
                 <View style={styles.innerContainer}>
                   <Text style={[styles.infoText, eStyles.text]}>Data will remain locally on your device.  Location data
                     is only used temporarily to calculate distances.  No data is sent to this developer or any third parties.</Text>
+                  <TouchableOpacity onPress={() => Linking.openURL('https://privacy-policy-rtfd.pages.dev/')}>
+                    <Text  >See Full Privacy Policy Here</Text>
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>
