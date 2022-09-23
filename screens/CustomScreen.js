@@ -24,7 +24,7 @@ export default function CustomScreen({ navigation }) {
         let dataRetrieved = await AsyncStorage.getItem('scavengerItems')
 
         if (!dataRetrieved) {
-          console.log('data not exist')
+          //console.log('data not exist')
           setAllScavengerItems(JSON.parse(JSON.stringify(BaseScavengerData.ScavengerData)));
           levelChange(JSON.parse(JSON.stringify(BaseScavengerData.ScavengerData)), 1);
         } else {

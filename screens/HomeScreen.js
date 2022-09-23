@@ -16,10 +16,10 @@ function HomeScreen({ navigation }) {
         const parsedItems = JSON.parse(itemsRetrieved);
         navigation.navigate('ScavengerScreen', { data: parsedItems })
 
-        console.log('setting found items')
+        //console.log('setting found items')
       } else {
         navigation.navigate('ScavengerScreen', { data: BaseScavengerData.ScavengerData })
-        console.log('setting base items');
+        //console.log('setting base items');
       }
     } catch (e) {
       console.log(e);
