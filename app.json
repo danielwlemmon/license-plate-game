@@ -17,24 +17,20 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": false,
-      "bundleIdentifier": "licenseplate.1.0"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/icon-simple2.png",
-        "backgroundColor": "#FFFFFF"
-      },
-      "package": "road.trip.games"
-    },
+    
     "web": {
-      "favicon": "./assets/plateGameIcon.png"
+      "favicon": "./assets/icon-simple2.png"
     },
     "extra": {
       "eas": {
         "projectId": "e868e650-4728-458a-8ade-3048604b2082"
       }
+    },
+    "android": {
+      "package": "com.danielwlemmon.roadtripgames"
+    },
+    "ios": {
+      "bundleIdentifier": "danielwlemmon-RoadTripFunDay"
     }
   }
 }
